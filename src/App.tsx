@@ -2443,14 +2443,14 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen bg-premium-mesh bg-slate-50/90 text-slate-800 font-sans selection:bg-purple-100 selection:text-purple-900 overflow-x-hidden flex flex-col justify-between relative ${isRunningInAppMode ? 'pb-20' : ''}`}>
+    <div className={`min-h-screen bg-premium-mesh bg-[#08080a] text-zinc-100 font-sans selection:bg-amber-500/30 selection:text-amber-200 overflow-x-hidden flex flex-col justify-between relative ${isRunningInAppMode ? 'pb-20' : ''}`}>
       {/* Subtle Luxury Ambient Background Light Orbs & Grid Texture Overlay */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
-        <div className="absolute -top-32 -left-32 w-[550px] h-[550px] bg-purple-300/25 rounded-full blur-[130px]" />
-        <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-amber-300/20 rounded-full blur-[130px]" />
-        <div className="absolute top-2/3 -left-20 w-[450px] h-[450px] bg-indigo-300/20 rounded-full blur-[110px]" />
-        <div className="absolute -bottom-32 right-10 w-[550px] h-[550px] bg-purple-400/15 rounded-full blur-[130px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(#94a3b8_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.22]" />
+        <div className="absolute -top-32 -left-32 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[140px]" />
+        <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-yellow-600/10 rounded-full blur-[140px]" />
+        <div className="absolute top-2/3 -left-20 w-[450px] h-[450px] bg-amber-700/8 rounded-full blur-[130px]" />
+        <div className="absolute -bottom-32 right-10 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[140px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:26px_26px] opacity-[0.07]" />
       </div>
 
       {/* Toast Notification */}
@@ -2460,23 +2460,23 @@ export default function App() {
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            className={`fixed top-6 left-1/2 -translate-x-1/2 z-[3000] px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 font-semibold text-sm ${
-              toast.type === 'success' ? 'bg-emerald-600 text-white' : 
-              toast.type === 'error' ? 'bg-rose-600 text-white' : 'bg-slate-950 text-white'
+            className={`fixed top-6 left-1/2 -translate-x-1/2 z-[3000] px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 font-semibold text-sm border ${
+              toast.type === 'success' ? 'bg-emerald-950/90 text-emerald-200 border-emerald-500/40' : 
+              toast.type === 'error' ? 'bg-rose-950/90 text-rose-200 border-rose-500/40' : 'bg-zinc-950/95 text-amber-200 border-amber-500/40'
             }`}
           >
-            {toast.type === 'success' && <CheckCircle2 className="w-5 h-5 shrink-0" />}
-            {toast.type === 'error' && <X className="w-5 h-5 shrink-0" />}
+            {toast.type === 'success' && <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-400" />}
+            {toast.type === 'error' && <X className="w-5 h-5 shrink-0 text-rose-400" />}
             <span>{toast.message}</span>
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* Top Header & Navigation Container */}
-      <div className="sticky top-0 z-[100] w-full shadow-2xl bg-black border-b border-zinc-800/80">
+      <div className="sticky top-0 z-[100] w-full shadow-2xl bg-black/95 backdrop-blur-md border-b border-amber-500/25">
         {/* Dynamic Global Notice Banner from Admin Settings */}
         {siteSettings.showNoticeBanner && siteSettings.noticeBannerText && (
-          <div className="w-full bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 text-white text-xs font-bold py-1.5 px-4 text-center border-b border-purple-700/50 flex items-center justify-center gap-2 shadow-md">
+          <div className="w-full bg-gradient-to-r from-black via-amber-950/90 to-black text-amber-200 text-xs font-bold py-1.5 px-4 text-center border-b border-amber-500/30 flex items-center justify-center gap-2 shadow-md">
             <span className="animate-pulse">📢</span>
             <span>{siteSettings.noticeBannerText}</span>
           </div>
@@ -2564,7 +2564,7 @@ export default function App() {
             </div>
 
             {/* Desktop Navigation Tabs */}
-            <div className="hidden sm:flex items-center gap-1.5 bg-zinc-900/90 p-1 rounded-full border border-zinc-700/60 shadow-inner">
+            <div className="hidden sm:flex items-center gap-1.5 bg-zinc-900/90 p-1 rounded-full border border-amber-500/30 shadow-inner">
               <button
                 onClick={() => {
                   setCurrentView('home');
@@ -2573,8 +2573,8 @@ export default function App() {
                 }}
                 className={`px-4 py-1.5 rounded-full font-black text-xs transition-all duration-150 cursor-pointer flex items-center gap-1.5 ${
                   currentView === 'home'
-                    ? 'bg-amber-400 text-slate-950 shadow-md scale-105'
-                    : 'text-zinc-300 hover:text-white hover:bg-zinc-800'
+                    ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-black shadow-md shadow-amber-500/20 scale-105'
+                    : 'text-zinc-300 hover:text-amber-300 hover:bg-zinc-800'
                 }`}
               >
                 🏠 Home Page
@@ -2587,13 +2587,13 @@ export default function App() {
                 }}
                 className={`px-4 py-1.5 rounded-full font-black text-xs transition-all duration-150 cursor-pointer flex items-center gap-1.5 relative ${
                   currentView === 'classroom'
-                    ? 'bg-amber-400 text-slate-950 shadow-md scale-105'
-                    : 'text-zinc-300 hover:text-white hover:bg-zinc-800'
+                    ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-black shadow-md shadow-amber-500/20 scale-105'
+                    : 'text-zinc-300 hover:text-amber-300 hover:bg-zinc-800'
                 }`}
               >
                 🎓 Course Page
                 {activeCourseIds.length > 0 && (
-                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping border border-black" />
+                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping border border-black" />
                 )}
               </button>
             </div>
@@ -2737,16 +2737,14 @@ export default function App() {
         <section id="courses-section" className="pt-2 scroll-mt-24">
           {currentView === 'home' && (
             <div className="text-center mb-10">
-              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight text-slate-900 flex items-center justify-center gap-2">
-                <BookOpen className="w-7 h-7 text-purple-600" />
+              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight text-white flex items-center justify-center gap-2">
+                <BookOpen className="w-7 h-7 text-amber-400" />
                 Our Premium AI Courses
               </h3>
-              <div className="w-24 h-1.5 bg-amber-500 mx-auto rounded-full mt-3"></div>
-              <p className="text-slate-500 mt-3 text-sm md:text-base max-w-xl mx-auto font-medium">
+              <div className="w-24 h-1.5 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 mx-auto rounded-full mt-3 shadow-sm shadow-amber-500/50"></div>
+              <p className="text-zinc-400 mt-3 text-sm md:text-base max-w-xl mx-auto font-medium">
                 तपाईंको आवश्यकता अनुसार उत्कृष्ट कोर्ष छनोट गर्नुहोस् र आजैबाट सिक्न सुरु गर्नुहोस्!
               </p>
-
-
             </div>
           )}
 
@@ -2766,8 +2764,8 @@ export default function App() {
                   return (
                     <div className="space-y-8">
                       {activeCourses.length > 1 && (
-                        <div className="bg-slate-50 border border-slate-200/60 p-4 rounded-2xl flex flex-col md:flex-row items-center gap-4 justify-between">
-                          <span className="text-xs text-slate-500 font-bold uppercase tracking-wider font-sans">
+                        <div className="bg-zinc-950/80 border border-amber-500/20 p-4 rounded-2xl flex flex-col md:flex-row items-center gap-4 justify-between">
+                          <span className="text-xs text-amber-400/90 font-bold uppercase tracking-wider font-sans">
                             📚 Switch Course Program:
                           </span>
                           <div className="flex flex-wrap gap-2">
@@ -2782,8 +2780,8 @@ export default function App() {
                                   }}
                                   className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${
                                     isActive
-                                      ? 'bg-purple-700 text-white shadow-md'
-                                      : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
+                                      ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 shadow-md shadow-amber-500/20'
+                                      : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
                                   }`}
                                 >
                                   {course.title}
@@ -2798,21 +2796,21 @@ export default function App() {
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl relative overflow-hidden text-slate-900"
+                        className="bg-zinc-950/90 border border-amber-500/25 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden text-zinc-100"
                       >
                         {/* Course Header Banner */}
-                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-zinc-800/80">
                           <div className="space-y-2 text-left">
                             <div className="flex items-center gap-2">
-                              <span className="bg-purple-50 text-purple-700 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md border border-purple-100 font-sans">
+                              <span className="bg-amber-500/15 text-amber-400 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md border border-amber-500/30 font-sans">
                                 🟢 Active Program
                               </span>
-                              <span className="text-xs text-slate-400 font-bold font-sans">({activePlaylist.length} Total Lectures)</span>
+                              <span className="text-xs text-zinc-400 font-bold font-sans">({activePlaylist.length} Total Lectures)</span>
                             </div>
-                            <h4 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight leading-tight font-sans">
+                            <h4 className="text-xl md:text-2xl font-black text-white tracking-tight leading-tight font-sans">
                               {currentClassroomCourse.title}
                             </h4>
-                            <p className="text-xs text-slate-500 font-medium font-sans">
+                            <p className="text-xs text-zinc-400 font-medium font-sans">
                               कुनै पनि भिडियोमा क्लिक गरी सिधै Full Screen मा हेरेर सिक्न सुरु गर्नुहोस्!
                             </p>
                           </div>
@@ -2829,7 +2827,7 @@ export default function App() {
                                 setCertificateCode(activeCode);
                                 setShowCertificateModal(true);
                               }}
-                              className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 text-xs font-black px-4 py-2.5 rounded-xl transition shadow-sm flex items-center gap-1.5 cursor-pointer font-sans"
+                              className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-zinc-950 text-xs font-black px-4 py-2.5 rounded-xl transition shadow-lg shadow-amber-500/20 flex items-center gap-1.5 cursor-pointer font-sans active:scale-95"
                               title="Download / View Course Certificate"
                             >
                               📜 Course Certificate
@@ -2839,7 +2837,7 @@ export default function App() {
                               <div className="flex gap-2">
                                 <button
                                   onClick={() => handleEditCourseClick(currentClassroomCourse)}
-                                  className="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-black px-4 py-2.5 rounded-xl transition shadow-xs flex items-center gap-1.5 cursor-pointer font-sans"
+                                  className="bg-zinc-900 border border-amber-500/40 hover:bg-zinc-800 text-amber-300 text-xs font-black px-4 py-2.5 rounded-xl transition shadow-xs flex items-center gap-1.5 cursor-pointer font-sans"
                                 >
                                   ✏️ Edit Playlist & Videos
                                 </button>
@@ -2855,18 +2853,18 @@ export default function App() {
                         </div>
 
                         {/* Classroom Tab Switcher: Videos vs PDFs & Notes */}
-                        <div className="flex items-center gap-2 mt-6 border-b border-slate-200 pb-3 overflow-x-auto">
+                        <div className="flex items-center gap-2 mt-6 border-b border-zinc-800/80 pb-3 overflow-x-auto">
                           <button
                             type="button"
                             onClick={() => setClassroomTab('videos')}
                             className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer font-sans whitespace-nowrap ${
                               classroomTab === 'videos'
-                                ? 'bg-purple-700 text-white shadow-md'
-                                : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 shadow-md shadow-amber-500/20'
+                                : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
                             }`}
                           >
                             <span>🎬 भिडियो कक्षाहरू (Videos)</span>
-                            <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${classroomTab === 'videos' ? 'bg-purple-900 text-purple-200' : 'bg-slate-200 text-slate-600'}`}>
+                            <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${classroomTab === 'videos' ? 'bg-zinc-950 text-amber-300' : 'bg-zinc-800 text-zinc-400'}`}>
                               {activePlaylist.length}
                             </span>
                           </button>
@@ -2876,13 +2874,13 @@ export default function App() {
                             onClick={() => setClassroomTab('pdfs')}
                             className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer font-sans whitespace-nowrap ${
                               classroomTab === 'pdfs'
-                                ? 'bg-rose-600 text-white shadow-md'
-                                : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 shadow-md shadow-amber-500/20'
+                                : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
                             }`}
                           >
                             <FileText className="w-3.5 h-3.5" />
                             <span>📕 अध्ययन सामग्री र PDF नोटहरू (PDFs & Notes)</span>
-                            <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${classroomTab === 'pdfs' ? 'bg-rose-800 text-rose-100' : 'bg-slate-200 text-slate-600'}`}>
+                            <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${classroomTab === 'pdfs' ? 'bg-zinc-950 text-amber-300' : 'bg-zinc-800 text-zinc-400'}`}>
                               {currentClassroomCourse.pdfs?.length || 0}
                             </span>
                           </button>
@@ -2912,20 +2910,20 @@ export default function App() {
                                       });
                                       showToast(`Opening Lecture ${idx + 1} in Fullscreen! 🎥`, 'success');
                                     }}
-                                    className="group bg-white hover:bg-slate-50/70 border border-slate-100 rounded-2xl p-3 cursor-pointer transition-all duration-150 flex items-center gap-3 sm:gap-4 text-left shadow-xs"
+                                    className="group bg-zinc-950/80 hover:bg-zinc-900 border border-zinc-800/80 hover:border-amber-500/40 rounded-2xl p-3 cursor-pointer transition-all duration-150 flex items-center gap-3 sm:gap-4 text-left shadow-md"
                                   >
                                     {/* Left: Elegant play icon box */}
-                                    <div className="w-10 h-10 sm:w-12 sm:h-12 border border-[#FDE8E8]/40 bg-[#FDF2F2] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                                      <Play className="w-4 h-4 text-[#E02424] fill-[#E02424] ml-0.5" />
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 border border-amber-500/30 bg-amber-500/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-amber-400">
+                                      <Play className="w-4 h-4 text-amber-400 fill-amber-400 ml-0.5" />
                                     </div>
 
                                     {/* Center: Text Info */}
                                     <div className="flex-1 min-w-0">
-                                      <h5 className="text-xs sm:text-base font-bold text-slate-800 group-hover:text-purple-700 transition-colors leading-snug font-sans">
+                                      <h5 className="text-xs sm:text-base font-bold text-zinc-100 group-hover:text-amber-300 transition-colors leading-snug font-sans">
                                         {video.title}
                                       </h5>
                                       {video.duration && (
-                                        <span className="text-[10px] sm:text-xs text-slate-400 font-sans font-medium">
+                                        <span className="text-[10px] sm:text-xs text-zinc-400 font-sans font-medium">
                                           ⏱️ {video.duration} mins
                                         </span>
                                       )}
@@ -2934,10 +2932,10 @@ export default function App() {
                                 );
                               })
                             ) : (
-                              <div className="text-center py-12 bg-slate-50 rounded-2xl border border-slate-100 p-6 space-y-2">
+                              <div className="text-center py-12 bg-zinc-950/80 rounded-2xl border border-zinc-800 p-6 space-y-2">
                                 <div className="text-3xl">📹</div>
-                                <h5 className="text-sm font-bold text-slate-700 font-sans">कुनै भिडियो लेक्चरहरू उपलब्ध छैनन्</h5>
-                                <p className="text-xs text-slate-500 font-sans">
+                                <h5 className="text-sm font-bold text-zinc-300 font-sans">कुनै भिडियो लेक्चरहरू उपलब्ध छैनन्</h5>
+                                <p className="text-xs text-zinc-500 font-sans">
                                   एडमिनले प्लेलिस्टमा भिडियो थपेपछि यहाँ देखिनेछ। (Videos added by admin will appear here.)
                                 </p>
                               </div>
@@ -2949,21 +2947,21 @@ export default function App() {
                         {classroomTab === 'pdfs' && (
                           <div className="space-y-4 mt-6">
                             {/* Direct Access Notification Banner */}
-                            <div className="bg-rose-50/80 border border-rose-200/80 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left">
+                            <div className="bg-zinc-900 border border-amber-500/25 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left">
                               <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                                <div className="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0">
                                   <FileText className="w-5 h-5" />
                                 </div>
                                 <div>
-                                  <h5 className="text-xs font-black text-rose-950">
+                                  <h5 className="text-xs font-black text-white">
                                     Google Drive PDF अध्ययन सामग्री (Direct Notes Viewer)
                                   </h5>
-                                  <p className="text-[11px] text-rose-800 font-medium mt-0.5">
+                                  <p className="text-[11px] text-zinc-400 font-medium mt-0.5">
                                     विद्यार्थीहरूले Google Drive लगइन नगरिकनै सिधै पढ्न वा सुरक्षित डाउनलोड गर्न सक्छन्।
                                   </p>
                                 </div>
                               </div>
-                              <span className="inline-flex items-center gap-1 text-[10px] bg-emerald-100 text-emerald-800 font-black px-2.5 py-1 rounded-full border border-emerald-200 shrink-0">
+                              <span className="inline-flex items-center gap-1 text-[10px] bg-emerald-950/80 text-emerald-300 font-black px-2.5 py-1 rounded-full border border-emerald-500/40 shrink-0">
                                 🟢 No Login Required
                               </span>
                             </div>
@@ -2975,26 +2973,26 @@ export default function App() {
                                   <motion.div
                                     key={pidx}
                                     whileHover={{ scale: 1.005, x: 2 }}
-                                    className="bg-white hover:bg-slate-50/80 border border-slate-200/80 rounded-2xl p-3.5 sm:p-4 transition-all duration-150 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left shadow-xs"
+                                    className="bg-zinc-950/80 hover:bg-zinc-900 border border-zinc-800/80 hover:border-amber-500/40 rounded-2xl p-3.5 sm:p-4 transition-all duration-150 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left shadow-md"
                                   >
                                     {/* Left: Document icon & details */}
                                     <div className="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                                      <div className="w-11 h-11 border border-rose-200 bg-rose-50 rounded-xl flex items-center justify-center shrink-0 text-rose-600 mt-0.5 sm:mt-0">
+                                      <div className="w-11 h-11 border border-amber-500/30 bg-amber-500/10 rounded-xl flex items-center justify-center shrink-0 text-amber-400 mt-0.5 sm:mt-0">
                                         <FileText className="w-5 h-5" />
                                       </div>
                                       <div className="min-w-0 flex-1">
                                         {pdf.chapterTitle && (
-                                          <span className="text-[10px] text-purple-700 bg-purple-50 font-bold px-2 py-0.5 rounded border border-purple-200 inline-block mb-1">
+                                          <span className="text-[10px] text-amber-300 bg-amber-500/15 font-bold px-2 py-0.5 rounded border border-amber-500/30 inline-block mb-1">
                                             📁 {pdf.chapterTitle}
                                           </span>
                                         )}
-                                        <h5 className="text-xs sm:text-sm font-black text-slate-800 hover:text-rose-600 transition leading-snug">
+                                        <h5 className="text-xs sm:text-sm font-black text-zinc-100 hover:text-amber-300 transition leading-snug">
                                           {pdf.title}
                                         </h5>
-                                        <div className="flex items-center gap-2 mt-1 text-[10px] text-slate-400 font-medium">
+                                        <div className="flex items-center gap-2 mt-1 text-[10px] text-zinc-400 font-medium">
                                           {pdf.fileSize && <span>📄 {pdf.fileSize}</span>}
                                           <span>•</span>
-                                          <span className="text-emerald-600 font-bold">Direct Access PDF</span>
+                                          <span className="text-emerald-400 font-bold">Direct Access PDF</span>
                                         </div>
                                       </div>
                                     </div>
@@ -3014,7 +3012,7 @@ export default function App() {
                                           });
                                           showToast(`Opening PDF: ${pdf.title}`, 'info');
                                         }}
-                                        className="bg-rose-600 hover:bg-rose-700 text-white text-xs font-black px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-sm cursor-pointer"
+                                        className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-zinc-950 text-xs font-black px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-amber-500/20 cursor-pointer"
                                       >
                                         <BookOpen className="w-3.5 h-3.5" />
                                         <span>सिधै पढ्नुहोस् (Open)</span>
@@ -3026,7 +3024,7 @@ export default function App() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         download
-                                        className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-2 rounded-xl transition flex items-center gap-1 cursor-pointer border border-slate-200"
+                                        className="bg-zinc-900 hover:bg-zinc-800 text-zinc-300 text-xs font-bold px-3 py-2 rounded-xl transition flex items-center gap-1 cursor-pointer border border-zinc-800"
                                         title="Download PDF"
                                       >
                                         <Download className="w-3.5 h-3.5" />
@@ -3038,7 +3036,7 @@ export default function App() {
                                         href={getDirectPdfViewerUrl(pdf.pdfUrl)}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-xl transition cursor-pointer border border-slate-200"
+                                        className="p-2 text-zinc-400 hover:text-amber-400 hover:bg-zinc-900 rounded-xl transition cursor-pointer border border-zinc-800"
                                         title="Open in new browser tab without drive login"
                                       >
                                         <ExternalLink className="w-3.5 h-3.5" />
@@ -3048,19 +3046,19 @@ export default function App() {
                                 ))}
                               </div>
                             ) : (
-                              <div className="text-center py-12 bg-slate-50 rounded-2xl border border-slate-100 p-6 space-y-3">
-                                <div className="w-12 h-12 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mx-auto text-xl">
+                              <div className="text-center py-12 bg-zinc-950/80 rounded-2xl border border-zinc-800 p-6 space-y-3">
+                                <div className="w-12 h-12 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center mx-auto text-xl border border-amber-500/20">
                                   <FileText className="w-6 h-6" />
                                 </div>
-                                <h5 className="text-sm font-bold text-slate-700 font-sans">यस कोर्षमा अहिले कुनै PDF नोट उपलब्ध छैन</h5>
-                                <p className="text-xs text-slate-500 font-sans max-w-sm mx-auto">
+                                <h5 className="text-sm font-bold text-zinc-300 font-sans">यस कोर्षमा अहिले कुनै PDF नोट उपलब्ध छैन</h5>
+                                <p className="text-xs text-zinc-500 font-sans max-w-sm mx-auto">
                                   एडमिनले Google Drive बाट PDF नोटहरू लिङ्क गरेपछि यहाँ बिना लगइन सिधै पढ्न र डाउनलोड गर्न सकिनेछ।
                                 </p>
                                 {isAdminActivated && (
                                   <button
                                     type="button"
                                     onClick={() => handleEditCourseClick(currentClassroomCourse)}
-                                    className="mt-2 inline-flex items-center gap-1.5 bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold px-4 py-2 rounded-xl transition shadow-xs cursor-pointer"
+                                    className="mt-2 inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 text-xs font-extrabold px-4 py-2 rounded-xl transition shadow-md shadow-amber-500/20 cursor-pointer"
                                   >
                                     <Plus className="w-3.5 h-3.5" /> Add PDF Notes to this Course
                                   </button>
@@ -3079,7 +3077,7 @@ export default function App() {
                 <div className="flex justify-center mt-6">
                   <button
                     onClick={handleCreateCourseClick}
-                    className="bg-purple-700 hover:bg-purple-800 text-white font-extrabold text-xs py-3 px-6 rounded-xl transition duration-150 flex items-center gap-2 cursor-pointer shadow-md shadow-purple-900/10 font-sans"
+                    className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-zinc-950 font-extrabold text-xs py-3 px-6 rounded-xl transition duration-150 flex items-center gap-2 cursor-pointer shadow-lg shadow-amber-500/20 font-sans"
                   >
                     ➕ Add Another Course (Admin Control)
                   </button>
@@ -3088,13 +3086,13 @@ export default function App() {
             </div>
           ) : (
             /* ==================== CLASSROOM EMPTY STATE ==================== */
-            <div className="max-w-xl mx-auto bg-white p-8 rounded-3xl border border-slate-200/80 shadow-xl text-center space-y-6 my-8">
-              <div className="w-16 h-16 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+            <div className="max-w-xl mx-auto bg-zinc-900/90 backdrop-blur-md p-8 rounded-3xl border border-amber-500/25 shadow-2xl text-center space-y-6 my-8">
+              <div className="w-16 h-16 bg-amber-500/15 border border-amber-500/30 text-amber-400 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
                 🗝️
               </div>
               <div>
-                <h4 className="text-lg font-extrabold text-slate-950 font-sans">Activate Your Premium Course Access</h4>
-                <p className="text-xs text-slate-500 mt-2 max-w-sm mx-auto leading-relaxed font-semibold">
+                <h4 className="text-lg font-extrabold text-white font-sans">Activate Your Premium Course Access</h4>
+                <p className="text-xs text-zinc-400 mt-2 max-w-sm mx-auto leading-relaxed font-semibold">
                   तपाईंसँग भएको Secret Activation Code यहाँ राखी आफ्नो कोर्ष अनलक गर्नुहोस्।
                 </p>
               </div>
@@ -3105,24 +3103,24 @@ export default function App() {
                   value={activationCodeInput}
                   onChange={(e) => setActivationCodeInput(e.target.value)}
                   placeholder="CLIP-XXXXXX"
-                  className="w-full bg-slate-50 border border-slate-200 focus:border-purple-500 focus:bg-white rounded-2xl px-4 py-3.5 text-sm font-mono font-black uppercase outline-hidden text-center tracking-widest transition"
+                  className="w-full bg-zinc-950 border border-zinc-800 focus:border-amber-400 focus:bg-zinc-950 rounded-2xl px-4 py-3.5 text-sm font-mono font-black uppercase outline-hidden text-white text-center tracking-widest transition shadow-inner placeholder:text-zinc-600"
                 />
                 <button
                   type="submit"
                   disabled={isActivating || !activationCodeInput.trim()}
-                  className="w-full bg-purple-700 hover:bg-purple-800 disabled:opacity-50 text-white font-black py-3.5 rounded-2xl text-xs transition cursor-pointer shadow-lg shadow-purple-900/10 font-sans"
+                  className="w-full bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 disabled:opacity-50 text-zinc-950 font-black py-3.5 rounded-2xl text-xs transition cursor-pointer shadow-lg shadow-amber-500/20 font-sans active:scale-[0.99]"
                 >
                   {isActivating ? 'Activating Course...' : 'Unlock Instant Access ⚡'}
                 </button>
               </form>
 
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-center gap-2">
+              <div className="pt-4 border-t border-zinc-800/80 flex items-center justify-center gap-2">
                 <button 
                   onClick={() => {
                     setCurrentView('home');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="text-xs font-black text-purple-700 hover:text-purple-900 transition flex items-center gap-1 cursor-pointer font-sans"
+                  className="text-xs font-black text-amber-400 hover:text-amber-300 transition flex items-center gap-1 cursor-pointer font-sans"
                 >
                   🌐 Browse All Available Courses First
                 </button>
@@ -3140,28 +3138,28 @@ export default function App() {
                     viewport={{ once: true, margin: '-50px' }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     whileHover={{ y: -6 }}
-                    className="group bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden shadow-lg border border-slate-200/80 hover:shadow-2xl hover:border-purple-300/80 transition-all duration-300 relative flex flex-col h-full scroll-mt-28"
+                    className="group bg-zinc-900/90 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl border border-amber-500/25 hover:border-amber-400/60 hover:shadow-amber-500/15 transition-all duration-300 relative flex flex-col h-full scroll-mt-28"
                   >
                     {course.isPopular && (
-                      <div className="absolute top-0 inset-x-0 bg-rose-600 text-white text-center py-2 text-xs md:text-sm font-black tracking-widest uppercase z-10 shadow-md">
+                      <div className="absolute top-0 inset-x-0 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-zinc-950 text-center py-2 text-xs md:text-sm font-black tracking-widest uppercase z-10 shadow-md">
                         {course.popularText || '🔥 MOST POPULAR - BEST SELLER'}
                       </div>
                     )}
 
                     {/* Course Thumbnail Image */}
-                    <div className="relative aspect-video overflow-hidden bg-slate-950">
+                    <div className="relative aspect-video overflow-hidden bg-black">
                       <img 
                         src={course.image} 
                         alt={course.title}
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                        <span className="bg-purple-950/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-lg border border-purple-500/20">
+                        <span className="bg-zinc-950/85 backdrop-blur-md text-amber-300 text-xs font-semibold px-3 py-1 rounded-lg border border-amber-500/30">
                           Lifetime Access
                         </span>
-                        <span className="bg-amber-500 text-slate-950 text-xs font-extrabold px-3 py-1 rounded-lg shadow-md">
+                        <span className="bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 text-xs font-extrabold px-3 py-1 rounded-lg shadow-md">
                           Instant Delivery
                         </span>
                       </div>
@@ -3170,24 +3168,24 @@ export default function App() {
                     {/* Course Info */}
                     <div className="p-6 md:p-8 flex flex-col grow justify-between">
                       <div className="text-left font-sans">
-                        <h4 className="text-xl md:text-2xl font-extrabold text-slate-900 group-hover:text-purple-700 transition-colors">
+                        <h4 className="text-xl md:text-2xl font-extrabold text-white group-hover:text-amber-300 transition-colors">
                           {course.title}
                         </h4>
                         
                         {/* Prices or Active status badge */}
                         <div className="mt-4 flex items-center justify-between">
                           {activeCourseIds.includes(course.id) ? (
-                            <span className="bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase tracking-wider px-2.5 py-1.5 rounded-lg border border-emerald-200 flex items-center gap-1.5 shadow-2xs">
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span className="bg-emerald-950/80 text-emerald-300 text-[10px] font-black uppercase tracking-wider px-2.5 py-1.5 rounded-lg border border-emerald-500/40 flex items-center gap-1.5 shadow-2xs">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                               Course Activated
                             </span>
                           ) : (
                             <div className="flex items-baseline gap-2.5">
-                              <span className="text-2xl md:text-3xl font-black text-purple-700">
+                              <span className="text-2xl md:text-3xl font-black text-amber-400">
                                 {course.price}
                               </span>
                               {course.isPopular && (
-                                <span className="text-slate-400 line-through text-sm md:text-base font-semibold">
+                                <span className="text-zinc-500 line-through text-sm md:text-base font-semibold">
                                   Price Rs. 1000
                                 </span>
                               )}
@@ -3200,16 +3198,16 @@ export default function App() {
                             const vList = course.videos || [];
                             const chSet = new Set(vList.map(v => v.chapterTitle?.trim() || 'Chapter 1: Course Lectures'));
                             return (
-                              <span className="bg-purple-100/80 text-purple-900 text-xs font-extrabold px-3 py-1 rounded-xl border border-purple-200/80 flex items-center gap-1.5 shadow-2xs">
-                                <span className="w-4 h-4 rounded-md bg-purple-600 text-white flex items-center justify-center text-[9px] font-black">📁</span>
+                              <span className="bg-amber-500/15 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-xl border border-amber-500/30 flex items-center gap-1.5 shadow-2xs">
+                                <span className="w-4 h-4 rounded-md bg-amber-400 text-zinc-950 flex items-center justify-center text-[9px] font-black">📁</span>
                                 {chSet.size} Chapters ({vList.length} Video Lectures)
                               </span>
                             );
                           })()}
-                          <span className="bg-slate-100 text-slate-700 text-xs font-bold px-2.5 py-1 rounded-xl border border-slate-200">
+                          <span className="bg-zinc-800 text-zinc-300 text-xs font-bold px-2.5 py-1 rounded-xl border border-zinc-700">
                             🌐 {course.language || (course.id.includes('rathee') || course.id.includes('presentation') ? 'Hindi & Nepali' : 'Nepali')}
                           </span>
-                          <span className="bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-xl border border-emerald-200">
+                          <span className="bg-amber-950/40 text-amber-300 text-xs font-bold px-2.5 py-1 rounded-xl border border-amber-500/30">
                             📜 Certificate
                           </span>
                         </div>
@@ -3217,8 +3215,8 @@ export default function App() {
                         {/* Highlights checklist */}
                         <ul className="mt-6 space-y-2.5">
                           {course.learn.map((item, i) => (
-                            <li key={i} className="flex items-start gap-2.5 text-xs md:text-sm text-slate-600 font-medium">
-                              <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                            <li key={i} className="flex items-start gap-2.5 text-xs md:text-sm text-zinc-300 font-medium">
+                              <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -3226,10 +3224,10 @@ export default function App() {
                       </div>
 
                       {/* Enrolment / Classroom Access Button */}
-                      <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3">
+                      <div className="mt-8 pt-6 border-t border-zinc-800/80 flex items-center gap-3">
                         <button
                           onClick={() => handleEnrollCourse(course)}
-                          className="flex-1 bg-purple-700 hover:bg-purple-800 text-white font-extrabold text-xs md:text-sm py-3.5 px-4 rounded-2xl transition duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-purple-900/10 font-sans"
+                          className="flex-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-zinc-950 font-black text-xs md:text-sm py-3.5 px-4 rounded-2xl transition duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-amber-500/20 active:scale-[0.99] font-sans"
                         >
                           {activeCourseIds.includes(course.id) ? (
                             <>
@@ -3238,7 +3236,7 @@ export default function App() {
                             </>
                           ) : (
                             <>
-                              <Zap className="w-4 h-4 text-amber-300 fill-amber-300" />
+                              <Zap className="w-4 h-4 text-zinc-950 fill-zinc-950" />
                               Enroll & Activate Course
                             </>
                           )}
@@ -3249,14 +3247,14 @@ export default function App() {
                           <div className="flex items-center gap-1">
                             <button
                               onClick={() => handleEditCourseClick(course)}
-                              className="bg-amber-100 hover:bg-amber-200 text-amber-900 p-3 rounded-2xl transition cursor-pointer font-sans"
+                              className="bg-zinc-800 hover:bg-zinc-700 text-amber-300 p-3 rounded-2xl transition cursor-pointer font-sans border border-zinc-700"
                               title="Edit Course"
                             >
                               ✏️
                             </button>
                             <button
                               onClick={() => handleDeleteCourse(course.id)}
-                              className="bg-rose-100 hover:bg-rose-200 text-rose-900 p-3 rounded-2xl transition cursor-pointer font-sans"
+                              className="bg-rose-950/60 hover:bg-rose-900/80 text-rose-300 p-3 rounded-2xl transition cursor-pointer font-sans border border-rose-800"
                               title="Delete Course"
                             >
                               🗑️
@@ -3275,13 +3273,13 @@ export default function App() {
                   viewport={{ once: true, margin: '-50px' }}
                   whileHover={{ scale: 1.01 }}
                   onClick={handleCreateCourseClick}
-                  className="bg-slate-50 hover:bg-slate-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-md border-2 border-dashed border-slate-300 hover:border-purple-500 transition-all duration-300 flex flex-col items-center justify-center p-8 text-center min-h-[350px] cursor-pointer group font-sans"
+                  className="bg-zinc-900/60 hover:bg-zinc-900 rounded-3xl overflow-hidden shadow-sm hover:shadow-md border-2 border-dashed border-amber-500/30 hover:border-amber-400 transition-all duration-300 flex flex-col items-center justify-center p-8 text-center min-h-[350px] cursor-pointer group font-sans"
                 >
-                  <div className="w-16 h-16 bg-purple-50 border border-purple-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-purple-600">
+                  <div className="w-16 h-16 bg-amber-500/15 border border-amber-500/30 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-amber-400">
                     <Plus className="w-8 h-8" />
                   </div>
-                  <strong className="text-lg font-black text-slate-800 block">Add Another Course</strong>
-                  <span className="text-xs text-slate-500 mt-2 block max-w-xs">Click here to dynamically add a new course with custom pricing, learn checklist, and videos to Firestore database.</span>
+                  <strong className="text-lg font-black text-white block">Add Another Course</strong>
+                  <span className="text-xs text-zinc-400 mt-2 block max-w-xs">Click here to dynamically add a new course with custom pricing, learn checklist, and videos to Firestore database.</span>
                 </motion.div>
               )}
             </div>
@@ -3295,14 +3293,14 @@ export default function App() {
         {/* Testimonial slider / carousel - ADVANCED BENTO FEEDBOARD */}
         <section className="mt-20">
           <div className="text-center mb-12">
-            <span className="bg-purple-100 text-purple-700 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-purple-200 shadow-2xs">
+            <span className="bg-amber-500/20 text-amber-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-amber-500/30 shadow-2xs">
               ❤️ Student Feedback
             </span>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
+            <h3 className="text-3xl md:text-4xl font-extrabold text-white mt-3 tracking-tight">
               What Our Students Say ❤️
             </h3>
-            <div className="w-16 h-1 bg-amber-500 mx-auto rounded-full mt-3"></div>
-            <p className="text-slate-500 mt-3 text-sm md:text-base max-w-xl mx-auto">
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-yellow-400 mx-auto rounded-full mt-3 shadow-xs shadow-amber-500/50"></div>
+            <p className="text-zinc-400 mt-3 text-sm md:text-base max-w-xl mx-auto">
               हाम्रा विद्यार्थीहरूले कोर्ष लिएर आफ्नो करियर र कामलाई धेरै सजिलो बनाएका छन्।
             </p>
           </div>
@@ -3310,12 +3308,12 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12">
             
             {/* Bento Part 1: Overall Rating Score Card */}
-            <div className="lg:col-span-4 flex flex-col justify-between bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-lg">
+            <div className="lg:col-span-4 flex flex-col justify-between bg-zinc-900/90 p-6 md:p-8 rounded-3xl border border-amber-500/25 shadow-xl">
               <div>
-                <strong className="text-xs text-purple-700 font-extrabold uppercase tracking-widest block mb-1">Overall Satisfaction</strong>
+                <strong className="text-xs text-amber-400 font-extrabold uppercase tracking-widest block mb-1">Overall Satisfaction</strong>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-6xl font-black text-slate-900 tracking-tight">4.92</span>
-                  <span className="text-lg text-slate-400 font-extrabold">/5.0</span>
+                  <span className="text-6xl font-black text-white tracking-tight">4.92</span>
+                  <span className="text-lg text-zinc-500 font-extrabold">/5.0</span>
                 </div>
                 
                 <div className="flex gap-1 text-amber-400 mt-3">
@@ -3323,40 +3321,40 @@ export default function App() {
                     <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <p className="text-slate-500 text-xs mt-3 font-semibold">Based on 1000+ verified Nepal & India student feedback.</p>
+                <p className="text-zinc-400 text-xs mt-3 font-semibold">Based on 1000+ verified Nepal & India student feedback.</p>
 
                 {/* Rating bars */}
                 <div className="mt-8 space-y-4">
                   {/* 5 Stars */}
                   <div>
-                    <div className="flex justify-between text-xs text-slate-700 font-bold mb-1">
+                    <div className="flex justify-between text-xs text-zinc-300 font-bold mb-1">
                       <span>5 Stars (उत्कृष्ट)</span>
                       <span>92%</span>
                     </div>
-                    <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-emerald-500 rounded-full" style={{ width: '92%' }}></div>
+                    <div className="w-full h-2.5 bg-zinc-800 rounded-full overflow-hidden">
+                      <div className="h-full bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full" style={{ width: '92%' }}></div>
                     </div>
                   </div>
 
                   {/* 4 Stars */}
                   <div>
-                    <div className="flex justify-between text-xs text-slate-600 font-bold mb-1">
+                    <div className="flex justify-between text-xs text-zinc-400 font-bold mb-1">
                       <span>4 Stars (राम्रो)</span>
                       <span>8%</span>
                     </div>
-                    <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-amber-400 rounded-full" style={{ width: '8%' }}></div>
+                    <div className="w-full h-2.5 bg-zinc-800 rounded-full overflow-hidden">
+                      <div className="h-full bg-amber-500/70 rounded-full" style={{ width: '8%' }}></div>
                     </div>
                   </div>
 
                   {/* 3 Stars */}
                   <div>
-                    <div className="flex justify-between text-xs text-slate-400 font-bold mb-1">
+                    <div className="flex justify-between text-xs text-zinc-500 font-bold mb-1">
                       <span>3 Stars (साधारण)</span>
                       <span>0%</span>
                     </div>
-                    <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-slate-300 rounded-full" style={{ width: '0%' }}></div>
+                    <div className="w-full h-2.5 bg-zinc-800 rounded-full overflow-hidden">
+                      <div className="h-full bg-zinc-700 rounded-full" style={{ width: '0%' }}></div>
                     </div>
                   </div>
                 </div>
@@ -3367,7 +3365,7 @@ export default function App() {
             <div className="lg:col-span-8 flex flex-col gap-6">
               
               {/* Filter Chips & Search Bar */}
-              <div className="bg-slate-50 p-4 rounded-3xl border border-slate-100/80 shadow-xs flex flex-col md:flex-row gap-4 items-center justify-between">
+              <div className="bg-zinc-900/90 p-4 rounded-3xl border border-zinc-800/80 shadow-xs flex flex-col md:flex-row gap-4 items-center justify-between">
                 
                 {/* Dynamic Chips Container */}
                 <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
@@ -3380,8 +3378,8 @@ export default function App() {
                       }}
                       className={`whitespace-nowrap text-xs font-extrabold py-2 px-3.5 rounded-full transition cursor-pointer border ${
                         selectedCourseFilter === category
-                          ? 'bg-purple-700 text-white border-purple-700 shadow-xs'
-                          : 'bg-white text-slate-600 hover:bg-slate-100 border-slate-200'
+                          ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 font-black border-amber-400 shadow-xs'
+                          : 'bg-zinc-950 text-zinc-400 hover:bg-zinc-800 hover:text-white border-zinc-800'
                       }`}
                     >
                       {category === 'All' ? 'सबै (All)' : category}
@@ -3399,25 +3397,25 @@ export default function App() {
                       setCurrentSlide(0);
                     }}
                     placeholder="समीक्षा खोज्नुहोस्..."
-                    className="w-full bg-white text-slate-800 placeholder-slate-400 font-medium text-xs rounded-full pl-9 pr-4 py-2.5 border border-slate-200 focus:outline-hidden focus:border-purple-600 focus:ring-1 focus:ring-purple-600 transition"
+                    className="w-full bg-zinc-950 text-zinc-100 placeholder-zinc-500 font-medium text-xs rounded-full pl-9 pr-4 py-2.5 border border-zinc-800 focus:outline-hidden focus:border-amber-400 transition"
                   />
-                  <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                  <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 </div>
               </div>
 
               {/* Testimonials Slides Container */}
               <div 
-                className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-lg min-h-[310px] md:min-h-[250px] flex flex-col justify-between relative overflow-hidden"
+                className="bg-zinc-900/90 p-6 md:p-8 rounded-3xl border border-amber-500/25 shadow-xl min-h-[310px] md:min-h-[250px] flex flex-col justify-between relative overflow-hidden"
                 onMouseEnter={() => setIsHoveredCarousel(true)}
                 onMouseLeave={() => setIsHoveredCarousel(false)}
               >
                 {filteredTestimonials.length === 0 ? (
                   <div className="flex flex-col items-center justify-center text-center py-10 grow">
-                    <div className="w-12 h-12 bg-slate-50 text-slate-400 rounded-full flex items-center justify-center mb-3">
+                    <div className="w-12 h-12 bg-zinc-950 text-zinc-500 rounded-full flex items-center justify-center mb-3 border border-zinc-800">
                       <MessageSquare className="w-5 h-5" />
                     </div>
-                    <strong className="text-sm text-slate-700 block font-bold">कुनै समीक्षा भेटिएन (No reviews found)</strong>
-                    <span className="text-xs text-slate-400 mt-1 block">यो फिल्टर अनुसारको प्रतिक्रिया छैन। समीक्षा लेख्ने पहिलो विद्यार्थी बन्नुहोस्!</span>
+                    <strong className="text-sm text-zinc-300 block font-bold">कुनै समीक्षा भेटिएन (No reviews found)</strong>
+                    <span className="text-xs text-zinc-500 mt-1 block">यो फिल्टर अनुसारको प्रतिक्रिया छैन। समीक्षा लेख्ने पहिलो विद्यार्थी बन्नुहोस्!</span>
                   </div>
                 ) : (
                   <>
@@ -3434,14 +3432,14 @@ export default function App() {
                         <div>
                           {/* User Header */}
                           <div className="flex items-center gap-4">
-                            <div className="text-3xl w-12 h-12 bg-purple-50 border border-purple-100 rounded-full flex items-center justify-center shrink-0">
+                            <div className="text-3xl w-12 h-12 bg-amber-500/15 border border-amber-500/30 rounded-full flex items-center justify-center shrink-0">
                               {filteredTestimonials[currentSlide].avatar || '🧔'}
                             </div>
                             <div>
-                              <strong className="text-base text-slate-900 block font-black leading-tight">
+                              <strong className="text-base text-white block font-black leading-tight">
                                 {filteredTestimonials[currentSlide].name}
                               </strong>
-                              <span className="text-xs text-purple-700 font-extrabold block mt-0.5">
+                              <span className="text-xs text-amber-400 font-extrabold block mt-0.5">
                                 {filteredTestimonials[currentSlide].location} • {filteredTestimonials[currentSlide].course}
                               </span>
                             </div>
@@ -3455,18 +3453,18 @@ export default function App() {
                           </div>
 
                           {/* Review Text */}
-                          <p className="text-slate-600 text-xs md:text-sm italic leading-relaxed mt-4 font-medium">
+                          <p className="text-zinc-300 text-xs md:text-sm italic leading-relaxed mt-4 font-medium">
                             "{filteredTestimonials[currentSlide].text}"
                           </p>
                         </div>
 
                         {/* Card bottom metrics */}
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-6">
-                          <span className="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2.5 py-1 rounded-full flex items-center gap-1 uppercase tracking-wider">
+                        <div className="flex items-center justify-between pt-4 border-t border-zinc-800/80 mt-6">
+                          <span className="bg-emerald-950/80 text-emerald-300 text-[10px] font-black px-2.5 py-1 rounded-full flex items-center gap-1 uppercase tracking-wider border border-emerald-500/40">
                             <Check className="w-3 h-3" />
                             {filteredTestimonials[currentSlide].isUserAdded ? 'Newly Added Community Review' : 'Verified Student'}
                           </span>
-                          <span className="text-[10px] text-slate-400 font-bold">
+                          <span className="text-[10px] text-zinc-500 font-bold">
                             Review {currentSlide + 1} of {filteredTestimonials.length}
                           </span>
                         </div>
@@ -3474,13 +3472,13 @@ export default function App() {
                     </AnimatePresence>
 
                     {/* Controls Row */}
-                    <div className="absolute right-6 top-6 flex items-center gap-1.5 bg-slate-50 border border-slate-100 p-1 rounded-full shadow-2xs">
+                    <div className="absolute right-6 top-6 flex items-center gap-1.5 bg-zinc-950 border border-zinc-800 p-1 rounded-full shadow-2xs">
                       {/* Left button */}
                       <button
                         onClick={() => {
                           setCurrentSlide((prev) => (prev - 1 + filteredTestimonials.length) % filteredTestimonials.length);
                         }}
-                        className="w-7 h-7 hover:bg-purple-100 rounded-full flex items-center justify-center text-slate-500 hover:text-purple-700 transition cursor-pointer"
+                        className="w-7 h-7 hover:bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400 hover:text-amber-400 transition cursor-pointer"
                         aria-label="Previous Review"
                       >
                         <ChevronLeft className="w-4 h-4" />
@@ -3491,15 +3489,15 @@ export default function App() {
                         onClick={() => setIsSliderAutoPlaying(!isSliderAutoPlaying)}
                         className={`w-7 h-7 rounded-full flex items-center justify-center transition cursor-pointer ${
                           isSliderAutoPlaying 
-                            ? 'hover:bg-amber-100 text-slate-500 hover:text-amber-700' 
-                            : 'bg-amber-500 text-white shadow-xs'
+                            ? 'hover:bg-zinc-800 text-zinc-400 hover:text-amber-400' 
+                            : 'bg-amber-400 text-black shadow-xs'
                         }`}
                         title={isSliderAutoPlaying ? "Pause Autoplay" : "Resume Autoplay"}
                       >
                         {isSliderAutoPlaying ? (
                           <Pause className="w-3 h-3" />
                         ) : (
-                          <Play className="w-3 h-3 fill-white" />
+                          <Play className="w-3 h-3 fill-black" />
                         )}
                       </button>
 
@@ -3508,7 +3506,7 @@ export default function App() {
                         onClick={() => {
                           setCurrentSlide((prev) => (prev + 1) % filteredTestimonials.length);
                         }}
-                        className="w-7 h-7 hover:bg-purple-100 rounded-full flex items-center justify-center text-slate-500 hover:text-purple-700 transition cursor-pointer"
+                        className="w-7 h-7 hover:bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400 hover:text-amber-400 transition cursor-pointer"
                         aria-label="Next Review"
                       >
                         <ChevronRight className="w-4 h-4" />
@@ -3526,14 +3524,14 @@ export default function App() {
         {/* What You Learn Section */}
         <section className="mt-24 relative">
           <div className="text-center mb-16 relative z-10">
-            <span className="inline-flex items-center gap-1.5 bg-purple-50 text-purple-700 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-purple-100 shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-purple-500" /> Full-Stack Skills
+            <span className="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-amber-500/30 shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" /> Full-Stack Skills
             </span>
-            <h3 className="text-3xl md:text-4xl font-black mt-4 text-slate-950 tracking-tight leading-tight">
-              तपाईंले के सिक्नुहुन्छ ? <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">What You Will Learn</span>
+            <h3 className="text-3xl md:text-4xl font-black mt-4 text-white tracking-tight leading-tight">
+              तपाईंले के सिक्नुहुन्छ ? <span className="gold-gradient-text">What You Will Learn</span>
             </h3>
-            <div className="w-12 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 mx-auto rounded-full mt-4"></div>
-            <p className="text-slate-500 mt-4 text-sm md:text-base max-w-xl mx-auto font-medium">
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-yellow-400 mx-auto rounded-full mt-4 shadow-xs shadow-amber-500/50"></div>
+            <p className="text-zinc-400 mt-4 text-sm md:text-base max-w-xl mx-auto font-medium">
               हाम्रो व्यावहारिक कोर्षहरूमा समावेस गरिएका मुख्य विधा र सीपहरू
             </p>
           </div>
@@ -3543,126 +3541,126 @@ export default function App() {
             {/* Learn Card 1 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-white p-8 rounded-3xl border border-slate-100 hover:border-purple-500/20 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6 border border-purple-100 shadow-2xs">
+                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
                   <Sparkles className="w-7 h-7" />
                 </div>
-                <h4 className="text-lg font-black text-slate-900 mb-3 tracking-tight">
+                <h4 className="text-lg font-black text-white mb-3 tracking-tight">
                   30+ Premium AI Tools
                 </h4>
-                <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                <p className="text-zinc-300 text-sm leading-relaxed font-medium">
                   ChatGPT, Midjourney, Runway, ElevenLabs, Leonardo आदि विश्वस्तरीय AI tools को पूर्ण प्रयोगात्मक प्रशिक्षण।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-50 flex items-center gap-2 text-xs font-black text-purple-600 uppercase tracking-wider">
-                <span>Complete Tools Master</span> • <span className="text-slate-400">Practical</span>
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+                <span>Complete Tools Master</span> • <span className="text-zinc-500">Practical</span>
               </div>
             </motion.div>
 
             {/* Learn Card 2 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-white p-8 rounded-3xl border border-slate-100 hover:border-indigo-500/20 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 border border-indigo-100 shadow-2xs">
+                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
                   <Video className="w-7 h-7" />
                 </div>
-                <h4 className="text-lg font-black text-slate-900 mb-3 tracking-tight">
+                <h4 className="text-lg font-black text-white mb-3 tracking-tight">
                   AI Video Creation
                 </h4>
-                <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                <p className="text-zinc-300 text-sm leading-relaxed font-medium">
                   Talking Avatar भिडियो, Text to Video, Script-writing, र प्रोफेसनल एनिमेटेड भिडियो सम्पादन।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-50 flex items-center gap-2 text-xs font-black text-indigo-600 uppercase tracking-wider">
-                <span>Video Editing & Avatar</span> • <span className="text-slate-400">Viral Style</span>
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+                <span>Video Editing & Avatar</span> • <span className="text-zinc-500">Viral Style</span>
               </div>
             </motion.div>
 
             {/* Learn Card 3 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-white p-8 rounded-3xl border border-slate-100 hover:border-pink-500/20 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-pink-50 text-pink-600 rounded-2xl flex items-center justify-center mb-6 border border-pink-100 shadow-2xs">
+                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
                   <ImageIcon className="w-7 h-7" />
                 </div>
-                <h4 className="text-lg font-black text-slate-900 mb-3 tracking-tight">
+                <h4 className="text-lg font-black text-white mb-3 tracking-tight">
                   AI Image Generation
                 </h4>
-                <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                <p className="text-zinc-300 text-sm leading-relaxed font-medium">
                   Stunning यथार्थपरक फोटोहरू, एनिमेसन, व्यावसायिक डिजिटल कला र थम्बनेलहरू सजिलै बनाउने।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-50 flex items-center gap-2 text-xs font-black text-pink-600 uppercase tracking-wider">
-                <span>Art & Graphic Prompting</span> • <span className="text-slate-400">Pro Quality</span>
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+                <span>Art & Graphic Prompting</span> • <span className="text-zinc-500">Pro Quality</span>
               </div>
             </motion.div>
 
             {/* Learn Card 4 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-white p-8 rounded-3xl border border-slate-100 hover:border-amber-500/20 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-6 border border-amber-100 shadow-2xs">
+                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
                   <Music className="w-7 h-7" />
                 </div>
-                <h4 className="text-lg font-black text-slate-900 mb-3 tracking-tight">
+                <h4 className="text-lg font-black text-white mb-3 tracking-tight">
                   AI Song & Music Creation
                 </h4>
-                <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                <p className="text-zinc-300 text-sm leading-relaxed font-medium">
                   आफ्नै गीत, धून, संगीत कम्पोजिसन, भ्वाइस क्लोनिङ र ट्रेन्डिङ सामाजिक सञ्जाल संगीतको उत्पादन।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-50 flex items-center gap-2 text-xs font-black text-amber-600 uppercase tracking-wider">
-                <span>Audio & Voice Cloning</span> • <span className="text-slate-400">Vocal Hits</span>
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+                <span>Audio & Voice Cloning</span> • <span className="text-zinc-500">Vocal Hits</span>
               </div>
             </motion.div>
 
             {/* Learn Card 5 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-white p-8 rounded-3xl border border-slate-100 hover:border-emerald-500/20 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 border border-emerald-100 shadow-2xs">
+                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
                   <Presentation className="w-7 h-7" />
                 </div>
-                <h4 className="text-lg font-black text-slate-900 mb-3 tracking-tight">
+                <h4 className="text-lg font-black text-white mb-3 tracking-tight">
                   AI Presentation Making
                 </h4>
-                <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                <p className="text-zinc-300 text-sm leading-relaxed font-medium">
                   Dhruv Rathee शैलीमा उत्कृष्ट एनिमेटेड पावरपोइन्ट स्लाईड र व्यावसायिक कलेज/अफिस प्रस्तुतीकरण।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-50 flex items-center gap-2 text-xs font-black text-emerald-600 uppercase tracking-wider">
-                <span>Professional Slides</span> • <span className="text-slate-400">Dhruv Rathee Style</span>
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+                <span>Professional Slides</span> • <span className="text-zinc-500">Dhruv Rathee Style</span>
               </div>
             </motion.div>
 
             {/* Learn Card 6 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-white p-8 rounded-3xl border border-slate-100 hover:border-sky-500/20 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center mb-6 border border-sky-100 shadow-2xs">
+                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
                   <GraduationCap className="w-7 h-7" />
                 </div>
-                <h4 className="text-lg font-black text-slate-900 mb-3 tracking-tight">
+                <h4 className="text-lg font-black text-white mb-3 tracking-tight">
                   Practical Projects & Access
                 </h4>
-                <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                <p className="text-zinc-300 text-sm leading-relaxed font-medium">
                   वास्तविक प्रयोगात्मक प्रोजेक्टहरू, कोर्स पूरा गरेपछि सर्टिफिकेट, र सधैंको लागि आजीवन पहुँच।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-50 flex items-center gap-2 text-xs font-black text-sky-600 uppercase tracking-wider">
-                <span>Verified Certificate</span> • <span className="text-slate-400">Lifetime Access</span>
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+                <span>Verified Certificate</span> • <span className="text-zinc-500">Lifetime Access</span>
               </div>
             </motion.div>
 
@@ -3672,14 +3670,14 @@ export default function App() {
         {/* FAQs Accordion */}
         <section className="mt-20">
           <div className="text-center mb-12">
-            <span className="bg-amber-100 text-amber-800 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-amber-200">
+            <span className="bg-amber-500/20 text-amber-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-amber-500/30">
               Common Questions
             </span>
-            <h3 className="text-2xl md:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
+            <h3 className="text-2xl md:text-4xl font-extrabold text-white mt-3 tracking-tight">
               Frequently Asked Questions
             </h3>
-            <div className="w-16 h-1 bg-amber-500 mx-auto rounded-full mt-3"></div>
-            <p className="text-slate-500 mt-3 text-sm md:text-base">
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-yellow-400 mx-auto rounded-full mt-3 shadow-xs shadow-amber-500/50"></div>
+            <p className="text-zinc-400 mt-3 text-sm md:text-base">
               कोर्ष र भुक्तानी सम्बन्धी आम जिज्ञासाहरूको समाधान यहाँ पाउन सक्नुहुन्छ।
             </p>
           </div>
@@ -3690,16 +3688,16 @@ export default function App() {
               return (
                 <div 
                   key={index}
-                  className="bg-white rounded-2xl border border-slate-100 shadow-xs overflow-hidden transition-all duration-200 hover:border-amber-500/30 hover:shadow-md"
+                  className="bg-zinc-900/90 rounded-2xl border border-zinc-800/80 shadow-md overflow-hidden transition-all duration-200 hover:border-amber-500/40 hover:shadow-lg"
                 >
                   <button
                     onClick={() => toggleFaq(index)}
-                    className="w-full text-left p-5 md:p-6 font-bold text-slate-900 flex items-center justify-between gap-4 text-base md:text-lg focus:outline-hidden"
+                    className="w-full text-left p-5 md:p-6 font-bold text-white hover:text-amber-300 transition-colors flex items-center justify-between gap-4 text-base md:text-lg focus:outline-hidden cursor-pointer"
                   >
                     <span>{faq.question}</span>
                     <ChevronDown 
-                      className={`w-5 h-5 text-slate-500 shrink-0 transition-transform duration-300 ${
-                        isOpen ? 'rotate-180 text-purple-700' : ''
+                      className={`w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180 text-amber-300' : ''
                       }`}
                     />
                   </button>
@@ -3713,7 +3711,7 @@ export default function App() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <div className="p-5 md:p-6 pt-0 text-slate-600 border-t border-slate-50 text-sm md:text-base leading-relaxed bg-slate-50/50">
+                        <div className="p-5 md:p-6 pt-0 text-zinc-300 border-t border-zinc-800/80 text-sm md:text-base leading-relaxed bg-zinc-950/60">
                           {faq.answer}
                         </div>
                       </motion.div>
@@ -3727,16 +3725,16 @@ export default function App() {
 
         {/* Contact Us Section */}
         <section className="mt-20">
-          <div className="bg-white rounded-3xl p-6 md:p-12 shadow-xl border border-slate-100">
+          <div className="bg-zinc-900/90 rounded-3xl p-6 md:p-12 shadow-2xl border border-amber-500/25">
             <div className="text-center mb-10">
-              <span className="bg-indigo-100 text-indigo-700 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-indigo-200">
+              <span className="bg-amber-500/20 text-amber-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-amber-500/30">
                 Help & Support
               </span>
-              <h3 className="text-2xl md:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
+              <h3 className="text-2xl md:text-4xl font-extrabold text-white mt-3 tracking-tight">
                 Contact Us
               </h3>
-              <div className="w-16 h-1 bg-amber-500 mx-auto rounded-full mt-3"></div>
-              <p className="text-slate-500 mt-3 text-sm md:text-base">
+              <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-yellow-400 mx-auto rounded-full mt-3 shadow-xs shadow-amber-500/50"></div>
+              <p className="text-zinc-400 mt-3 text-sm md:text-base">
                 कुनै पनि प्रश्न वा तत्काल भर्नाको लागि हामीलाई सिधै सम्पर्क गर्नुहोस्
               </p>
             </div>
@@ -3749,17 +3747,17 @@ export default function App() {
                 href={`https://wa.me/${getFormattedWhatsappNumber(paymentConfig.whatsappNumber || siteSettings.supportPhone)}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group p-6 rounded-2xl border-2 border-emerald-500/20 hover:border-emerald-500 bg-emerald-50/20 hover:bg-emerald-50/50 transition duration-300 flex items-start gap-4"
+                className="group p-6 rounded-2xl border-2 border-emerald-500/20 hover:border-emerald-400 bg-emerald-950/20 hover:bg-emerald-950/40 transition duration-300 flex items-start gap-4"
               >
-                <div className="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500 text-black flex items-center justify-center shrink-0">
                   <Send className="w-6 h-6" />
                 </div>
                 <div>
-                  <strong className="text-slate-900 font-extrabold text-lg group-hover:text-emerald-700 transition-colors">
+                  <strong className="text-white font-extrabold text-lg group-hover:text-emerald-300 transition-colors">
                     WhatsApp / Call
                   </strong>
-                  <span className="text-slate-600 block text-sm font-semibold mt-1">{paymentConfig.whatsappNumber || siteSettings.supportPhone || '976-3323268'}</span>
-                  <span className="text-xs text-emerald-600 font-extrabold mt-1 inline-block">
+                  <span className="text-zinc-300 block text-sm font-semibold mt-1">{paymentConfig.whatsappNumber || siteSettings.supportPhone || '976-3323268'}</span>
+                  <span className="text-xs text-emerald-400 font-extrabold mt-1 inline-block">
                     ◆ Active support (Replies in 5 mins)
                   </span>
                 </div>
@@ -3770,17 +3768,17 @@ export default function App() {
                 href="https://www.facebook.com/profile.php?id=61583901232576&mibextid=ZbWKwL" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group p-6 rounded-2xl border-2 border-blue-500/10 hover:border-blue-500 bg-blue-50/20 hover:bg-blue-50/50 transition duration-300 flex items-start gap-4"
+                className="group p-6 rounded-2xl border-2 border-blue-500/20 hover:border-blue-400 bg-blue-950/20 hover:bg-blue-950/40 transition duration-300 flex items-start gap-4"
               >
                 <div className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0">
                   <Facebook className="w-6 h-6" />
                 </div>
                 <div>
-                  <strong className="text-slate-900 font-extrabold text-lg group-hover:text-blue-700 transition-colors">
+                  <strong className="text-white font-extrabold text-lg group-hover:text-blue-300 transition-colors">
                     Facebook Page
                   </strong>
-                  <span className="text-slate-500 block text-xs mt-1">{siteSettings.instituteName || "AI Clipzone Nepal"}</span>
-                  <span className="text-xs text-blue-600 font-extrabold mt-1 inline-block">
+                  <span className="text-zinc-400 block text-xs mt-1">{siteSettings.instituteName || "AI Clipzone Nepal"}</span>
+                  <span className="text-xs text-blue-400 font-extrabold mt-1 inline-block">
                     Follow us for news & coupon codes
                   </span>
                 </div>
@@ -3789,17 +3787,17 @@ export default function App() {
               {/* Email Card */}
               <a 
                 href={`mailto:${siteSettings.supportEmail || 'ai.clipzone.edu@gmail.com'}`} 
-                className="group p-6 rounded-2xl border-2 border-rose-500/10 hover:border-rose-500 bg-rose-50/10 hover:bg-rose-50/40 transition duration-300 flex items-start gap-4"
+                className="group p-6 rounded-2xl border-2 border-amber-500/20 hover:border-amber-400 bg-amber-950/20 hover:bg-amber-950/40 transition duration-300 flex items-start gap-4"
               >
-                <div className="w-12 h-12 rounded-xl bg-rose-500 text-white flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-amber-500 text-black flex items-center justify-center shrink-0">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <strong className="text-slate-900 font-extrabold text-lg group-hover:text-rose-700 transition-colors">
+                  <strong className="text-white font-extrabold text-lg group-hover:text-amber-300 transition-colors">
                     Email Support
                   </strong>
-                  <span className="text-slate-500 block text-xs mt-1">{siteSettings.supportEmail || "ai.clipzone.edu@gmail.com"}</span>
-                  <span className="text-xs text-rose-600 font-extrabold mt-1 inline-block">
+                  <span className="text-zinc-400 block text-xs mt-1">{siteSettings.supportEmail || "ai.clipzone.edu@gmail.com"}</span>
+                  <span className="text-xs text-amber-400 font-extrabold mt-1 inline-block">
                     Official queries & feedback
                   </span>
                 </div>
@@ -3808,39 +3806,39 @@ export default function App() {
             </div>
 
             {/* Quick Contact Message Form */}
-            <div className="bg-slate-50/60 p-6 md:p-10 rounded-2xl border border-slate-100">
-              <h4 className="text-xl font-bold text-center text-slate-900 mb-6 flex items-center justify-center gap-2">
-                <MessageSquare className="w-5 h-5 text-purple-700" />
+            <div className="bg-zinc-950/80 p-6 md:p-10 rounded-2xl border border-zinc-800/80">
+              <h4 className="text-xl font-bold text-center text-white mb-6 flex items-center justify-center gap-2">
+                <MessageSquare className="w-5 h-5 text-amber-400" />
                 Send Quick Message on WhatsApp
               </h4>
 
               <form onSubmit={handleSendContactMessage} className="space-y-4 max-w-xl mx-auto">
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">तपाईंको नाम (Full Name) *</label>
+                  <label className="block text-xs font-bold uppercase text-zinc-400 mb-1.5">तपाईंको नाम (Full Name) *</label>
                   <input 
                     type="text" 
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
                     placeholder="तपाईंको नाम लेख्नुहोस्..."
-                    className="w-full bg-white border border-slate-200 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 rounded-xl px-4 py-3 text-sm transition outline-hidden"
+                    className="w-full bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 rounded-xl px-4 py-3 text-sm transition outline-hidden"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">फोन नम्बर (WhatsApp Number) - Optional</label>
+                  <label className="block text-xs font-bold uppercase text-zinc-400 mb-1.5">फोन नम्बर (WhatsApp Number) - Optional</label>
                   <input 
                     type="tel" 
                     value={contactPhone}
                     onChange={(e) => setContactPhone(e.target.value)}
                     placeholder="सम्पर्क फोन नम्बर लेख्नुहोस्..."
-                    className="w-full bg-white border border-slate-200 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 rounded-xl px-4 py-3 text-sm transition outline-hidden"
+                    className="w-full bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 rounded-xl px-4 py-3 text-sm transition outline-hidden"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">कोर्ष छान्नुहोस् (Select Course) *</label>
+                  <label className="block text-xs font-bold uppercase text-zinc-400 mb-1.5">कोर्ष छान्नुहोस् (Select Course) *</label>
                   <select 
                     value={contactCourse}
                     onChange={(e) => setContactCourse(e.target.value)}
-                    className="w-full bg-white border border-slate-200 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 rounded-xl px-4 py-3 text-sm transition outline-hidden font-semibold text-slate-800"
+                    className="w-full bg-zinc-900 border border-zinc-800 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 rounded-xl px-4 py-3 text-sm transition outline-hidden font-semibold"
                   >
                     <option value="General Inquiry / सामान्य सोधपुछ">General Inquiry / सामान्य सोधपुछ</option>
                     {courses.map((course) => (
@@ -3851,20 +3849,20 @@ export default function App() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">तपाईंको सन्देश (Your Message) *</label>
+                  <label className="block text-xs font-bold uppercase text-zinc-400 mb-1.5">तपाईंको सन्देश (Your Message) *</label>
                   <textarea 
                     value={contactMsg}
                     onChange={(e) => setContactMsg(e.target.value)}
                     rows={4}
                     placeholder="कोर्ष सम्बन्धी केही सोध्न मन छ भने यहाँ लेख्नुहोस्..."
-                    className="w-full bg-white border border-slate-200 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 rounded-xl px-4 py-3 text-sm transition outline-hidden"
+                    className="w-full bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 rounded-xl px-4 py-3 text-sm transition outline-hidden"
                   />
                 </div>
                 
                 <div className="pt-2">
                   <button 
                     type="submit"
-                    className="w-full bg-purple-700 hover:bg-purple-800 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-md transition duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-zinc-950 font-black py-3.5 px-6 rounded-xl shadow-lg shadow-amber-500/20 transition duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
                   >
                     <Send className="w-4 h-4" /> 📤 Send Message
                   </button>
@@ -3873,34 +3871,34 @@ export default function App() {
             </div>
 
             {/* Business Hours Information */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center max-w-xl mx-auto">
-              <div className="sm:border-r sm:border-slate-200 pb-4 sm:pb-0">
-                <h5 className="font-extrabold text-slate-900 flex items-center justify-center gap-1.5 text-sm">
-                  <Clock className="w-4 h-4 text-purple-700" /> Business Hours
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-zinc-950 p-6 rounded-2xl border border-zinc-800 text-center max-w-xl mx-auto">
+              <div className="sm:border-r sm:border-zinc-800 pb-4 sm:pb-0">
+                <h5 className="font-extrabold text-white flex items-center justify-center gap-1.5 text-sm">
+                  <Clock className="w-4 h-4 text-amber-400" /> Business Hours
                 </h5>
-                <p className="text-slate-600 text-xs mt-2 font-medium">Sunday - Friday: 8:00 AM - 8:00 PM</p>
-                <p className="text-slate-600 text-xs mt-1 font-medium">Saturday: 10:00 AM - 6:00 PM</p>
+                <p className="text-zinc-400 text-xs mt-2 font-medium">Sunday - Friday: 8:00 AM - 8:00 PM</p>
+                <p className="text-zinc-400 text-xs mt-1 font-medium">Saturday: 10:00 AM - 6:00 PM</p>
               </div>
               <div className="flex flex-col justify-center items-center">
-                <span className="text-emerald-600 font-extrabold text-sm flex items-center gap-1">
+                <span className="text-emerald-400 font-extrabold text-sm flex items-center gap-1">
                   ⚡ Instant WhatsApp Support
                 </span>
-                <p className="text-slate-500 text-xs mt-2">
+                <p className="text-zinc-400 text-xs mt-2">
                   हामी प्राय: ५ मिनेट भित्रै जवाफ पठाउनेछौं!
                 </p>
               </div>
             </div>
 
             {/* Trust and safety badges */}
-            <div className="mt-10 flex flex-wrap justify-center items-center gap-6 text-slate-400 opacity-90 border-t border-slate-100 pt-8">
-              <div className="flex items-center gap-1 text-xs font-bold text-slate-500">
-                <ShieldCheck className="w-4 h-4 text-emerald-500" /> Secure eSewa / QR Checkout
+            <div className="mt-10 flex flex-wrap justify-center items-center gap-6 text-zinc-400 opacity-90 border-t border-zinc-800/80 pt-8">
+              <div className="flex items-center gap-1 text-xs font-bold text-zinc-400">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" /> Secure eSewa / QR Checkout
               </div>
-              <div className="flex items-center gap-1 text-xs font-bold text-slate-500">
-                <GraduationCap className="w-4 h-4 text-purple-500" /> Standard Certificate Issued
+              <div className="flex items-center gap-1 text-xs font-bold text-zinc-400">
+                <GraduationCap className="w-4 h-4 text-amber-400" /> Standard Certificate Issued
               </div>
-              <div className="flex items-center gap-1 text-xs font-bold text-slate-500">
-                <Headphones className="w-4 h-4 text-amber-500" /> Lifelong Learning Access
+              <div className="flex items-center gap-1 text-xs font-bold text-zinc-400">
+                <Headphones className="w-4 h-4 text-yellow-400" /> Lifelong Learning Access
               </div>
             </div>
 
@@ -3912,7 +3910,7 @@ export default function App() {
       </main>
 
       {/* FOOTER */}
-      <footer className="bg-slate-900 text-slate-400 text-xs md:text-sm py-12 border-t border-slate-800 w-full mt-auto">
+      <footer className="bg-black text-zinc-400 text-xs md:text-sm py-12 border-t border-zinc-800/80 w-full mt-auto">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <h5 className="text-white font-extrabold text-base tracking-tight mb-2 flex items-center gap-2 justify-center md:justify-start">
@@ -3926,7 +3924,7 @@ export default function App() {
               )}
               <span>{siteSettings.instituteName || 'AI Clipzone Nepal'} 🇳🇵</span>
             </h5>
-            <p className="text-slate-500 text-xs">
+            <p className="text-zinc-500 text-xs">
               © {new Date().getFullYear()} {siteSettings.instituteName || 'AI Clipzone'}. All rights reserved. Nepal's Premium AI Learning platform.
             </p>
           </div>
@@ -3935,7 +3933,7 @@ export default function App() {
             <span>•</span>
             <a href="https://www.facebook.com/profile.php?id=61583901232576&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Facebook</a>
             <span>•</span>
-            <a href={`mailto:${siteSettings.supportEmail || 'ai.clipzone.edu@gmail.com'}`} className="hover:text-rose-400 transition-colors">Email</a>
+            <a href={`mailto:${siteSettings.supportEmail || 'ai.clipzone.edu@gmail.com'}`} className="hover:text-amber-400 transition-colors">Email</a>
           </div>
         </div>
       </footer>
@@ -4382,45 +4380,45 @@ export default function App() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.25 }}
-                className="bg-white max-w-lg w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto border border-slate-100 text-slate-800"
+                className="bg-[#0f1015] max-w-lg w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto border border-amber-500/30 text-slate-200 shadow-amber-500/10"
               >
                 <button 
                   onClick={() => setSelectedCourse(null)}
-                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition cursor-pointer"
+                  className="absolute top-5 right-5 text-slate-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-slate-800"
                 >
                   <X className="w-6 h-6" />
                 </button>
 
-                <span className="inline-block bg-purple-100 text-purple-800 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+                <span className="inline-block bg-amber-500/15 text-amber-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 border border-amber-500/30">
                   Course Details
                 </span>
 
-                <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 leading-tight text-left">
+                <h3 className="text-xl md:text-2xl font-extrabold text-white leading-tight text-left">
                   {selectedCourse.title}
                 </h3>
                 
                 <div className="flex items-center gap-2 mt-2">
-                  <span className="bg-purple-50 text-purple-700 text-[11px] font-extrabold px-2.5 py-1 rounded-md border border-purple-100 flex items-center gap-1">
+                  <span className="bg-slate-900 text-amber-300 text-[11px] font-extrabold px-2.5 py-1 rounded-md border border-amber-500/30 flex items-center gap-1">
                     🌐 Language: {selectedCourse.language || (selectedCourse.id.includes('rathee') || selectedCourse.id.includes('presentation') ? 'Hindi & Nepali' : 'Nepali')}
                   </span>
-                  <span className="bg-emerald-50 text-emerald-700 text-[11px] font-extrabold px-2.5 py-1 rounded-md border border-emerald-100">
+                  <span className="bg-slate-900 text-emerald-400 text-[11px] font-extrabold px-2.5 py-1 rounded-md border border-emerald-500/30">
                     📜 Certificate
                   </span>
                 </div>
                 
-                <p className="text-3xl font-black text-purple-700 mt-3 text-left">
+                <p className="text-3xl font-black text-gradient-gold mt-3 text-left">
                   {selectedCourse.price}
                 </p>
 
                 <div className="mt-6 text-left">
-                  <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">
+                  <h4 className="text-xs font-black text-amber-400 uppercase tracking-wider mb-3">
                     यो Course बाट के सिक्नुहुन्छ ?
                   </h4>
                   
                   <ul className="space-y-3">
                     {selectedCourse.learn.map((item, index) => (
-                      <li key={index} className="flex items-start gap-3 text-slate-700 text-sm md:text-base leading-relaxed">
-                        <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <li key={index} className="flex items-start gap-3 text-slate-300 text-sm md:text-base leading-relaxed">
+                        <div className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5 border border-amber-500/40">
                           <Check className="w-3.5 h-3.5 stroke-[3]" />
                         </div>
                         <span>{item}</span>
@@ -4430,8 +4428,8 @@ export default function App() {
                 </div>
 
                 {/* Secure purchase assurances */}
-                <div className="mt-6 p-4 bg-slate-50 rounded-2xl border border-slate-100 flex items-center gap-3 text-xs text-slate-600 font-semibold text-left">
-                  <ShieldCheck className="w-6 h-6 text-emerald-500 shrink-0" />
+                <div className="mt-6 p-4 bg-slate-900/90 rounded-2xl border border-amber-500/25 flex items-center gap-3 text-xs text-slate-300 font-semibold text-left">
+                  <ShieldCheck className="w-6 h-6 text-emerald-400 shrink-0" />
                   <span>१००% सुरक्षित भुक्तानी। भुक्तानी गरेपछि तत्कालै ड्राइभ लिङ्क र भिडियो कोर्ष प्राप्त गर्नुहुनेछ।</span>
                 </div>
 
@@ -4441,14 +4439,14 @@ export default function App() {
                     href={getWhatsappPurchaseUrl(selectedCourse)}
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-4 px-6 rounded-2xl text-center shadow-lg shadow-emerald-500/10 transition flex items-center justify-center gap-2"
+                    className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-4 px-6 rounded-2xl text-center shadow-lg shadow-emerald-600/20 transition flex items-center justify-center gap-2"
                   >
                     <Send className="w-4 h-4" /> WhatsApp बाट किन्नुहोस्
                   </a>
                   
                   <button 
                     onClick={handleOpenFonePayQR}
-                    className="w-full bg-linear-to-r from-purple-700 to-indigo-800 hover:from-purple-800 hover:to-indigo-900 text-white font-extrabold py-4 px-6 rounded-2xl text-center shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black py-4 px-6 rounded-2xl text-center shadow-lg shadow-amber-500/25 transition flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>QR स्क्यान गरी तत्काल भुक्तानी (eSewa / Bank)</span>
                   </button>
@@ -4477,43 +4475,43 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white max-w-xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl relative z-10 border border-slate-200 text-slate-900 max-h-[90vh] overflow-y-auto font-sans shadow-purple-950/20"
+              className="bg-[#0f1015] max-w-xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl relative z-10 border border-amber-500/30 text-slate-200 max-h-[90vh] overflow-y-auto font-sans shadow-amber-500/10"
             >
               <button 
                 onClick={() => setShowProfileModal(false)}
-                className="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition cursor-pointer"
+                className="absolute top-5 right-5 text-slate-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-slate-800"
               >
                 <X className="w-6 h-6" />
               </button>
 
-              <span className="inline-block bg-purple-100 text-purple-800 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+              <span className="inline-block bg-amber-500/15 text-amber-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 border border-amber-500/30">
                 👤 Profile Page
               </span>
 
               {authLoading && !currentUser && !localStorage.getItem('clipzone_student_name') ? (
                 <div className="py-12 text-center text-xs font-bold text-slate-400 flex flex-col items-center justify-center gap-3">
-                  <span className="w-6 h-6 border-2 border-purple-600 border-t-transparent rounded-full animate-spin"></span>
+                  <span className="w-6 h-6 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></span>
                   Securing user session...
                 </div>
               ) : !currentUser && !localStorage.getItem('clipzone_student_name') ? (
                 /* CASE: UNREGISTERED / NOT LOGGED IN STUDENT - DIRECT CODE LOGIN */
                 <div className="text-left mt-2">
-                  <h3 className="text-xl font-black text-slate-900 tracking-tight">
+                  <h3 className="text-xl font-black text-white tracking-tight">
                     Welcome to {siteSettings.instituteName || 'AI Clipzone Nepal'} 🇳🇵
                   </h3>
-                  <p className="text-xs text-slate-500 mt-1.5 font-semibold leading-relaxed">
+                  <p className="text-xs text-slate-400 mt-1.5 font-medium leading-relaxed">
                     भिडियो कोर्सहरू अनलक गर्न र अध्ययन सुरु गर्न एडमिनबाट प्राप्त Secret Activation Code (कोर्स कोड) यहाँ राख्नुहोस्:
                   </p>
 
                   {authError && (
-                    <div className="bg-rose-50 text-rose-700 p-3 rounded-xl border border-rose-100 text-[11px] font-bold mb-4 mt-4">
+                    <div className="bg-rose-950/60 text-rose-300 p-3 rounded-xl border border-rose-500/40 text-[11px] font-bold mb-4 mt-4">
                       ⚠️ {authError}
                     </div>
                   )}
 
                   <form onSubmit={handleClaimActivationCode} className="space-y-4 mt-6">
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-purple-700 mb-1.5 tracking-wider">
+                      <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5 tracking-wider">
                         Secret Activation Code (कोर्स सेक्रेट कोड) *
                       </label>
                       <input 
@@ -4522,18 +4520,18 @@ export default function App() {
                         value={activationCodeInput}
                         onChange={(e) => setActivationCodeInput(e.target.value)}
                         placeholder="उदाहरण: CLIP-XXXXXX"
-                        className="w-full bg-slate-50 border border-slate-200 focus:border-purple-500 rounded-xl px-4 py-3.5 text-sm font-mono font-black uppercase text-slate-800 outline-hidden tracking-widest shadow-inner"
+                        className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-3.5 text-sm font-mono font-black uppercase text-white outline-hidden tracking-widest shadow-inner placeholder-slate-600"
                       />
                     </div>
 
                     <button
                       type="submit"
                       disabled={isActivating || !activationCodeInput.trim()}
-                      className="w-full bg-purple-700 hover:bg-purple-800 disabled:opacity-50 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-md transition cursor-pointer flex items-center justify-center gap-2"
+                      className="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 disabled:opacity-50 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-md transition cursor-pointer flex items-center justify-center gap-2"
                     >
                       {isActivating ? (
                         <>
-                          <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                          <span className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span>
                           Verifying Code...
                         </>
                       ) : (
@@ -4546,33 +4544,33 @@ export default function App() {
                 /* CASE: REGISTERED STUDENT */
                 <div className="text-left mt-2 space-y-5">
                   {/* Student profile summary */}
-                  <div className="flex items-center gap-4 bg-gradient-to-r from-purple-50 via-indigo-50/60 to-purple-50 p-4 rounded-2xl border border-purple-100/80 relative overflow-hidden shadow-xs">
+                  <div className="flex items-center gap-4 bg-slate-900/90 p-4 rounded-2xl border border-amber-500/25 relative overflow-hidden shadow-xs">
                     <div className="relative shrink-0">
-                      <div className="w-13 h-13 rounded-2xl bg-gradient-to-tr from-purple-700 via-indigo-800 to-purple-900 text-white flex items-center justify-center text-lg font-black shadow-md uppercase ring-2 ring-purple-200">
+                      <div className="w-13 h-13 rounded-2xl bg-gradient-to-tr from-amber-400 to-yellow-600 text-slate-950 flex items-center justify-center text-lg font-black shadow-md uppercase ring-2 ring-amber-400/40">
                         {(currentUser?.displayName || authName || localStorage.getItem('clipzone_student_name') || 'ST').substring(0, 2)}
                       </div>
-                      {/* Blue Verification Badge on Avatar Corner */}
-                      <span className="absolute -bottom-1 -right-1 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center shadow-md ring-2 ring-white" title="Verified Active Student">
+                      {/* Verification Badge on Avatar Corner */}
+                      <span className="absolute -bottom-1 -right-1 bg-amber-500 text-slate-950 w-5 h-5 rounded-full flex items-center justify-center shadow-md ring-2 ring-slate-900" title="Verified Active Student">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </span>
                     </div>
 
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <h3 className="text-base font-black text-slate-900 tracking-tight truncate">
+                        <h3 className="text-base font-black text-white tracking-tight truncate">
                           {currentUser?.displayName || authName || localStorage.getItem('clipzone_student_name') || 'Student Learner'}
                         </h3>
-                        {/* Facebook / Instagram Blue Tick Badge */}
+                        {/* Verified Student Badge */}
                         <span 
-                          className="inline-flex items-center justify-center bg-blue-600 text-white rounded-full w-4 h-4 p-0.5 shadow-xs shrink-0" 
+                          className="inline-flex items-center justify-center bg-amber-400 text-slate-950 rounded-full w-4 h-4 p-0.5 shadow-xs shrink-0" 
                           title="Verified Student Account (Active Course Owner)"
                         >
                           <Check className="w-3 h-3 stroke-[3]" />
                         </span>
                       </div>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-[10px] font-extrabold text-blue-700 bg-blue-100/80 px-2 py-0.5 rounded-md flex items-center gap-1 border border-blue-200/60">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
+                        <span className="text-[10px] font-extrabold text-amber-300 bg-amber-500/15 px-2 py-0.5 rounded-md flex items-center gap-1 border border-amber-500/30">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                           Official Verified Student 🇳🇵
                         </span>
                       </div>
@@ -4580,14 +4578,14 @@ export default function App() {
                   </div>
 
                   {/* Certificate Banner */}
-                  <div className="bg-gradient-to-r from-amber-500/10 via-amber-400/15 to-yellow-500/10 border border-amber-400/40 p-3.5 rounded-2xl flex items-center justify-between gap-3 shadow-sm">
+                  <div className="bg-gradient-to-r from-amber-500/15 via-amber-400/20 to-yellow-500/15 border border-amber-400/40 p-3.5 rounded-2xl flex items-center justify-between gap-3 shadow-sm">
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-600 text-slate-950 flex items-center justify-center shrink-0 shadow-md">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-950 flex items-center justify-center shrink-0 shadow-md">
                         <Award className="w-5 h-5 text-slate-950" />
                       </div>
                       <div className="min-w-0">
-                        <h5 className="text-xs font-black text-slate-900 truncate">Course Certificate 📜</h5>
-                        <p className="text-[10px] text-slate-600 font-semibold truncate">आफ्नो नाम र भर्ना मिति सहितको प्रमाणपत्र</p>
+                        <h5 className="text-xs font-black text-white truncate">Course Certificate 📜</h5>
+                        <p className="text-[10px] text-amber-200/80 font-medium truncate">आफ्नो नाम र भर्ना मिति सहितको प्रमाणपत्र</p>
                       </div>
                     </div>
                     <button
@@ -4611,7 +4609,7 @@ export default function App() {
                         setShowProfileModal(false);
                         setShowCertificateModal(true);
                       }}
-                      className="bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3 py-2 rounded-xl transition cursor-pointer shadow-md shrink-0 flex items-center gap-1"
+                      className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3 py-2 rounded-xl transition cursor-pointer shadow-md shrink-0 flex items-center gap-1"
                     >
                       View Certificate 📜
                     </button>
@@ -4619,13 +4617,13 @@ export default function App() {
 
                   {/* Unlocked / Enrolled Courses catalog list with Enrolled & Expiry Dates */}
                   <div>
-                    <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-2.5 flex items-center justify-between">
+                    <h4 className="text-[10px] font-black uppercase text-amber-400 tracking-wider mb-2.5 flex items-center justify-between">
                       <span>📚 My Activated Courses ({activeCourseIds.length})</span>
-                      <span className="text-purple-600 font-extrabold text-[9px] lowercase">active access</span>
+                      <span className="text-emerald-400 font-extrabold text-[9px] lowercase">active access</span>
                     </h4>
 
                     {activeCourseIds.length === 0 ? (
-                      <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200/60 text-center text-[11px] text-slate-400 font-semibold leading-relaxed">
+                      <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 text-center text-[11px] text-slate-400 font-semibold leading-relaxed">
                         🚫 No activated courses found on this device.<br />
                         Please log out and sign in using your Secret Activation Code.
                       </div>
@@ -4664,17 +4662,17 @@ export default function App() {
                             return (
                               <div 
                                 key={course.id}
-                                className="bg-slate-50 hover:bg-purple-50/50 p-3.5 rounded-2xl border border-slate-200/80 space-y-2.5 transition"
+                                className="bg-slate-900/80 hover:bg-slate-850 p-3.5 rounded-2xl border border-amber-500/20 space-y-2.5 transition"
                               >
                                 <div className="flex items-start justify-between gap-2">
                                   <div className="flex items-center gap-2.5 min-w-0">
-                                    <div className="w-9 h-9 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+                                    <div className="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-300 border border-amber-500/30 flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
                                       📖
                                     </div>
                                     <div className="min-w-0">
-                                      <h5 className="text-xs font-black text-slate-900 truncate">{course.title}</h5>
+                                      <h5 className="text-xs font-black text-white truncate">{course.title}</h5>
                                       {keyInfo?.code && (
-                                        <span className="text-[9px] font-mono font-bold text-slate-500 bg-slate-200/60 px-1.5 py-0.5 rounded">
+                                        <span className="text-[9px] font-mono font-bold text-amber-300/80 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">
                                           Code: {keyInfo.code}
                                         </span>
                                       )}
@@ -4695,7 +4693,7 @@ export default function App() {
                                         setShowProfileModal(false);
                                         setShowCertificateModal(true);
                                       }}
-                                      className="bg-amber-500/20 hover:bg-amber-500/30 text-amber-900 border border-amber-400/40 font-black text-[10px] uppercase tracking-wider px-2.5 py-1.5 rounded-xl transition cursor-pointer shrink-0 flex items-center gap-1"
+                                      className="bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-400/40 font-black text-[10px] uppercase tracking-wider px-2.5 py-1.5 rounded-xl transition cursor-pointer shrink-0 flex items-center gap-1"
                                       title="View Course Certificate"
                                     >
                                       📜 Certificate
@@ -4707,7 +4705,7 @@ export default function App() {
                                         setShowProfileModal(false);
                                         showToast(`Let's study "${course.title}"! 📖`, 'info');
                                       }}
-                                      className="bg-purple-700 hover:bg-purple-800 text-white font-extrabold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-xl transition cursor-pointer shadow-xs shrink-0 flex items-center gap-1"
+                                      className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-xl transition cursor-pointer shadow-xs shrink-0 flex items-center gap-1"
                                     >
                                       Watch →
                                     </button>
@@ -4715,38 +4713,38 @@ export default function App() {
                                 </div>
 
                                 {/* Enrolled & Expired Dates */}
-                                <div className="grid grid-cols-2 gap-2 text-[10px] font-semibold bg-white p-2 rounded-xl border border-slate-200/60">
+                                <div className="grid grid-cols-2 gap-2 text-[10px] font-semibold bg-slate-950/80 p-2 rounded-xl border border-slate-800">
                                   <div>
                                     <span className="text-[9px] font-bold text-slate-400 block uppercase tracking-wider">Enrolled Date</span>
-                                    <span className="font-extrabold text-slate-800">📅 {enrolledDateStr}</span>
+                                    <span className="font-extrabold text-slate-200">📅 {enrolledDateStr}</span>
                                   </div>
                                   <div>
                                     <span className="text-[9px] font-bold text-slate-400 block uppercase tracking-wider">Expired Date</span>
-                                    <span className="font-extrabold text-slate-800">🗓️ {expiredDateStr}</span>
+                                    <span className="font-extrabold text-slate-200">🗓️ {expiredDateStr}</span>
                                   </div>
                                 </div>
 
                                 {/* Days Remaining Banner */}
                                 <div className="flex items-center justify-between gap-2 pt-0.5">
                                   {daysLeft > 0 ? (
-                                    <div className="w-full bg-emerald-50 border border-emerald-200 text-emerald-800 px-3 py-1.5 rounded-xl text-[10px] font-extrabold flex items-center justify-between">
+                                    <div className="w-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 px-3 py-1.5 rounded-xl text-[10px] font-extrabold flex items-center justify-between">
                                       <span className="flex items-center gap-1.5">
-                                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                                         ⏳ बाँकी अवधि:
                                       </span>
-                                      <span className="text-emerald-900 font-black bg-emerald-100/80 px-2 py-0.5 rounded-lg">
+                                      <span className="text-emerald-200 font-black bg-emerald-900/60 px-2 py-0.5 rounded-lg border border-emerald-700/50">
                                         {daysLeft} दिन बाँकी ({daysLeft} Days Left)
                                       </span>
                                     </div>
                                   ) : daysLeft === 0 ? (
-                                    <div className="w-full bg-amber-50 border border-amber-200 text-amber-800 px-3 py-1.5 rounded-xl text-[10px] font-extrabold flex items-center justify-between">
+                                    <div className="w-full bg-amber-950/40 border border-amber-500/30 text-amber-300 px-3 py-1.5 rounded-xl text-[10px] font-extrabold flex items-center justify-between">
                                       <span>⚠️ Today is the last day!</span>
-                                      <span className="font-black bg-amber-100 px-2 py-0.5 rounded-lg">आज अन्तिम दिन</span>
+                                      <span className="font-black bg-amber-900/60 px-2 py-0.5 rounded-lg">आज अन्तिम दिन</span>
                                     </div>
                                   ) : (
-                                    <div className="w-full bg-rose-50 border border-rose-200 text-rose-800 px-3 py-1.5 rounded-xl text-[10px] font-extrabold flex items-center justify-between">
+                                    <div className="w-full bg-rose-950/40 border border-rose-500/30 text-rose-300 px-3 py-1.5 rounded-xl text-[10px] font-extrabold flex items-center justify-between">
                                       <span>❌ Access Expired</span>
-                                      <span className="font-black bg-rose-100 px-2 py-0.5 rounded-lg">म्याद सकियो</span>
+                                      <span className="font-black bg-rose-900/60 px-2 py-0.5 rounded-lg">म्याद सकियो</span>
                                     </div>
                                   )}
 
@@ -4754,7 +4752,7 @@ export default function App() {
                                     onClick={() => {
                                       handleReleaseCourseCode(course.id);
                                     }}
-                                    className="text-[9px] font-black uppercase text-rose-600 hover:text-rose-800 bg-rose-50 hover:bg-rose-100 border border-rose-200 px-2 py-1 rounded-lg transition cursor-pointer shrink-0"
+                                    className="text-[9px] font-black uppercase text-rose-400 hover:text-rose-300 bg-rose-950/50 hover:bg-rose-900/50 border border-rose-700/50 px-2 py-1 rounded-lg transition cursor-pointer shrink-0"
                                     title="Release key to use on another device"
                                   >
                                     Release 🔓
@@ -4767,16 +4765,14 @@ export default function App() {
                     )}
                   </div>
 
-
-
                   {/* Logout and metadata section */}
-                  <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-[11px]">
+                  <div className="flex items-center justify-between border-t border-slate-800 pt-4 text-[11px]">
                     <div className="text-slate-400 font-bold">
-                      Country: <span className="text-slate-700 font-black">Nepal 🇳🇵</span>
+                      Country: <span className="text-white font-black">Nepal 🇳🇵</span>
                     </div>
                     <button
                       onClick={handleStudentLogout}
-                      className="text-rose-600 hover:text-rose-800 font-black uppercase tracking-wider cursor-pointer"
+                      className="text-rose-400 hover:text-rose-300 font-black uppercase tracking-wider cursor-pointer"
                     >
                       🚪 Log Out
                     </button>
@@ -4786,7 +4782,7 @@ export default function App() {
 
               <button 
                 onClick={() => setShowProfileModal(false)}
-                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold py-3.5 px-4 rounded-xl text-sm transition mt-6 cursor-pointer"
+                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold py-3.5 px-4 rounded-xl text-sm transition mt-6 cursor-pointer border border-slate-800"
               >
                 Close Profile
               </button>
@@ -4814,57 +4810,57 @@ export default function App() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.25 }}
-              className="bg-white max-w-sm w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 text-center border border-slate-100 max-h-[90vh] overflow-y-auto"
+              className="bg-[#0f1015] max-w-sm w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 text-center border border-amber-500/30 max-h-[90vh] overflow-y-auto text-slate-200"
             >
-              <h3 className="text-lg font-black text-slate-900">
+              <h3 className="text-lg font-black text-white">
                 Scan to Pay (eSewa / Bank App)
               </h3>
               
-              <p className="text-xs font-semibold text-slate-500 mt-1">
+              <p className="text-xs font-semibold text-slate-400 mt-1">
                 {selectedCourse.title}
               </p>
 
-              <p className="text-3xl font-black text-purple-700 mt-2">
+              <p className="text-3xl font-black text-gradient-gold mt-2">
                 {selectedCourse.price}
               </p>
 
               {/* QR Canvas / Custom Image Container */}
-              <div className="my-5 p-4 bg-slate-50 border border-slate-200/80 rounded-2xl w-full shadow-inner text-center">
+              <div className="my-5 p-4 bg-slate-900 border border-amber-500/25 rounded-2xl w-full shadow-inner text-center">
                 {paymentConfig.qrImageUrl ? (
                   <div className="flex flex-col items-center">
                     <img 
                       src={paymentConfig.qrImageUrl} 
                       alt="Payment QR Code" 
-                      className="max-h-64 w-auto rounded-xl shadow-md border border-slate-200 object-contain mx-auto"
+                      className="max-h-64 w-auto rounded-xl shadow-md border border-slate-700 object-contain mx-auto"
                     />
                   </div>
                 ) : (
-                  <canvas ref={qrCanvasRef} className="mx-auto rounded-lg shadow-xs" />
+                  <canvas ref={qrCanvasRef} className="mx-auto rounded-lg shadow-xs bg-white p-2" />
                 )}
                 
                 {/* Account Details directly under QR */}
-                <div className="mt-4 pt-3 border-t border-slate-200 text-center">
-                  <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-purple-700 bg-purple-100/80 px-3 py-0.5 rounded-full border border-purple-200/80">
+                <div className="mt-4 pt-3 border-t border-slate-800 text-center">
+                  <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-amber-300 bg-amber-500/15 px-3 py-0.5 rounded-full border border-amber-500/30">
                     eSewa Official Account
                   </span>
-                  <h4 className="text-base font-black text-slate-900 mt-2 flex items-center justify-center gap-1.5">
+                  <h4 className="text-base font-black text-white mt-2 flex items-center justify-center gap-1.5">
                     👤 {paymentConfig.accountName || 'Ayush Chaurasiya'}
                   </h4>
-                  <p className="text-xs font-extrabold text-slate-700 mt-1 flex items-center justify-center gap-1">
-                    📱 eSewa ID: <span className="font-mono text-purple-900 bg-purple-100/90 px-2 py-0.5 rounded text-xs select-all font-bold">{paymentConfig.esewaId || '9763323268'}</span>
+                  <p className="text-xs font-extrabold text-slate-300 mt-1 flex items-center justify-center gap-1">
+                    📱 eSewa ID: <span className="font-mono text-amber-300 bg-slate-950 px-2 py-0.5 rounded text-xs select-all font-bold border border-slate-800">{paymentConfig.esewaId || '9763323268'}</span>
                   </p>
 
                   {paymentConfig.bankAccountNo && (
-                    <div className="mt-2.5 pt-2 border-t border-dashed border-slate-200 text-[11px] text-slate-600 text-left bg-white p-2 rounded-lg border">
-                      <p className="font-bold text-slate-800">🏦 {paymentConfig.bankName || 'Bank Transfer'}</p>
-                      <p className="font-mono font-bold text-purple-900">A/C: {paymentConfig.bankAccountNo}</p>
-                      {paymentConfig.bankBranch && <p className="text-[10px] text-slate-400">Branch: {paymentConfig.bankBranch}</p>}
+                    <div className="mt-2.5 pt-2 border-t border-dashed border-slate-800 text-[11px] text-slate-400 text-left bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+                      <p className="font-bold text-slate-200">🏦 {paymentConfig.bankName || 'Bank Transfer'}</p>
+                      <p className="font-mono font-bold text-amber-300">A/C: {paymentConfig.bankAccountNo}</p>
+                      {paymentConfig.bankBranch && <p className="text-[10px] text-slate-500">Branch: {paymentConfig.bankBranch}</p>}
                     </div>
                   )}
                 </div>
               </div>
 
-              <div className="bg-amber-50 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 font-bold leading-normal mb-6 text-left">
+              <div className="bg-amber-500/10 p-3.5 rounded-xl border border-amber-500/30 text-xs text-amber-200 font-bold leading-normal mb-6 text-left">
                 📌 <strong>भुक्तानी निर्देशन:</strong> {paymentConfig.paymentInstruction || `QR स्क्यान गरी वा eSewa ID ${paymentConfig.esewaId || '9763323268'} (${paymentConfig.accountName || 'Ayush Chaurasiya'}) मा रकम पठाएर स्क्रीनसट WhatsApp मा पठाउनुहोस्।`}
               </div>
 
@@ -4872,13 +4868,13 @@ export default function App() {
               <div className="flex gap-3">
                 <button 
                   onClick={handleConfirmPayment}
-                  className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-3.5 px-4 rounded-xl text-sm shadow-md transition cursor-pointer"
+                  className="flex-1 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black py-3.5 px-4 rounded-xl text-sm shadow-md transition cursor-pointer"
                 >
                   ✅ I Have Paid
                 </button>
                 <button 
                   onClick={() => setShowQrModal(false)}
-                  className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold py-3.5 px-4 rounded-xl text-sm transition cursor-pointer"
+                  className="flex-1 bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold py-3.5 px-4 rounded-xl text-sm transition cursor-pointer border border-slate-800"
                 >
                   Cancel
                 </button>
@@ -4906,23 +4902,23 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white max-w-md w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 border border-slate-100 text-slate-800"
+              className="bg-[#0f1015] max-w-md w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 border border-amber-500/30 text-slate-200"
             >
               <button 
                 onClick={() => setShowCodeInputModal(false)}
-                className="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition cursor-pointer"
+                className="absolute top-5 right-5 text-slate-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-slate-800"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="w-14 h-14 bg-purple-100 text-purple-700 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-inner border border-purple-200/50">
+              <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-inner border border-amber-500/30">
                 🔑
               </div>
 
-              <h3 className="text-xl font-extrabold text-slate-900 leading-tight text-center">
+              <h3 className="text-xl font-extrabold text-white leading-tight text-center">
                 Add New Course to Student ID
               </h3>
-              <p className="text-xs text-slate-500 mt-1.5 text-center font-semibold">
+              <p className="text-xs text-slate-400 mt-1.5 text-center font-medium">
                 तपाईंसँग भएको सेक्रेट कोड (CLIP-XXXXXX) यहाँ राखी आफ्नो यही एकाउन्टमा नयाँ कोर्स जोड्नुहोस्।
               </p>
 
@@ -4934,7 +4930,7 @@ export default function App() {
                 className="mt-6 space-y-4 text-left"
               >
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-wider text-slate-600 mb-2">
+                  <label className="block text-xs font-black uppercase tracking-wider text-amber-400 mb-2">
                     Secret Activation Code (सेक्रेट कोड) *
                   </label>
                   <input 
@@ -4944,18 +4940,18 @@ export default function App() {
                     value={activationCodeInput}
                     onChange={(e) => setActivationCodeInput(e.target.value)}
                     placeholder="CLIP-XXXXXX"
-                    className="w-full bg-slate-50 border border-slate-300 focus:border-purple-600 focus:bg-white rounded-2xl px-4 py-3.5 text-base font-mono font-black uppercase outline-hidden text-center tracking-widest text-slate-900 transition shadow-inner"
+                    className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 focus:bg-slate-950 rounded-2xl px-4 py-3.5 text-base font-mono font-black uppercase outline-hidden text-center tracking-widest text-white transition shadow-inner placeholder-slate-600"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isActivating || !activationCodeInput.trim()}
-                  className="w-full bg-gradient-to-r from-purple-700 via-indigo-700 to-purple-800 hover:from-purple-800 hover:to-indigo-900 disabled:opacity-50 text-white font-black py-4 rounded-2xl text-xs uppercase tracking-wider transition cursor-pointer shadow-lg shadow-purple-950/20 flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 disabled:opacity-50 text-slate-950 font-black py-4 rounded-2xl text-xs uppercase tracking-wider transition cursor-pointer shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2"
                 >
                   {isActivating ? (
                     <>
-                      <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                      <span className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span>
                       Linking Course to Student ID...
                     </>
                   ) : (
@@ -4964,10 +4960,10 @@ export default function App() {
                 </button>
               </form>
 
-              <div className="mt-5 pt-4 border-t border-slate-100 text-left">
-                <p className="text-[11px] text-slate-500 font-bold flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
-                  Linked to Student Profile: <span className="text-purple-700 font-extrabold">{currentUser?.displayName || authName || localStorage.getItem('clipzone_student_name') || 'Student Account'}</span>
+              <div className="mt-5 pt-4 border-t border-slate-800 text-left">
+                <p className="text-[11px] text-slate-400 font-bold flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  Linked to Student Profile: <span className="text-amber-300 font-extrabold">{currentUser?.displayName || authName || localStorage.getItem('clipzone_student_name') || 'Student Account'}</span>
                 </p>
               </div>
             </motion.div>
@@ -5201,23 +5197,23 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white max-w-lg w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto border border-slate-100 flex flex-col animate-in zoom-in-95 duration-200"
+              className="bg-[#0f1015] max-w-lg w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto border border-amber-500/30 text-slate-200 flex flex-col animate-in zoom-in-95 duration-200 shadow-amber-500/10"
             >
               <button 
                 onClick={() => {
                   setShowCourseFormModal(false);
                   setEditingCourse(null);
                 }}
-                className="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition cursor-pointer"
+                className="absolute top-5 right-5 text-slate-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-slate-800"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              <span className="inline-block bg-purple-100 text-purple-800 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 self-start">
+              <span className="inline-block bg-amber-500/15 text-amber-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 self-start border border-amber-500/30">
                 {editingCourse ? 'Edit Course' : 'Create New Course'}
               </span>
 
-              <h3 className="text-xl font-black text-slate-900 tracking-tight">
+              <h3 className="text-xl font-black text-white tracking-tight">
                 {editingCourse ? 'Update Course Details' : 'Add Dynamic Course'}
               </h3>
               <p className="text-xs text-slate-400 mt-1 font-medium">
@@ -5228,80 +5224,80 @@ export default function App() {
                 {/* Course ID/Slug (if creating new) */}
                 {!editingCourse && (
                   <div>
-                    <label className="block text-[10px] font-black uppercase text-slate-400 mb-1.5">Course Slug ID (Optional - Auto generated from Title)</label>
+                    <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Course Slug ID (Optional - Auto generated from Title)</label>
                     <input 
                       type="text"
                       value={formId}
                       onChange={(e) => setFormId(e.target.value)}
                       placeholder="e.g. youtube-blueprint"
-                      className="w-full bg-slate-50 border border-slate-200 focus:border-purple-500 rounded-xl px-4 py-2.5 text-xs transition outline-hidden font-mono text-slate-700"
+                      className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs transition outline-hidden font-mono text-slate-200 placeholder-slate-600"
                     />
                   </div>
                 )}
 
                 {/* Course Title */}
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-400 mb-1.5">Course Title *</label>
+                  <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Course Title *</label>
                   <input 
                     type="text"
                     required
                     value={formTitle}
                     onChange={(e) => setFormTitle(e.target.value)}
                     placeholder="e.g. Dhruv Rathee YouTube Blueprint Course"
-                    className="w-full bg-slate-50 border border-slate-200 focus:border-purple-500 rounded-xl px-4 py-2.5 text-xs font-semibold text-slate-800 transition outline-hidden"
+                    className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-slate-600"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   {/* Price Display Tag */}
                   <div>
-                    <label className="block text-[10px] font-black uppercase text-slate-400 mb-1.5">Price Display tag *</label>
+                    <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Price Display tag *</label>
                     <input 
                       type="text"
                       required
                       value={formPrice}
                       onChange={(e) => setFormPrice(e.target.value)}
                       placeholder="e.g. Rs. 549"
-                      className="w-full bg-slate-50 border border-slate-200 focus:border-purple-500 rounded-xl px-4 py-2.5 text-xs font-semibold text-slate-800 transition outline-hidden"
+                      className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-slate-600"
                     />
                   </div>
 
                   {/* Numerical Price Value */}
                   <div>
-                    <label className="block text-[10px] font-black uppercase text-slate-400 mb-1.5">Amount for QR Checkout *</label>
+                    <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Amount for QR Checkout *</label>
                     <input 
                       type="number"
                       required
                       value={formAmount}
                       onChange={(e) => setFormAmount(Number(e.target.value))}
                       placeholder="e.g. 549"
-                      className="w-full bg-slate-50 border border-slate-200 focus:border-purple-500 rounded-xl px-4 py-2.5 text-xs font-semibold text-slate-800 transition outline-hidden"
+                      className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-slate-600"
                     />
                   </div>
                 </div>
 
                 {/* WhatsApp Message */}
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-400 mb-1.5">WhatsApp Message Suffix</label>
+                  <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">WhatsApp Message Suffix</label>
                   <input 
                     type="text"
                     value={formMessage}
                     onChange={(e) => setFormMessage(e.target.value)}
                     placeholder="e.g. I want to buy Dhruv Rathee YouTube Blueprint course"
-                    className="w-full bg-slate-50 border border-slate-200 focus:border-purple-500 rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800 transition outline-hidden"
+                    className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-medium text-slate-200 transition outline-hidden placeholder-slate-600"
                   />
                 </div>
 
                 {/* Course Language / Medium */}
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-400 mb-1.5">Course Language / Medium (कोर्षको भाषा) *</label>
+                  <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Course Language / Medium (कोर्षको भाषा) *</label>
                   <input 
                     type="text"
                     required
                     value={formLanguage}
                     onChange={(e) => setFormLanguage(e.target.value)}
                     placeholder="e.g. Nepali, Hindi & Nepali, English"
-                    className="w-full bg-slate-50 border border-slate-200 focus:border-purple-500 rounded-xl px-4 py-2.5 text-xs font-semibold text-slate-800 transition outline-hidden"
+                    className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-slate-600"
                   />
                   <div className="mt-1.5 flex gap-1.5 flex-wrap">
                     {['Nepali', 'Hindi & Nepali', 'Nepali & English', 'Hindi', 'English'].map((langOption) => (
@@ -5311,8 +5307,8 @@ export default function App() {
                         onClick={() => setFormLanguage(langOption)}
                         className={`text-[9px] font-bold px-2.5 py-1 rounded-md transition cursor-pointer ${
                           formLanguage === langOption
-                            ? 'bg-purple-700 text-white shadow-2xs'
-                            : 'bg-slate-100 hover:bg-slate-200 text-slate-600'
+                            ? 'bg-amber-400 text-slate-950 font-black shadow-2xs'
+                            : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
                         }`}
                       >
                         {langOption}
@@ -5323,27 +5319,27 @@ export default function App() {
 
                 {/* Course Thumbnail Image URL */}
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-slate-400 mb-1.5">Thumbnail Image URL *</label>
+                  <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Thumbnail Image URL *</label>
                   <input 
                     type="text"
                     required
                     value={formImage}
                     onChange={(e) => setFormImage(e.target.value)}
                     placeholder="e.g. https://blogger.googleusercontent.com/..."
-                    className="w-full bg-slate-50 border border-slate-200 focus:border-purple-500 rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800 transition outline-hidden"
+                    className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-medium text-white transition outline-hidden placeholder-slate-600"
                   />
                   <div className="mt-1.5 flex gap-2 overflow-x-auto pb-1 scrollbar-none">
                     <button
                       type="button"
                       onClick={() => setFormImage('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXZL_14KcAVWtUkV6YOCtIePNyDndSmM7r8dFVVyp1QXLTKJzStC3O1pSK3-pwsFKhOE0RLyPfXYUo_S6ARYjLWBuRH0Ao5hipjntJKBptoXhsNU584o_EKJb-JfmGyzn57edya_hzH9RqwBvtQjwGaMIasclVW5BGKE0Uef6nDSgBiqr7diao-4seXWlX/s1600/12843.jpg')}
-                      className="bg-slate-100 hover:bg-slate-200 text-[9px] font-bold px-2 py-1 rounded-md shrink-0 transition cursor-pointer"
+                      className="bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[9px] font-bold px-2 py-1 rounded-md shrink-0 transition cursor-pointer"
                     >
                       Dhruv Rathee BG
                     </button>
                     <button
                       type="button"
                       onClick={() => setFormImage('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVG6Fh_bUev_FEchbwGJsmVz3s92FK-6lTlHj-sbYBguGhsYp8O3_J7c_SOfvnXCSWWHjLjqoeorMTcWQeac1CbhIaYtgfmHrYz44urYRSjlmrrNPoe9bMVCvcoTllNI4JaajsRwwMmuyvpUpaFs3r3UJs-4d6UuW0AmES38d4115LxC4Vsx76Wf6KW4v8/s1600/12844.png')}
-                      className="bg-slate-100 hover:bg-slate-200 text-[9px] font-bold px-2 py-1 rounded-md shrink-0 transition cursor-pointer"
+                      className="bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[9px] font-bold px-2 py-1 rounded-md shrink-0 transition cursor-pointer"
                     >
                       Logo Asset
                     </button>
@@ -5351,13 +5347,13 @@ export default function App() {
                 </div>
 
                 {/* Popular Badge Configuration */}
-                <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
-                  <label className="flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer select-none">
+                <div className="bg-slate-900/90 p-3 rounded-xl border border-amber-500/25">
+                  <label className="flex items-center gap-2 text-xs font-bold text-slate-200 cursor-pointer select-none">
                     <input 
                       type="checkbox"
                       checked={formIsPopular}
                       onChange={(e) => setFormIsPopular(e.target.checked)}
-                      className="rounded border-slate-300 text-purple-600 focus:ring-purple-500 w-4 h-4"
+                      className="rounded border-slate-700 text-amber-500 focus:ring-amber-400 w-4 h-4 bg-slate-950"
                     />
                     <span>Highlight as Popular Bestseller Banner</span>
                   </label>
@@ -5630,7 +5626,7 @@ export default function App() {
                 <div className="pt-4 flex gap-3">
                   <button
                     type="submit"
-                    className="flex-1 bg-purple-700 hover:bg-purple-800 text-white font-extrabold py-3.5 px-4 rounded-xl text-sm shadow-md transition cursor-pointer text-center"
+                    className="flex-1 bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black py-3.5 px-4 rounded-xl text-sm shadow-lg shadow-amber-500/20 transition cursor-pointer text-center active:scale-98"
                   >
                     {editingCourse ? '💾 Save Changes' : '🚀 Publish Course'}
                   </button>
@@ -5640,7 +5636,7 @@ export default function App() {
                       setShowCourseFormModal(false);
                       setEditingCourse(null);
                     }}
-                    className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3.5 px-4 rounded-xl text-sm transition cursor-pointer"
+                    className="flex-1 bg-slate-900 hover:bg-slate-850 text-slate-300 border border-slate-800 font-bold py-3.5 px-4 rounded-xl text-sm transition cursor-pointer"
                   >
                     Cancel
                   </button>
@@ -5657,7 +5653,7 @@ export default function App() {
           <button 
             id="floating-ai-agent-fab"
             onClick={() => setIsChatOpen(prev => !prev)}
-            className="w-16 h-16 bg-gradient-to-tr from-purple-700 to-indigo-800 hover:from-purple-800 hover:to-indigo-950 text-white rounded-full flex items-center justify-center shadow-xl hover:shadow-purple-700/20 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer relative"
+            className="w-16 h-16 bg-gradient-to-tr from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 rounded-full flex items-center justify-center shadow-2xl shadow-amber-500/30 ring-2 ring-amber-300/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer relative"
             aria-label="Toggle chat assistant"
           >
             {isChatOpen ? (
@@ -5961,12 +5957,12 @@ export default function App() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 40 }}
                 transition={{ type: 'spring', damping: 25, stiffness: 260 }}
-                className="w-full sm:w-[410px] h-[85vh] sm:h-[580px] max-h-[92vh] bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col pointer-events-auto"
+                className="w-full sm:w-[410px] h-[85vh] sm:h-[580px] max-h-[92vh] bg-[#0c0d12] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-amber-500/30 overflow-hidden flex flex-col pointer-events-auto shadow-amber-500/10"
               >
                 {/* Top Header Bar */}
-                <div className="bg-gradient-to-r from-purple-800 via-indigo-900 to-slate-900 text-white p-3.5 sm:p-4 flex items-center justify-between border-b border-purple-800/50 shrink-0">
+                <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-[#141208] text-white p-3.5 sm:p-4 flex items-center justify-between border-b border-amber-500/30 shrink-0">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center border border-white/10 relative overflow-hidden shrink-0">
+                    <div className="w-9 h-9 bg-amber-500/10 rounded-xl flex items-center justify-center border border-amber-500/30 relative overflow-hidden shrink-0">
                       {siteSettings.instituteLogoUrl ? (
                         <img 
                           src={siteSettings.instituteLogoUrl} 
@@ -5975,23 +5971,23 @@ export default function App() {
                           onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
                       ) : (
-                        <Bot className="w-5 h-5 text-amber-300" />
+                        <Bot className="w-5 h-5 text-amber-400" />
                       )}
-                      <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full ring-2 ring-purple-900 animate-pulse"></span>
+                      <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full ring-2 ring-slate-950 animate-pulse"></span>
                     </div>
                     <div>
                       <h4 className="font-extrabold text-xs md:text-sm tracking-tight text-white flex items-center gap-1.5">
                         {siteSettings.instituteName || 'AI Clipzone'} Assistant
-                        <span className="bg-amber-400/20 text-amber-300 text-[9px] px-1.5 py-0.2 rounded-full font-black border border-amber-400/30">PRO AI</span>
+                        <span className="bg-amber-400/20 text-amber-300 text-[9px] px-1.5 py-0.2 rounded-full font-black border border-amber-400/40">PRO AI</span>
                       </h4>
-                      <span className="text-[10px] text-purple-200 block font-medium">
+                      <span className="text-[10px] text-amber-200/70 block font-medium">
                         नेपालको १ नम्बर AI लर्निङ असिस्टेन्ट
                       </span>
                     </div>
                   </div>
 
                   {/* Header Action Tools */}
-                  <div className="flex items-center gap-1 text-purple-200">
+                  <div className="flex items-center gap-1 text-slate-300">
                     <button
                       onClick={() => speakBotResponse(chatMessages[chatMessages.length - 1]?.text || '')}
                       title={isSpeechActive ? "Stop Voice" : "Voice Reader"}
@@ -6003,7 +5999,7 @@ export default function App() {
                     <button
                       onClick={() => setShowPromptBuilder(!showPromptBuilder)}
                       title="AI Prompt Builder Tool"
-                      className={`p-1.5 rounded-lg transition cursor-pointer ${showPromptBuilder ? 'bg-purple-600 text-white' : 'hover:bg-white/10 hover:text-white'}`}
+                      className={`p-1.5 rounded-lg transition cursor-pointer ${showPromptBuilder ? 'bg-amber-400 text-slate-950 font-bold' : 'hover:bg-white/10 hover:text-white'}`}
                     >
                       <Wand2 className="w-4 h-4" />
                     </button>
@@ -6027,12 +6023,12 @@ export default function App() {
 
                 {/* Advanced Prompt Builder Mini Modal View */}
                 {showPromptBuilder && (
-                  <div className="bg-gradient-to-r from-purple-900 to-indigo-950 p-3 text-white border-b border-purple-700/50 shrink-0">
+                  <div className="bg-slate-950 p-3 text-white border-b border-amber-500/30 shrink-0">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-xs font-bold text-amber-300 flex items-center gap-1">
                         <Sparkles className="w-3.5 h-3.5" /> AI Master Prompt Builder
                       </span>
-                      <button onClick={() => setShowPromptBuilder(false)} className="text-purple-300 hover:text-white text-xs cursor-pointer">Close</button>
+                      <button onClick={() => setShowPromptBuilder(false)} className="text-slate-400 hover:text-white text-xs cursor-pointer">Close</button>
                     </div>
                     <div className="flex gap-1.5">
                       <input
@@ -6043,11 +6039,11 @@ export default function App() {
                           if (e.key === 'Enter') handleGeneratePromptTool(promptTopic);
                         }}
                         placeholder="विषय लेख्नुहोस् (उदा: Shorts Video, Avatar, Suno Song)..."
-                        className="grow bg-purple-950/80 border border-purple-500/40 rounded-xl px-3 py-1.5 text-xs text-white placeholder-purple-300 focus:outline-hidden"
+                        className="grow bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-white placeholder-slate-500 focus:border-amber-400 focus:outline-hidden"
                       />
                       <button
                         onClick={() => handleGeneratePromptTool(promptTopic)}
-                        className="bg-amber-400 hover:bg-amber-300 text-slate-950 px-3 py-1.5 rounded-xl font-black text-xs transition cursor-pointer shrink-0"
+                        className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 px-3 py-1.5 rounded-xl font-black text-xs transition cursor-pointer shrink-0 shadow-sm"
                       >
                         Generate ✨
                       </button>
@@ -6056,42 +6052,42 @@ export default function App() {
                 )}
 
                 {/* Category Filter Chips */}
-                <div className="bg-slate-100 p-2 border-b border-slate-200 flex items-center gap-1.5 overflow-x-auto text-[11px] font-bold text-slate-600 shrink-0 scrollbar-none">
+                <div className="bg-slate-950 p-2 border-b border-slate-800/80 flex items-center gap-1.5 overflow-x-auto text-[11px] font-bold text-slate-300 shrink-0 scrollbar-none">
                   <button
                     onClick={() => setActiveChatCategory('all')}
-                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'all' ? 'bg-purple-700 text-white shadow-xs' : 'bg-white hover:bg-slate-200 text-slate-700'}`}
+                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'all' ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black shadow-xs' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'}`}
                   >
                     🔥 FAQs
                   </button>
                   <button
                     onClick={() => setActiveChatCategory('activation')}
-                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'activation' ? 'bg-purple-700 text-white shadow-xs' : 'bg-white hover:bg-slate-200 text-slate-700'}`}
+                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'activation' ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black shadow-xs' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'}`}
                   >
                     🔑 Code & Key
                   </button>
                   <button
                     onClick={() => setActiveChatCategory('prompts')}
-                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'prompts' ? 'bg-purple-700 text-white shadow-xs' : 'bg-white hover:bg-slate-200 text-slate-700'}`}
+                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'prompts' ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black shadow-xs' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'}`}
                   >
                     🤖 AI Prompts
                   </button>
                   <button
                     onClick={() => setActiveChatCategory('payment')}
-                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'payment' ? 'bg-purple-700 text-white shadow-xs' : 'bg-white hover:bg-slate-200 text-slate-700'}`}
+                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'payment' ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black shadow-xs' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'}`}
                   >
                     💳 eSewa Payment
                   </button>
                 </div>
 
                 {/* Chat messages body */}
-                <div className="grow overflow-y-auto p-3.5 sm:p-4 space-y-3.5 bg-slate-50">
+                <div className="grow overflow-y-auto p-3.5 sm:p-4 space-y-3.5 bg-[#0a0b0e]">
                   {chatMessages.map((msg, idx) => (
                     <div 
                       key={idx}
                       className={`flex items-start gap-2 ${msg.sender === 'user' ? 'justify-end' : ''}`}
                     >
                       {msg.sender === 'bot' && (
-                        <div className="w-7 h-7 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 text-xs mt-0.5">
+                        <div className="w-7 h-7 rounded-lg bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center justify-center shrink-0 text-xs mt-0.5">
                           <Bot className="w-4 h-4" />
                         </div>
                       )}
@@ -6100,27 +6096,27 @@ export default function App() {
                         <div 
                           className={`p-3.5 rounded-2xl text-xs md:text-sm leading-relaxed ${
                             msg.sender === 'user' 
-                              ? 'bg-purple-700 text-white rounded-tr-none shadow-sm' 
-                              : 'bg-white text-slate-800 border border-slate-200 rounded-tl-none shadow-xs'
+                              ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-semibold rounded-tr-none shadow-md' 
+                              : 'bg-slate-900 text-slate-200 border border-amber-500/20 rounded-tl-none shadow-xs'
                           }`}
                           dangerouslySetInnerHTML={{ __html: msg.text.replace(/\n/g, '<br/>') }}
                         />
                         
                         {/* Action buttons under message */}
-                        <div className={`flex items-center gap-2 mt-1 text-[10px] text-slate-400 font-medium ${msg.sender === 'user' ? 'justify-end' : 'justify-between'}`}>
+                        <div className={`flex items-center gap-2 mt-1 text-[10px] text-slate-500 font-medium ${msg.sender === 'user' ? 'justify-end' : 'justify-between'}`}>
                           <span>{msg.timestamp}</span>
                           {msg.sender === 'bot' && (
                             <div className="flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition">
                               <button
                                 onClick={() => handleCopyChatMessage(msg.text)}
-                                className="hover:text-purple-600 flex items-center gap-0.5 cursor-pointer"
+                                className="hover:text-amber-400 text-slate-400 flex items-center gap-0.5 cursor-pointer"
                                 title="Copy text"
                               >
                                 <Copy className="w-3 h-3" /> Copy
                               </button>
                               <button
                                 onClick={() => speakBotResponse(msg.text)}
-                                className="hover:text-purple-600 flex items-center gap-0.5 cursor-pointer"
+                                className="hover:text-amber-400 text-slate-400 flex items-center gap-0.5 cursor-pointer"
                                 title="Listen"
                               >
                                 <Volume2 className="w-3 h-3" /> Listen
@@ -6131,7 +6127,7 @@ export default function App() {
                       </div>
 
                       {msg.sender === 'user' && (
-                        <div className="w-7 h-7 rounded-lg bg-purple-700 text-white flex items-center justify-center shrink-0 text-xs font-bold mt-0.5">
+                        <div className="w-7 h-7 rounded-lg bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 flex items-center justify-center shrink-0 text-xs font-bold mt-0.5 shadow-sm">
                           <User className="w-4 h-4" />
                         </div>
                       )}
@@ -6139,14 +6135,14 @@ export default function App() {
                   ))}
                   {isTyping && (
                     <div className="flex items-start gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 text-xs">
-                        <Bot className="w-4 h-4 text-purple-600 animate-pulse" />
+                      <div className="w-7 h-7 rounded-lg bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center justify-center shrink-0 text-xs">
+                        <Bot className="w-4 h-4 animate-pulse" />
                       </div>
                       <div className="max-w-[80%] flex flex-col">
-                        <div className="bg-white text-slate-800 border border-slate-100 p-3 rounded-2xl rounded-tl-none shadow-xs flex items-center gap-1.5">
-                          <span className="w-2 h-2 bg-purple-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                          <span className="w-2 h-2 bg-purple-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                          <span className="w-2 h-2 bg-purple-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                        <div className="bg-slate-900 text-slate-200 border border-amber-500/20 p-3 rounded-2xl rounded-tl-none shadow-xs flex items-center gap-1.5">
+                          <span className="w-2 h-2 bg-amber-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                          <span className="w-2 h-2 bg-amber-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                          <span className="w-2 h-2 bg-amber-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                         </div>
                       </div>
                     </div>
@@ -6155,13 +6151,13 @@ export default function App() {
                 </div>
 
                 {/* Bottom Quick reply chips & Input bar */}
-                <div className="p-3 bg-white border-t border-slate-200 shrink-0">
+                <div className="p-3 bg-[#0c0d12] border-t border-amber-500/20 shrink-0">
                   {/* Suggestions chips filtered by active category */}
                   <div className="flex flex-wrap gap-1.5 mb-2 max-h-20 overflow-y-auto">
                     {(activeChatCategory === 'all' || activeChatCategory === 'payment') && (
                       <button 
                         onClick={() => handleSendMessage('Price कति हो?')}
-                        className="bg-slate-50 hover:bg-purple-50 hover:text-purple-700 text-slate-600 text-[11px] font-bold py-1 px-2.5 rounded-full border border-slate-200 transition cursor-pointer"
+                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
                       >
                         Price कति हो? 🏷️
                       </button>
@@ -6169,7 +6165,7 @@ export default function App() {
                     {(activeChatCategory === 'all' || activeChatCategory === 'activation') && (
                       <button 
                         onClick={() => handleSendMessage('Activation Code कहाँ पाइन्छ?')}
-                        className="bg-slate-50 hover:bg-purple-50 hover:text-purple-700 text-slate-600 text-[11px] font-bold py-1 px-2.5 rounded-full border border-slate-200 transition cursor-pointer"
+                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
                       >
                         Activation Code? 🔑
                       </button>
@@ -6177,7 +6173,7 @@ export default function App() {
                     {(activeChatCategory === 'all' || activeChatCategory === 'activation') && (
                       <button 
                         onClick={() => handleSendMessage('Invalid key देखाए के गर्ने?')}
-                        className="bg-slate-50 hover:bg-purple-50 hover:text-purple-700 text-slate-600 text-[11px] font-bold py-1 px-2.5 rounded-full border border-slate-200 transition cursor-pointer"
+                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
                       >
                         Invalid Code Fix? 🚨
                       </button>
@@ -6185,7 +6181,7 @@ export default function App() {
                     {(activeChatCategory === 'all' || activeChatCategory === 'prompts') && (
                       <button 
                         onClick={() => handleSendMessage('Midjourney AI Prompt कसरी बनाउने?')}
-                        className="bg-slate-50 hover:bg-purple-50 hover:text-purple-700 text-slate-600 text-[11px] font-bold py-1 px-2.5 rounded-full border border-slate-200 transition cursor-pointer"
+                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
                       >
                         Midjourney Prompts 🎨
                       </button>
@@ -6193,7 +6189,7 @@ export default function App() {
                     {(activeChatCategory === 'all' || activeChatCategory === 'payment') && (
                       <button 
                         onClick={() => handleSendMessage('Payment कसरी गर्ने?')}
-                        className="bg-slate-50 hover:bg-purple-50 hover:text-purple-700 text-slate-600 text-[11px] font-bold py-1 px-2.5 rounded-full border border-slate-200 transition cursor-pointer"
+                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
                       >
                         eSewa QR Payment 💳
                       </button>
@@ -6201,14 +6197,14 @@ export default function App() {
                     {(activeChatCategory === 'all' || activeChatCategory === 'prompts') && (
                       <button 
                         onClick={() => handleSendMessage('Suno AI ले गीत कसरी बनाउने?')}
-                        className="bg-slate-50 hover:bg-purple-50 hover:text-purple-700 text-slate-600 text-[11px] font-bold py-1 px-2.5 rounded-full border border-slate-200 transition cursor-pointer"
+                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
                       >
                         Suno Music Creation 🎵
                       </button>
                     )}
                     <button 
                       onClick={() => handleSendMessage('Certificate कसरी Download गर्ने?')}
-                      className="bg-slate-50 hover:bg-purple-50 hover:text-purple-700 text-slate-600 text-[11px] font-bold py-1 px-2.5 rounded-full border border-slate-200 transition cursor-pointer"
+                      className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
                     >
                       Certificate Download 📜
                     </button>
@@ -6224,21 +6220,21 @@ export default function App() {
                         if (e.key === 'Enter') handleSendMessage();
                       }}
                       placeholder="तपाईंको प्रश्न वा विषय यहाँ लेख्नुहोस्..."
-                      className="grow bg-slate-50 border border-slate-200 focus:border-purple-500 focus:bg-white rounded-full px-4 py-2 text-xs md:text-sm transition outline-hidden font-medium"
+                      className="grow bg-slate-900 border border-slate-800 focus:border-amber-400 focus:bg-slate-950 text-white placeholder-slate-500 rounded-full px-4 py-2 text-xs md:text-sm transition outline-hidden font-medium"
                     />
                     <button 
                       onClick={() => handleSendMessage()}
-                      className="w-9 h-9 bg-purple-700 hover:bg-purple-800 text-white rounded-full flex items-center justify-center shrink-0 shadow-md hover:shadow-lg transition cursor-pointer"
+                      className="w-9 h-9 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 rounded-full flex items-center justify-center shrink-0 shadow-md transition cursor-pointer font-bold"
                     >
                       <Send className="w-4 h-4" />
                     </button>
                   </div>
 
                   {/* AI Clipzone Nepal Branding Badge anchored at the bottom of the widget */}
-                  <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-bold bg-slate-900 text-slate-300 px-3 py-1.5 rounded-xl">
+                  <div className="mt-2.5 pt-2 border-t border-slate-850 flex items-center justify-between text-[10px] text-slate-400 font-bold bg-slate-950 px-3 py-1.5 rounded-xl border border-amber-500/20">
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                      <span>{siteSettings.instituteName || 'AI Clipzone'} Assistant</span>
+                      <span className="text-slate-300">{siteSettings.instituteName || 'AI Clipzone'} Assistant</span>
                     </div>
                     <span className="text-amber-400 text-[9px] uppercase tracking-wider font-black">{siteSettings.instituteName || 'AI Clipzone Nepal'} 🇳🇵</span>
                   </div>

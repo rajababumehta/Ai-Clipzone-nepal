@@ -406,9 +406,9 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({
             {/* Copy Verification Link */}
             <button
               onClick={handleCopyLink}
-              className="bg-purple-900/80 hover:bg-purple-800 text-purple-200 text-xs font-bold px-3 py-2.5 rounded-xl border border-purple-700/50 transition flex items-center gap-1.5 cursor-pointer"
+              className="bg-slate-800 hover:bg-slate-750 text-amber-300 text-xs font-bold px-3 py-2.5 rounded-xl border border-amber-500/30 transition flex items-center gap-1.5 cursor-pointer"
             >
-              {copied ? <CheckCircle className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5" />}
+              {copied ? <CheckCircle className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5 text-amber-400" />}
               <span>{copied ? 'Copied Details!' : 'Share'}</span>
             </button>
 
