@@ -1,0 +1,398 @@
+import { Course, CoursePdf, Testimonial, FAQItem, PaymentQrConfig, SiteSettingsConfig } from './types';
+
+export const DEFAULT_PAYMENT_CONFIG: PaymentQrConfig = {
+  esewaId: "9763323268",
+  accountName: "Ayush Chaurasiya",
+  bankName: "Global IME / Nabil Bank",
+  bankAccountNo: "",
+  bankBranch: "",
+  whatsappNumber: "9763323268",
+  qrImageUrl: "",
+  paymentInstruction: "📌 भुक्तानी निर्देशन: QR स्क्यान गरी वा eSewa ID मा रकम पठाएर स्क्रीनसट WhatsApp मा पठाउनुहोस्।",
+};
+
+export const DEFAULT_SITE_SETTINGS: SiteSettingsConfig = {
+  siteTitle: "TOP AI COURSE NEPAL 🇳🇵",
+  siteTagline: "Nepal's #1 AI Video Editing & Learning Platform",
+  instituteName: "AI Clipzone",
+  instituteLogoUrl: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7aJwyICAKblH7QvXyJ2rlMp69h1WQKLqUZscgVpXPB5rtceSU6qTJ3toQOJO4ZLJbpJd0OSSAGDCz0ehv0E3lZIXFvGOwq2OE4hQ0lxkEYw5awj68gqPYi4KX5_OkIB0zKWRwKlp7RKX8WBO1Elw5iJ21XCWjp65lemWCZPCCiyYI8vnoLpZ0m-zLPBwl/s1074/IMG_20260817_134049_273.png",
+  noticeBannerText: "🎉 New AI Tools & YouTube Blueprint Masterclasses Live! 50% Early Bird Discount.",
+  showNoticeBanner: true,
+  supportEmail: "ai.clipzone.edu@gmail.com",
+  supportPhone: "9763323268",
+  certificateTitle: "CERTIFICATE",
+  certificateSubtitle: "OF ACHIEVEMENT",
+  certificateInstituteName: "AI CLIPZONE NEPAL",
+  certificateLogoUrl: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7aJwyICAKblH7QvXyJ2rlMp69h1WQKLqUZscgVpXPB5rtceSU6qTJ3toQOJO4ZLJbpJd0OSSAGDCz0ehv0E3lZIXFvGOwq2OE4hQ0lxkEYw5awj68gqPYi4KX5_OkIB0zKWRwKlp7RKX8WBO1Elw5iJ21XCWjp65lemWCZPCCiyYI8vnoLpZ0m-zLPBwl/s1074/IMG_20260817_134049_273.png",
+  certificateDescription: "an advanced training in 30+ AI Tools covering AI Video Creation, AI Image Generation, AI Music & Song Creation, Graphic Design, Website Development, Professional Presentations, and other AI-powered digital skills.",
+  certificateDirectorName: "Director",
+  certificateDirectorTitle: "Course Director",
+  certificateDirectorSignatureUrl: "",
+  certificateCeoName: "Founder/CEO (AI Clipzone)",
+  certificateCeoTitle: "Founder & CEO",
+  certificateCeoSignatureUrl: "",
+  certificateTheme: "gold",
+  certificateStampUrl: "",
+  certificateSealText: "AI CLIPZONE • OFFICIALLY VERIFIED •",
+  apkDownloadUrl: "",
+};
+
+export const COURSES: Course[] = [
+  {
+    id: "ai-masterclass",
+    title: "AI Master Class Course by AI Clipzone",
+    price: "Rs. 449",
+    amount: 449,
+    message: "I want to buy AI Master Class Course by AI Clipzone",
+    learn: [
+      "30+ AI Tools Mastery",
+      "AI Video & Image Generation",
+      "AI Songs Creation",
+      "Presentation & Website Design"
+    ],
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiI6q11UwbnIp-U7yN_NZi3p9W2QuqU4gNTcwUrQHpQ9BjvwRdFd0wRnZke-p9TJfULwJmqx07Qq4tEHuehoBh6ea_Yhfbx9sl4XGKqke1HA43rkqRVYR37fsI5DXmCff4LZZYXUVawHNugWiFNXXyG8J0Wv5uUM5xxcsSv-pOnYX9v37fjy_qEv5p5Zq8l/w400-h221/2236.png",
+    isPopular: true,
+    popularText: "🔥 MOST POPULAR - BEST SELLER",
+    language: "Hindi & Nepali",
+    videos: [
+      // Chapter 1
+      { chapterTitle: "Chapter 1: AI Foundations & Prompt Engineering", title: "1.1 Introduction to Generative AI Models & Prompt Writing", duration: "12:15", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 1: AI Foundations & Prompt Engineering", title: "1.2 Advanced Master Prompting Blueprint for ChatGPT & Gemini", duration: "18:40", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 1: AI Foundations & Prompt Engineering", title: "1.3 Researching & Writing Reports with Perplexity & Claude", duration: "15:20", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 1: AI Foundations & Prompt Engineering", title: "1.4 Automating Daily Tasks & Workflow Productivity", duration: "14:10", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+
+      // Chapter 2
+      { chapterTitle: "Chapter 2: AI Image & Character Generation", title: "2.1 Midjourney v6 & DALL-E 3 Photorealistic Image Design", duration: "22:15", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 2: AI Image & Character Generation", title: "2.2 Leonardo AI & Stable Diffusion Style Controls", duration: "19:40", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 2: AI Image & Character Generation", title: "2.3 Consistent AI Characters for Branding & Storytelling", duration: "17:50", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 2: AI Image & Character Generation", title: "2.4 Upscaling, Inpainting & Professional Graphic Assets", duration: "16:30", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+
+      // Chapter 3
+      { chapterTitle: "Chapter 3: AI Video Making & Animation", title: "3.1 Runway Gen-2 & Pika Labs Cinematic Animation", duration: "25:10", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 3: AI Video Making & Animation", title: "3.2 HeyGen AI Avatars & Talking Head Explainer Videos", duration: "18:45", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 3: AI Video Making & Animation", title: "3.3 Luma Dream Machine & Sora-Style Video Clips", duration: "21:30", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 3: AI Video Making & Animation", title: "3.4 AI Video Editing, Auto-CapCut Transitions & FX", duration: "20:15", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+
+      // Chapter 4
+      { chapterTitle: "Chapter 4: AI Voice & Song Creation", title: "4.1 ElevenLabs Voice Cloning & Multilingual Dubbing", duration: "17:25", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 4: AI Voice & Song Creation", title: "4.2 Suno AI v4 Music & Full Song Production", duration: "24:10", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 4: AI Voice & Song Creation", title: "4.3 Audio Mastering, Stems Isolation & Licensing", duration: "16:40", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" }
+    ],
+    pdfs: [
+      {
+        chapterTitle: "Chapter 1: AI Foundations & Prompt Engineering",
+        title: "AI Prompt Engineering Master Blueprint & Cheatsheet",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "18 Pages • 3.2 MB"
+      },
+      {
+        chapterTitle: "Chapter 2: AI Image & Character Generation",
+        title: "Midjourney & Leonardo AI 100+ Photorealistic Prompts Library",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "24 Pages • 5.1 MB"
+      },
+      {
+        chapterTitle: "Chapter 3: AI Video Making & Animation",
+        title: "Runway Gen-2 & HeyGen Video Production Workflow Guide",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "14 Pages • 2.8 MB"
+      },
+      {
+        chapterTitle: "Chapter 4: AI Voice & Song Creation",
+        title: "Suno AI Music Generation & Songwriting Prompt Guide",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "12 Pages • 2.0 MB"
+      }
+    ]
+  },
+  {
+    id: "youtube-blueprint",
+    title: "YouTube Blueprint Course by AI Clipzone",
+    price: "Rs. 549",
+    amount: 549,
+    message: "I want to buy YouTube Blueprint Course by AI Clipzone",
+    learn: [
+      "Channel setup र niche छनोट",
+      "💡 Video idea खोज्ने तरिका",
+      "✍️ Script writing र storytelling",
+      "🎥 Shooting र presentation",
+      "✂️ Editing skills",
+      "🖼️ Thumbnail र title बनाउने",
+      "📈 YouTube growth strategy",
+      "💰 Monetization र earning methods",
+      "🤖 AI tools प्रयोग गरेर content बनाउने तरिका"
+    ],
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXZL_14KcAVWtUkV6YOCtIePNyDndSmM7r8dFVVyp1QXLTKJzStC3O1pSK3-pwsFKhOE0RLyPfXYUo_S6ARYjLWBuRH0Ao5hipjntJKBptoXhsNU584o_EKJb-JfmGyzn57edya_hzH9RqwBvtQjwGaMIasclVW5BGKE0Uef6nDSgBiqr7diao-4seXWlX/s1600/12843.jpg",
+    language: "Hindi & Nepali",
+    videos: [
+      // Chapter 1 (4-5 lectures)
+      { chapterTitle: "Chapter 1: Channel Setup & Niche Selection", title: "Lesson 1.1: Finding Your Micro-Niche & Target Audience", duration: "14:15", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 1: Channel Setup & Niche Selection", title: "Lesson 1.2: YouTube Channel Settings, Branding & Handle Setup", duration: "11:30", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 1: Channel Setup & Niche Selection", title: "Lesson 1.3: Designing Channel Logo, Banner & Layout", duration: "15:00", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 1: Channel Setup & Niche Selection", title: "Lesson 1.4: Competitive Research & Channel Positioning", duration: "12:45", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+
+      // Chapter 2 (4-5 lectures)
+      { chapterTitle: "Chapter 2: Video Ideas & Research Strategy", title: "Lesson 2.1: Pro Creator Secret Topic Selection Framework", duration: "18:20", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 2: Video Ideas & Research Strategy", title: "Lesson 2.2: Deep Researching News, History & Trending Topics", duration: "22:15", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 2: Video Ideas & Research Strategy", title: "Lesson 2.3: Fact Checking, Data Sources & Case Studies", duration: "16:40", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 2: Video Ideas & Research Strategy", title: "Lesson 2.4: Organizing Notes, Mindmaps & Research Outlines", duration: "13:10", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+
+      // Chapter 3 (4-5 lectures)
+      { chapterTitle: "Chapter 3: Script Writing & Storytelling Secrets", title: "Lesson 3.1: The 3-Act Hook & High Retention Script Blueprint", duration: "24:10", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 3: Script Writing & Storytelling Secrets", title: "Lesson 3.2: Writing Engaging Introductions & Openers", duration: "17:45", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 3: Script Writing & Storytelling Secrets", title: "Lesson 3.3: Storytelling Techniques & Pacing Control", duration: "19:30", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 3: Script Writing & Storytelling Secrets", title: "Lesson 3.4: Call To Actions (CTA) & Outro Retention Hacks", duration: "14:20", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+
+      // Chapter 4 (4-5 lectures)
+      { chapterTitle: "Chapter 4: Shooting, Camera Presence & Audio", title: "Lesson 4.1: Budget Camera, Smartphone & Lighting Setup", duration: "21:00", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 4: Shooting, Camera Presence & Audio", title: "Lesson 4.2: Studio Audio Quality: Mic Setup & Acoustics", duration: "15:50", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 4: Shooting, Camera Presence & Audio", title: "Lesson 4.3: On-Camera Confidence, Teleprompter & Eye Contact", duration: "18:15", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 4: Shooting, Camera Presence & Audio", title: "Lesson 4.4: B-Roll Shooting Techniques & Green Screen", duration: "16:30", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+
+      // Chapter 5 (4-5 lectures)
+      { chapterTitle: "Chapter 5: Advanced Video Editing & Visual FX", title: "Lesson 5.1: Premiere Pro & CapCut Setup for Educational Videos", duration: "28:40", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 5: Advanced Video Editing & Visual FX", title: "Lesson 5.2: Adding Maps, Newspaper Clips & Documentary Effects", duration: "32:15", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 5: Advanced Video Editing & Visual FX", title: "Lesson 5.3: Motion Graphics, Kinetic Text & Sound FX", duration: "25:50", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 5: Advanced Video Editing & Visual FX", title: "Lesson 5.4: Background Music Selection & Audio Ducking", duration: "18:20", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 5: Advanced Video Editing & Visual FX", title: "Lesson 5.5: Color Grading & Final High-Quality Export", duration: "16:45", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+
+      // Chapter 6 (4-5 lectures)
+      { chapterTitle: "Chapter 6: High CTR Thumbnail & Viral Title Formula", title: "Lesson 6.1: Psychology of High Click-Through-Rate (CTR) Thumbnails", duration: "20:30", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 6: High CTR Thumbnail & Viral Title Formula", title: "Lesson 6.2: Photoshop & Canva Thumbnail Masterclass", duration: "26:15", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 6: High CTR Thumbnail & Viral Title Formula", title: "Lesson 6.3: Crafting Curiosity-Driven Viral Titles", duration: "15:40", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 6: High CTR Thumbnail & Viral Title Formula", title: "Lesson 6.4: A/B Testing Titles & Thumbnails for Max Views", duration: "14:10", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+
+      // Chapter 7 (4-5 lectures)
+      { chapterTitle: "Chapter 7: YouTube Algorithm, Growth & Monetization", title: "Lesson 7.1: YouTube Algorithm Demystified: Watch Time & Session Time", duration: "22:50", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 7: YouTube Algorithm, Growth & Monetization", title: "Lesson 7.2: Uploading Protocol: Tags, End-Screens, Cards & SEO", duration: "17:35", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 7: YouTube Algorithm, Growth & Monetization", title: "Lesson 7.3: Multiple Income Streams: Sponsorships, Affiliates & Merch", duration: "25:10", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" },
+      { chapterTitle: "Chapter 7: YouTube Algorithm, Growth & Monetization", title: "Lesson 7.4: Scaling to 100K+ Subscribers & Building a Team", duration: "30:00", videoUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview" }
+    ],
+    pdfs: [
+      {
+        chapterTitle: "Chapter 1: Channel Setup & Niche Selection",
+        title: "YouTube High-CPM Niche Selection & Competitor Audit Sheet",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "16 Pages • 2.6 MB"
+      },
+      {
+        chapterTitle: "Chapter 2: Video Ideas & Research Strategy",
+        title: "Deep Research Protocol & Document Fact-Checking Guidebook",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "22 Pages • 4.1 MB"
+      },
+      {
+        chapterTitle: "Chapter 3: Script Writing & Storytelling Secrets",
+        title: "3-Act Hook Script Template & Viral Storytelling Structure",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "28 Pages • 4.8 MB"
+      },
+      {
+        chapterTitle: "Chapter 6: High CTR Thumbnail & Viral Title Formula",
+        title: "Thumbnail Color Psychology & 50+ High CTR Title Formulas",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "20 Pages • 3.5 MB"
+      }
+    ]
+  },
+  {
+    id: "ai-video-image-song",
+    title: "AI Video, Image & Song Creation",
+    price: "Rs. 350",
+    amount: 350,
+    message: "I want to buy AI Video Image Song Course",
+    learn: [
+      "AI Video Creation",
+      "Professional Image Generation",
+      "AI Song Making",
+      "Editing Techniques"
+    ],
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiamlf7uMKucGgjA_KFqVtclRDjBq0Y9jA6vvf_xKLmgkfiWVfvRdnnRWYHQnpH8xGzHE_sdfzhThAHtR9YLfNqqTDDoH5aJdYWaZAzD7VFWatJueGo7AShTCKUUOc1jKppsgclGgyifi2nXqmMNDR_1oyzfiJsTzJ60V6r-UscNlCFxibxx0DrIUT-7xHc/s320/2237.png",
+    language: "Nepali",
+    videos: [
+      { chapterTitle: "Chapter 1: AI Video Tutorials", title: "1.1 Nepali AI Video Generation Tutorial - Step by step", duration: "15:40", videoUrl: "https://www.youtube.com/embed/W_P1V4A38Xo" },
+      { chapterTitle: "Chapter 1: AI Video Tutorials", title: "1.2 Lip-sync & Avatar Talking Videos", duration: "14:20", videoUrl: "https://www.youtube.com/embed/W_P1V4A38Xo" },
+      { chapterTitle: "Chapter 2: Professional AI Image Design", title: "2.1 Midjourney & Leonardo Nepali Prompting Guide", duration: "16:30", videoUrl: "https://www.youtube.com/embed/W_P1V4A38Xo" },
+      { chapterTitle: "Chapter 3: AI Song & Beat Making", title: "3.1 Suno AI Nepali Lyrics & Music Generation", duration: "20:10", videoUrl: "https://www.youtube.com/embed/D3_qXvV6O_g" }
+    ],
+    pdfs: [
+      {
+        chapterTitle: "Chapter 1: AI Video Tutorials",
+        title: "Nepali AI Video Creation Step-by-step Notes & Prompts",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "10 Pages • 1.9 MB"
+      },
+      {
+        chapterTitle: "Chapter 2: Professional AI Image Design",
+        title: "Nepali Midjourney & Leonardo Prompting Handbook",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "15 Pages • 2.4 MB"
+      }
+    ]
+  },
+  {
+    id: "ai-song-creation",
+    title: "AI Song Creation Course",
+    price: "Rs. 299",
+    amount: 299,
+    message: "I want to buy AI Song Creation Course",
+    learn: [
+      "AI Song Generation",
+      "Lyrics + Music Creation",
+      "Voice Cloning",
+      "Trending Song Styles"
+    ],
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYjOG4lDyf5xe2U0X4FfB9tthigSJGm1DldgU9qU2CDbnWSrtNX2zX0GyiPKwGy0I-ostrdq0O02Okm1m90M6aFTH6T7TLfNIpRHQtpwBLY0gKXHdH4dPJoV3n-IReclxD56h8Tuuvyrb73XpaTfjEcw6s7JvZkRJDFxAp_kjAf3EUDAMCaWaBHgUKdcYD/s320/2241.jpg",
+    language: "Nepali",
+    videos: [
+      { chapterTitle: "Chapter 1: Lyrics & Track Composition", title: "1.1 Suno AI v3 & v4 - Write Lyrics & Generate Music Tracks", duration: "20:10", videoUrl: "https://www.youtube.com/embed/D3_qXvV6O_g" },
+      { chapterTitle: "Chapter 1: Lyrics & Track Composition", title: "1.2 Udio AI Music Styles & Nepali Beat Arrangements", duration: "18:30", videoUrl: "https://www.youtube.com/embed/D3_qXvV6O_g" },
+      { chapterTitle: "Chapter 2: Voice Cloning & Audio Production", title: "2.1 ElevenLabs Custom Voice Training & Dubbing", duration: "22:15", videoUrl: "https://www.youtube.com/embed/D3_qXvV6O_g" }
+    ],
+    pdfs: [
+      {
+        chapterTitle: "Chapter 1: Lyrics & Track Composition",
+        title: "Suno AI Nepali Lyrics Writing & Rhyme Scheme Manual",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "12 Pages • 2.1 MB"
+      }
+    ]
+  },
+  {
+    id: "ai-presentation",
+    title: "AI Presentation Making Course",
+    price: "Rs. 199",
+    amount: 199,
+    message: "I want to buy AI Presentation Making Course",
+    learn: [
+      "Stunning AI Slides",
+      "Automatic Design",
+      "Animated Presentations",
+      "Fast Creation Techniques"
+    ],
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQkRMqywnYfxP8pjE04fdw157KvkRbC2yr4pHdnuVgWrGc3-yT5vmUFhLYyJXXIU3XrXS5mAyLxba3MEfAMb5Z4soHFa3hr69_4dYDU3qlJwIEIX1ImF7a5BeUOTYWM4Rbfj5-6Sz-H-8IMFe0-ErEH1KFqtJ1qJG8LnOqg-mm1mb1LQyD696l7iYl_2oi/s320/2239.jpg",
+    language: "Nepali & Hindi",
+    videos: [
+      { chapterTitle: "Chapter 1: AI Slide Creation & Automation", title: "1.1 Gamma App & Tome AI: Create stunning slides in 1 minute", duration: "12:40", videoUrl: "https://www.youtube.com/embed/V6_VpC6Q26o" },
+      { chapterTitle: "Chapter 1: AI Slide Creation & Automation", title: "1.2 ChatGPT to PowerPoint Slide Converter & Layouts", duration: "15:20", videoUrl: "https://www.youtube.com/embed/V6_VpC6Q26o" }
+    ],
+    pdfs: [
+      {
+        chapterTitle: "Chapter 1: AI Slide Creation & Automation",
+        title: "Gamma AI & PowerPoint Quick Slide Formatting Cheatsheet",
+        pdfUrl: "https://drive.google.com/file/d/1WW0o2qYql7EvBurHOhUNxsvw9_0qjnm7/preview",
+        fileSize: "8 Pages • 1.5 MB"
+      }
+    ]
+  }
+];
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    name: "Anamol Sharma",
+    location: "Kathmandu",
+    course: "AI Master Class",
+    text: "30+ AI tools एकै कोर्समा सिक्न पाउँदा धेरै फाइदा भयो। Dhruv Rathee style presentation ले मेरो काम अझ professional बनायो।",
+    avatar: "🧔",
+    rating: 5
+  },
+  {
+    name: "Harsh Sapkota",
+    location: "Pokhara",
+    course: "AI Video + Image",
+    text: "यो price मा यति राम्रो content पाउँदा अचम्म लाग्यो। मेरो YouTube channel को growth 3 महिनामा दोब्बर भयो।",
+    avatar: "👨‍💼",
+    rating: 5
+  },
+  {
+    name: "Saroj Maharjan",
+    location: "Lalitpur",
+    course: "AI Song Creation",
+    text: "Voice cloning र AI song बनाउने तरिका सिकेर म आहाई song release गर्दैछु। Lifetime access को सबैभन्दा राम्रो फाइदा।",
+    avatar: "🎤",
+    rating: 5
+  },
+  {
+    name: "Priya Shrestha",
+    location: "Biratnagar",
+    course: "AI Presentation",
+    text: "Office presentation हरू अब 10 मिनेटमै तयार हुन्छन्। Boss ले पनि praise गर्नुभयो। धन्यवाद Clipzone!",
+    avatar: "👩‍💼",
+    rating: 5
+  },
+  {
+    name: "Aashish Khadka",
+    location: "Pokhara",
+    course: "AI Master Class",
+    text: "Midjourney, Runway, Leonardo जस्ता tools को राम्रो training पाएँ। Beginner बाट अब confident AI user बनेको छु।",
+    avatar: "📸",
+    rating: 5
+  },
+  {
+    name: "Roshan Thapa",
+    location: "Chitwan",
+    course: "AI Video Creation",
+    text: "Talking avatar video बनाउन सिकेपछि मेरो business को promo video हरू धेरै राम्रो बन्छ। Highly recommended!",
+    avatar: "🎥",
+    rating: 5
+  },
+  {
+    name: "Srijana Karki",
+    location: "Kathmandu",
+    course: "AI Image + Song",
+    text: "महिलाको लागि पनि सजिलै बुझिने भाषामा course बनाइएको छ। AI ले मेरो creativity लाई नयाँ उडान दियो।",
+    avatar: "🌸",
+    rating: 5
+  },
+  {
+    name: "Bikash Gurung",
+    location: "Dharan",
+    course: "AI Master Class",
+    text: "Certificate सहित lifetime access पाएँ। अहिले आफैंले सिकाएर अरूलाई course बेच्दैछु। Best investment!",
+    avatar: "💰",
+    rating: 5
+  },
+  {
+    name: "Nisha Adhikari",
+    location: "Bhaktapur",
+    course: "AI Presentation",
+    text: "College project हरूमा AI presentation प्रयोग गरेर Topper बनेकी छु। Teachers ले पनि सोध्न थाल्नुभयो कसरी बनाएको भनेर।",
+    avatar: "🎓",
+    rating: 5
+  },
+  {
+    name: "Suman Rai",
+    location: "Pokhara",
+    course: "AI Video + Song",
+    text: "Payment गरेको २ मिनेटमै access पाएँ। Support team पनि अति responsive। Nepal मा यस्तो quality course पाउन गाह्रो छ।",
+    avatar: "🚀",
+    rating: 5
+  }
+];
+
+export const FAQS: FAQItem[] = [
+  {
+    question: "यो course recorded हो कि live class मा?",
+    answer: "यो course मा कुनै पनि Live Class छैन। सबै Recorded Videos बनाइएको छ। तपाईं आफ्नो सुविधा अनुसार जुनसुकै समयमा पनि हेर्न सक्नुहुन्छ (Offline / Online)."
+  },
+  {
+    question: "यो course मा lifetime access हुन्छ?",
+    answer: "हो, एक पटक किन्नुभयो भने Lifetime Access + सबै Future Updates नि:शुल्क पाउनुहुन्छ।"
+  },
+  {
+    question: "Payment कसरी गर्ने?",
+    answer: "WhatsApp वा QR स्क्यान गरी eSewa (ID: 9763323268 - Ayush Chaurasiya) वा Bank Transfer मार्फत सजिलै भुक्तानी गर्न सक्नुहुन्छ।"
+  },
+  {
+    question: "Refund & Return Policy (रिफन्ड तथा फिर्ता नीति) के छ?",
+    answer: "कोर्स खरिद गरेको २ दिन (४८ घण्टा) भित्र रिफन्डको लागि आवेदन दिन सकिन्छ। सम्झौता अनुसार ५०% क्यास (50% Cash Return) उपलब्ध गराइनेछ र उक्त रकम आवेदन दर्ता भएको ३0 दिन पछि फिर्ता (Return) हुनेछ।"
+  },
+  {
+    question: "Course भाषा के हो?",
+    answer: "सबै courses नेपाली र हिन्दी भाषामा छन् जसले गर्दा सजिलै बुझ्न सकिन्छ।"
+  },
+  {
+    question: "Certificate पाइन्छ कि पाइँदैन?",
+    answer: "हो, Course पूरा गरेपछि Professional Completion Certificate उपलब्ध गराइन्छ।"
+  }
+];
