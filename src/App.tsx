@@ -382,8 +382,6 @@ export default function App() {
 
         if (err && err.code === 'permission-denied') {
           handleFirestoreError(err, OperationType.GET, 'courses');
-        } else {
-          showToast('Loaded database from local cache.', 'info');
         }
       }
     };
@@ -420,7 +418,9 @@ export default function App() {
         }
       }
     }, (err) => {
-      console.warn('Realtime session reset listener error:', err);
+      if (err?.code !== 'unavailable') {
+        console.warn('Realtime session reset listener error:', err);
+      }
     });
 
     return () => unsubscribe();
@@ -436,7 +436,9 @@ export default function App() {
         localStorage.setItem('clipzone_payment_config', JSON.stringify(data));
       }
     }, (err) => {
-      console.warn('Payment QR config realtime listener error:', err);
+      if (err?.code !== 'unavailable') {
+        console.warn('Payment QR config realtime listener error:', err);
+      }
     });
 
     // 2. FAQs listener
@@ -449,7 +451,9 @@ export default function App() {
         }
       }
     }, (err) => {
-      console.warn('FAQs realtime listener error:', err);
+      if (err?.code !== 'unavailable') {
+        console.warn('FAQs realtime listener error:', err);
+      }
     });
 
     // 3. Overall Site Settings listener
@@ -460,7 +464,9 @@ export default function App() {
         localStorage.setItem('clipzone_site_settings', JSON.stringify(data));
       }
     }, (err) => {
-      console.warn('Site settings realtime listener error:', err);
+      if (err?.code !== 'unavailable') {
+        console.warn('Site settings realtime listener error:', err);
+      }
     });
 
     return () => {

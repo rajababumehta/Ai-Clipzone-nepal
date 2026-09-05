@@ -1,6 +1,11 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { initializeFirestore, setLogLevel } from 'firebase/firestore';
+import {
+  initializeFirestore,
+  setLogLevel,
+  persistentLocalCache,
+  persistentMultipleTabManager
+} from 'firebase/firestore';
 import firebaseConfig from '../firebase-applet-config.json';
 
 // Initialize Firebase
@@ -9,20 +14,37 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Auth
 export const auth = getAuth(app);
 
-// Suppress reachability warning logs in sandboxed iframe environment
+// Suppress transient reachability warning logs in sandboxed iframe environment
 try {
-  setLogLevel('error');
+  setLogLevel('silent');
 } catch (e) {
   // ignore
 }
 
-// Initialize Firestore with forced long polling to bypass WebSocket handshake latency in sandboxed webviews
-export const db = initializeFirestore(
-  app,
-  {
-    experimentalForceLongPolling: true,
-    ignoreUndefinedProperties: true,
-  },
-  firebaseConfig.firestoreDatabaseId
-);
+// Initialize Firestore with persistent cache and auto-detect long polling
+let dbInstance;
+try {
+  dbInstance = initializeFirestore(
+    app,
+    {
+      localCache: persistentLocalCache({
+        tabManager: persistentMultipleTabManager(),
+      }),
+      experimentalAutoDetectLongPolling: true,
+      ignoreUndefinedProperties: true,
+    },
+    firebaseConfig.firestoreDatabaseId
+  );
+} catch (e) {
+  dbInstance = initializeFirestore(
+    app,
+    {
+      experimentalAutoDetectLongPolling: true,
+      ignoreUndefinedProperties: true,
+    },
+    firebaseConfig.firestoreDatabaseId
+  );
+}
+
+export const db = dbInstance;
 
