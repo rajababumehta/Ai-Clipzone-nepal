@@ -2442,6 +2442,46 @@ export default function App() {
     showToast('Payment confirmation message sent on WhatsApp!', 'success');
   };
 
+  // Quick navigation helpers for Desktop & Mobile views
+  const handleOpenCertificate = () => {
+    const activeCourses = courses.filter(c => activeCourseIds.includes(c.id));
+    const targetCourse = activeCourses.length > 0 ? activeCourses[0] : courses[0];
+    const studentName = currentUser?.displayName || authName || localStorage.getItem('clipzone_student_name') || 'Student Learner';
+    const activeCode = targetCourse ? getCourseActivationCode(targetCourse.id) : 'CLIP-VERIFIED';
+    const title = targetCourse ? targetCourse.title.replace(/by Dhruv Rathee/gi, 'by AI Clipzone').replace(/Dhruv Rathee/gi, 'AI Clipzone') : 'AI Masterclass';
+    
+    setCertificateCourseTitle(title);
+    setCertificateStudentName(studentName);
+    setCertificateIssueDate('2083/01/14');
+    setCertificateCode(activeCode);
+    setShowCertificateModal(true);
+    showToast('Viewing Official Certificate 📜', 'info');
+  };
+
+  const scrollToFaqs = () => {
+    if (currentView !== 'home') {
+      setCurrentView('home');
+    }
+    setTimeout(() => {
+      const el = document.getElementById('faqs-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 120);
+  };
+
+  const scrollToContact = () => {
+    if (currentView !== 'home') {
+      setCurrentView('home');
+    }
+    setTimeout(() => {
+      const el = document.getElementById('contact-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 120);
+  };
+
   return (
     <div className={`min-h-screen bg-black text-zinc-100 font-sans selection:bg-blue-600 selection:text-white overflow-x-hidden flex flex-col justify-between relative ${isRunningInAppMode ? 'pb-20' : ''}`}>
       {/* Sleek Pure Black Ambient Lighting: Situational Blue, Green, Red Accents */}
@@ -2485,7 +2525,7 @@ export default function App() {
 
         {/* Top Floating Banner with sleek pitch-black styling matching the logo */}
         <div className="w-full bg-black text-white">
-          <div className="max-w-7xl mx-auto px-3 sm:px-4 py-1.5 sm:py-2 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 flex items-center justify-between">
             <div 
               onClick={() => {
                 if (isAdminActivated) {
@@ -2565,20 +2605,20 @@ export default function App() {
             </div>
 
             {/* Desktop Navigation Tabs */}
-            <div className="hidden sm:flex items-center gap-1.5 bg-zinc-950 p-1 rounded-full border border-zinc-800 shadow-inner">
+            <div className="hidden sm:flex items-center gap-1.5 bg-zinc-950 p-1.5 rounded-full border border-zinc-800 shadow-inner">
               <button
                 onClick={() => {
                   setCurrentView('home');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                   showToast('Welcome Home! 🏠', 'info');
                 }}
-                className={`px-4 py-1.5 rounded-full font-black text-xs transition-all duration-150 cursor-pointer flex items-center gap-1.5 ${
+                className={`px-3.5 py-1.5 rounded-full font-black text-xs transition-all duration-150 cursor-pointer flex items-center gap-1.5 ${
                   currentView === 'home'
                     ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 scale-105'
                     : 'text-zinc-300 hover:text-white hover:bg-zinc-800'
                 }`}
               >
-                🏠 Home Page
+                🏠 Home
               </button>
               <button
                 onClick={() => {
@@ -2586,17 +2626,46 @@ export default function App() {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                   showToast('Welcome to Your Classroom! 🎓', 'info');
                 }}
-                className={`px-4 py-1.5 rounded-full font-black text-xs transition-all duration-150 cursor-pointer flex items-center gap-1.5 relative ${
+                className={`px-3.5 py-1.5 rounded-full font-black text-xs transition-all duration-150 cursor-pointer flex items-center gap-1.5 relative ${
                   currentView === 'classroom'
                     ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 scale-105'
                     : 'text-zinc-300 hover:text-white hover:bg-zinc-800'
                 }`}
               >
-                🎓 Course Page
+                🎓 Classroom
                 {activeCourseIds.length > 0 && (
-                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping border border-black" />
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full animate-ping" />
                 )}
               </button>
+              <button
+                onClick={handleOpenCertificate}
+                className="hidden md:flex px-3.5 py-1.5 rounded-full font-bold text-xs text-zinc-300 hover:text-white hover:bg-zinc-800 transition-all duration-150 cursor-pointer items-center gap-1.5"
+                title="View Official Certificate"
+              >
+                📜 Certificate
+              </button>
+              <button
+                onClick={scrollToFaqs}
+                className="hidden lg:flex px-3.5 py-1.5 rounded-full font-bold text-xs text-zinc-300 hover:text-white hover:bg-zinc-800 transition-all duration-150 cursor-pointer items-center gap-1.5"
+                title="Frequently Asked Questions"
+              >
+                ❓ FAQs
+              </button>
+              <button
+                onClick={scrollToContact}
+                className="hidden lg:flex px-3.5 py-1.5 rounded-full font-bold text-xs text-zinc-300 hover:text-white hover:bg-zinc-800 transition-all duration-150 cursor-pointer items-center gap-1.5"
+                title="Contact and WhatsApp Support"
+              >
+                💬 Contact
+              </button>
+              {isAdminActivated && (
+                <button
+                  onClick={() => setShowAdminDashboard(true)}
+                  className="px-3 py-1.5 rounded-full font-black text-xs bg-blue-500/15 text-blue-400 border border-blue-500/30 hover:bg-blue-600 hover:text-white transition-all cursor-pointer flex items-center gap-1"
+                >
+                  👑 Admin
+                </button>
+              )}
             </div>
 
             <div className="flex items-center gap-2.5">
@@ -2732,7 +2801,7 @@ export default function App() {
       </div>
 
       {/* Main Container for Course List */}
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 pt-3 pb-12">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-16">
 
         {/* Course Catalog Title & Grid Section */}
         <section id="courses-section" className="pt-2 scroll-mt-24">
@@ -2889,7 +2958,7 @@ export default function App() {
 
                         {/* TAB 1: VIDEOS PLAYLIST */}
                         {classroomTab === 'videos' && (
-                          <div className="space-y-3 mt-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 mt-6">
                             {activePlaylist.length > 0 ? (
                               activePlaylist.map((video, idx) => {
                                 return (
@@ -2969,7 +3038,7 @@ export default function App() {
 
                             {/* PDF List */}
                             {(currentClassroomCourse.pdfs && currentClassroomCourse.pdfs.length > 0) ? (
-                              <div className="space-y-3">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                                 {currentClassroomCourse.pdfs.map((pdf, pidx) => (
                                   <motion.div
                                     key={pidx}
@@ -3129,7 +3198,7 @@ export default function App() {
             </div>
           )
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {(courses && courses.length > 0 ? courses : COURSES).map((course, index) => (
                   <motion.div
                     key={course.id}
@@ -3673,7 +3742,7 @@ export default function App() {
         </section>
 
         {/* FAQs Accordion */}
-        <section className="mt-20">
+        <section id="faqs-section" className="mt-20 scroll-mt-24">
           <div className="text-center mb-12">
             <span className="bg-blue-500/20 text-blue-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-blue-500/30">
               Common Questions
@@ -3729,7 +3798,7 @@ export default function App() {
         </section>
 
         {/* Contact Us Section */}
-        <section className="mt-20">
+        <section id="contact-section" className="mt-20 scroll-mt-24">
           <div className="bg-zinc-900/90 rounded-3xl p-6 md:p-12 shadow-2xl border border-zinc-800">
             <div className="text-center mb-10">
               <span className="bg-blue-500/20 text-blue-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-blue-500/30">
@@ -6262,9 +6331,9 @@ export default function App() {
           <div className="flex-1 relative flex flex-col justify-center bg-black h-full w-full">
             
             {/* Top Bar - Video Title Info, Full Screen Button & "X" Close Button */}
-            <div className="absolute top-0 inset-x-0 bg-gradient-to-b from-black/90 via-black/60 to-transparent p-4 flex items-center justify-between z-50">
+            <div className="absolute top-0 inset-x-0 bg-gradient-to-b from-black/95 via-black/70 to-transparent p-4 flex items-center justify-between z-50">
               <div className="text-left pr-4">
-                <span className="text-[10px] text-purple-400 font-black uppercase tracking-widest block font-sans">
+                <span className="text-[10px] text-blue-400 font-black uppercase tracking-widest block font-sans">
                   {fullscreenVideo.courseTitle}
                 </span>
                 <h4 className="text-white text-xs md:text-base font-black truncate max-w-[180px] sm:max-w-md md:max-w-xl font-sans mt-0.5">
@@ -6274,14 +6343,14 @@ export default function App() {
 
               {/* Top Controls: 🔄 Rotate Button, Full Screen Button & 'X' Close Button */}
               <div className="flex items-center gap-2">
-                {/* Manual Rotate 🔄 Button */}
+                {/* Manual Rotate 🔄 Button - visible on touch/mobile */}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     handleRotateVideo();
                   }}
-                  className="bg-purple-900/90 hover:bg-purple-600 text-white font-extrabold text-xs px-3 py-2 rounded-xl border border-purple-500/50 transition cursor-pointer flex items-center gap-1.5 font-sans shadow-lg active:scale-95"
-                  title="Rotate Video Screen 🔄 (भिडियो घुमाउनुहोस्)"
+                  className="sm:hidden bg-blue-950/80 hover:bg-blue-600 text-white font-extrabold text-xs px-3 py-2 rounded-xl border border-blue-500/40 transition cursor-pointer flex items-center gap-1.5 font-sans shadow-lg active:scale-95"
+                  title="Rotate Video Screen 🔄"
                 >
                   <RotateCw className="w-4 h-4" />
                   <span className="font-sans font-bold">Rotate 🔄</span>
@@ -6293,7 +6362,7 @@ export default function App() {
                     e.stopPropagation();
                     toggleFullscreenMode();
                   }}
-                  className="bg-slate-900/90 hover:bg-purple-600 text-white font-extrabold text-xs px-3 py-2 rounded-xl border border-slate-800 hover:border-purple-500/50 transition cursor-pointer flex items-center gap-1.5 font-sans shadow-lg active:scale-95"
+                  className="bg-zinc-900/90 hover:bg-blue-600 text-white font-extrabold text-xs px-3 py-2 rounded-xl border border-zinc-800 hover:border-blue-500/50 transition cursor-pointer flex items-center gap-1.5 font-sans shadow-lg active:scale-95"
                   title="Full Screen Mode"
                 >
                   <Maximize2 className="w-4 h-4" />
@@ -6334,7 +6403,7 @@ export default function App() {
                       e.stopPropagation();
                       handleRotateVideo();
                     }}
-                    className="bg-purple-900/90 hover:bg-purple-600 text-white p-3 rounded-full border border-purple-400/50 shadow-2xl transition cursor-pointer flex items-center justify-center active:scale-95"
+                    className="bg-blue-900/90 hover:bg-blue-600 text-white p-3 rounded-full border border-blue-400/50 shadow-2xl transition cursor-pointer flex items-center justify-center active:scale-95"
                     title="Rotate Video Screen 🔄"
                   >
                     <RotateCw className="w-6 h-6" />
@@ -6349,41 +6418,9 @@ export default function App() {
                 </div>
               )}
 
-              {/* Transparent Click-Prevention Overlays to block YouTube brandings, titles, share links and copy actions */}
-              <div 
-                className="absolute top-0 inset-x-0 h-36 md:h-48 bg-transparent z-45 cursor-default pointer-events-auto select-none" 
-                title="Protected Player Header" 
-                onContextMenu={(e) => { e.preventDefault(); e.stopPropagation(); }}
-                onClick={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onCopy={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onCut={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onDragStart={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onTouchStart={(e) => { e.stopPropagation(); e.preventDefault(); }}
-              />
-              <div 
-                className="absolute bottom-0 right-0 w-96 md:w-[500px] h-32 md:h-40 bg-transparent z-45 cursor-default pointer-events-auto select-none" 
-                title="Protected Player Branding Block" 
-                onContextMenu={(e) => { e.preventDefault(); e.stopPropagation(); }}
-                onClick={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onCopy={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onCut={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onDragStart={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onTouchStart={(e) => { e.stopPropagation(); e.preventDefault(); }}
-              />
-              <div 
-                className="absolute bottom-0 left-0 w-72 h-32 bg-transparent z-45 cursor-default pointer-events-auto select-none" 
-                title="Protected Player Channel Block" 
-                onContextMenu={(e) => { e.preventDefault(); e.stopPropagation(); }}
-                onClick={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onCopy={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onCut={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onDragStart={(e) => { e.stopPropagation(); e.preventDefault(); }}
-                onTouchStart={(e) => { e.stopPropagation(); e.preventDefault(); }}
-              />
-
               {/* Watermark in fullscreen */}
-              <div className="absolute bottom-6 left-6 z-40 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-purple-500/20 pointer-events-none select-none shadow-lg">
-                <p className="text-[9px] md:text-[10px] text-slate-300 font-mono font-bold flex items-center gap-2">
+              <div className="absolute bottom-6 left-6 z-40 bg-zinc-950/85 backdrop-blur-md px-3 py-1.5 rounded-xl border border-zinc-800 pointer-events-none select-none shadow-lg">
+                <p className="text-[9px] md:text-[10px] text-zinc-300 font-mono font-bold flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                   {currentUser?.email || localStorage.getItem('clipzone_student_name') || 'Student Learner'} • Verified Session
                 </p>
@@ -6400,17 +6437,20 @@ export default function App() {
             </div>
 
             {/* Audio watermark / security controls info */}
-            <div className="absolute bottom-4 right-4 text-[9px] text-slate-500 font-mono select-none pointer-events-none">
+            <div className="absolute bottom-4 right-4 text-[9px] text-zinc-500 font-mono select-none pointer-events-none">
               IP Security Monitored • {siteSettings.instituteName || 'AI Clipzone Nepal'}
             </div>
           </div>
 
           {/* Fullscreen Sidebar Playlist */}
-          <div className="w-full md:w-80 bg-slate-950 border-t md:border-t-0 md:border-l border-slate-900 flex flex-col p-4 text-left font-sans h-[250px] md:h-full">
-            <div className="pb-2 border-b border-slate-900 mb-3">
-              <h5 className="text-xs font-black uppercase tracking-wider text-purple-400">
+          <div className="w-full md:w-88 lg:w-96 bg-zinc-950 border-t md:border-t-0 md:border-l border-zinc-800 flex flex-col p-4 text-left font-sans h-[250px] md:h-full">
+            <div className="pb-2 border-b border-zinc-800 mb-3 flex items-center justify-between">
+              <h5 className="text-xs font-black uppercase tracking-wider text-blue-400">
                 📚 Full Playlist ({fullscreenVideo.playlist.length} Lectures)
               </h5>
+              <span className="text-[10px] text-zinc-500 font-mono">
+                {fullscreenVideo.idx + 1} / {fullscreenVideo.playlist.length}
+              </span>
             </div>
 
             <div className="flex-1 overflow-y-auto space-y-2 pr-1 scrollbar-thin">
@@ -6432,14 +6472,14 @@ export default function App() {
                     }}
                     className={`p-3 rounded-xl border transition cursor-pointer flex items-start gap-3 text-xs ${
                       isPlaying
-                        ? 'bg-purple-900/40 border-purple-500/50 text-purple-200 shadow-md shadow-purple-950/25'
-                        : 'bg-slate-900 hover:bg-slate-800 border-slate-950 text-slate-400 hover:text-white'
+                        ? 'bg-blue-950/60 border-blue-500/50 text-blue-200 shadow-md shadow-blue-950/25'
+                        : 'bg-zinc-900/80 hover:bg-zinc-850 border-zinc-800/70 text-zinc-400 hover:text-white'
                     }`}
                   >
                     <div className={`w-5 h-5 rounded-lg border flex items-center justify-center font-black shrink-0 text-[9px] ${
                       isPlaying
-                        ? 'bg-purple-600 text-white border-purple-400'
-                        : 'bg-slate-950 text-slate-400 border-slate-800'
+                        ? 'bg-blue-600 text-white border-blue-400'
+                        : 'bg-zinc-950 text-zinc-400 border-zinc-800'
                     }`}>
                       {idx + 1}
                     </div>
@@ -6447,7 +6487,7 @@ export default function App() {
                       <p className={`font-bold line-clamp-2 leading-tight ${isPlaying ? 'text-white' : ''}`}>
                         {video.title}
                       </p>
-                      <span className="text-[9px] text-slate-500 font-mono mt-1 block">⏳ {video.duration} mins</span>
+                      <span className="text-[9px] text-zinc-500 font-mono mt-1 block">⏳ {video.duration} mins</span>
                     </div>
                   </div>
                 );

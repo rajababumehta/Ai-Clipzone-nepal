@@ -572,7 +572,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96, y: 15 }}
         transition={{ duration: 0.2 }}
-        className="bg-black max-w-5xl w-full rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl relative z-10 max-h-[92vh] flex flex-col border border-zinc-800 overflow-hidden text-zinc-200"
+        className="bg-black max-w-6xl xl:max-w-7xl w-full rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl relative z-10 max-h-[92vh] flex flex-col border border-zinc-800 overflow-hidden text-zinc-200"
       >
         {/* Top Header Bar */}
         <div className="flex items-center justify-between pb-4 border-b border-zinc-800 shrink-0">

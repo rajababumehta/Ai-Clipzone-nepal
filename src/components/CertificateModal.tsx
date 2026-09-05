@@ -190,9 +190,12 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({
   useEffect(() => {
     const updateScale = () => {
       if (containerRef.current) {
-        const containerWidth = containerRef.current.clientWidth - 16;
+        const containerWidth = containerRef.current.clientWidth - 24;
         const targetWidth = 1000;
-        const newScale = Math.min(1, Math.max(0.28, containerWidth / targetWidth));
+        const availableHeight = window.innerHeight - 150;
+        const scaleW = containerWidth / targetWidth;
+        const scaleH = availableHeight > 0 ? availableHeight / 707 : 1;
+        const newScale = Math.min(1, Math.max(0.3, Math.min(scaleW, scaleH)));
         setScale(newScale);
       }
     };
@@ -349,7 +352,7 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({
         `}</style>
 
         {/* Top Floating Bar Controls */}
-        <div className="w-full max-w-4xl bg-slate-900/90 border border-slate-800 rounded-2xl p-2.5 sm:p-3 mb-2 sm:mb-4 flex flex-wrap items-center justify-between gap-2.5 text-white shadow-xl z-20 print:hidden shrink-0">
+        <div className="w-full max-w-5xl bg-zinc-950 border border-zinc-800 rounded-2xl p-2.5 sm:p-3 mb-2 sm:mb-4 flex flex-wrap items-center justify-between gap-2.5 text-white shadow-xl z-20 print:hidden shrink-0">
           <div className="flex items-center gap-2">
             <Award className="w-5 h-5 text-blue-400 shrink-0 animate-pulse" />
             <div>
