@@ -154,7 +154,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
   const [certificateCeoName, setCertificateCeoName] = useState(siteSettings.certificateCeoName || 'Founder/CEO (AI Clipzone)');
   const [certificateCeoTitle, setCertificateCeoTitle] = useState(siteSettings.certificateCeoTitle || 'Founder & CEO');
   const [certificateCeoSignatureUrl, setCertificateCeoSignatureUrl] = useState(siteSettings.certificateCeoSignatureUrl || '');
-  const [certificateTheme, setCertificateTheme] = useState<'gold' | 'cyber-purple' | 'emerald' | 'crimson'>(siteSettings.certificateTheme || 'gold');
+  const [certificateTheme, setCertificateTheme] = useState<'blue' | 'cyber-purple' | 'emerald' | 'crimson' | 'gold'>(siteSettings.certificateTheme || 'blue');
   const [certificateStampUrl, setCertificateStampUrl] = useState(siteSettings.certificateStampUrl || '');
   const [certificateSealText, setCertificateSealText] = useState(siteSettings.certificateSealText || 'OFFICIAL VERIFIED CERTIFICATE • AI CLIPZONE NEPAL');
 
@@ -200,7 +200,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
     setCertificateCeoName(siteSettings.certificateCeoName || 'Founder/CEO (AI Clipzone)');
     setCertificateCeoTitle(siteSettings.certificateCeoTitle || 'Founder & CEO');
     setCertificateCeoSignatureUrl(siteSettings.certificateCeoSignatureUrl || '');
-    setCertificateTheme(siteSettings.certificateTheme || 'gold');
+    setCertificateTheme(siteSettings.certificateTheme || 'blue');
     setCertificateStampUrl(siteSettings.certificateStampUrl || '');
     setCertificateSealText(siteSettings.certificateSealText || 'OFFICIAL VERIFIED CERTIFICATE • AI CLIPZONE NEPAL');
     setApkDownloadUrl(siteSettings.apkDownloadUrl || '');
@@ -351,7 +351,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
       setCertificateCeoName(siteSettings.certificateCeoName || 'Founder/CEO (AI Clipzone)');
       setCertificateCeoTitle(siteSettings.certificateCeoTitle || 'Founder & CEO');
       setCertificateCeoSignatureUrl(siteSettings.certificateCeoSignatureUrl || '');
-      setCertificateTheme((siteSettings.certificateTheme as any) || 'gold');
+      setCertificateTheme((siteSettings.certificateTheme as any) || 'blue');
       setCertificateStampUrl(siteSettings.certificateStampUrl || '');
       setCertificateSealText(siteSettings.certificateSealText || 'OFFICIAL VERIFIED CERTIFICATE • AI CLIPZONE NEPAL');
     } else {
@@ -369,7 +369,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
         setCertificateCeoName(crs.certificateCeoName || siteSettings.certificateCeoName || 'Founder/CEO (AI Clipzone)');
         setCertificateCeoTitle(crs.certificateCeoTitle || siteSettings.certificateCeoTitle || 'Founder & CEO');
         setCertificateCeoSignatureUrl(crs.certificateCeoSignatureUrl || siteSettings.certificateCeoSignatureUrl || '');
-        setCertificateTheme((crs.certificateTheme as any) || (siteSettings.certificateTheme as any) || 'gold');
+        setCertificateTheme((crs.certificateTheme as any) || (siteSettings.certificateTheme as any) || 'blue');
         setCertificateStampUrl(crs.certificateStampUrl || siteSettings.certificateStampUrl || '');
         setCertificateSealText(crs.certificateSealText || siteSettings.certificateSealText || 'OFFICIAL VERIFIED CERTIFICATE • AI CLIPZONE NEPAL');
       }
@@ -476,7 +476,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
       setCertificateCeoName(siteSettings.certificateCeoName || 'Founder/CEO (AI Clipzone)');
       setCertificateCeoTitle(siteSettings.certificateCeoTitle || 'Founder & CEO');
       setCertificateCeoSignatureUrl(siteSettings.certificateCeoSignatureUrl || '');
-      setCertificateTheme((siteSettings.certificateTheme as any) || 'gold');
+      setCertificateTheme((siteSettings.certificateTheme as any) || 'blue');
       setCertificateStampUrl(siteSettings.certificateStampUrl || '');
       setCertificateSealText(siteSettings.certificateSealText || 'OFFICIAL VERIFIED CERTIFICATE • AI CLIPZONE NEPAL');
       showToast(`"${targetCourse.title}" is now inheriting Global Certificate defaults!`, 'info');
@@ -572,12 +572,12 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96, y: 15 }}
         transition={{ duration: 0.2 }}
-        className="bg-[#0d0e12] max-w-5xl w-full rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl relative z-10 max-h-[92vh] flex flex-col border border-amber-500/30 overflow-hidden text-slate-200 shadow-amber-500/10"
+        className="bg-black max-w-5xl w-full rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl relative z-10 max-h-[92vh] flex flex-col border border-zinc-800 overflow-hidden text-zinc-200"
       >
         {/* Top Header Bar */}
-        <div className="flex items-center justify-between pb-4 border-b border-amber-500/20 shrink-0">
+        <div className="flex items-center justify-between pb-4 border-b border-zinc-800 shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-400 via-amber-500 to-yellow-500 text-slate-950 flex items-center justify-center font-black text-lg shadow-md shadow-amber-500/20">
+            <div className="w-10 h-10 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black text-lg shadow-md shadow-blue-500/20">
               👑
             </div>
             <div>
@@ -589,7 +589,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
                   Live Cloud Sync
                 </span>
               </div>
-              <p className="text-xs text-slate-400 font-medium mt-0.5">
+              <p className="text-xs text-zinc-400 font-medium mt-0.5">
                 Manage secret keys, dynamic eSewa QR payment details, FAQs section, and overall website settings.
               </p>
             </div>
@@ -597,7 +597,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
 
           <button 
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 flex items-center justify-center transition cursor-pointer shrink-0"
+            className="w-9 h-9 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-zinc-800 flex items-center justify-center transition cursor-pointer shrink-0"
             title="Close Admin Panel"
           >
             <X className="w-5 h-5" />
@@ -605,13 +605,13 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
         </div>
 
         {/* Tab Navigation Menu */}
-        <div className="flex items-center gap-1.5 pt-3 pb-2 overflow-x-auto border-b border-amber-500/20 shrink-0 scrollbar-none">
+        <div className="flex items-center gap-1.5 pt-3 pb-2 overflow-x-auto border-b border-zinc-800 shrink-0 scrollbar-none">
           <button
             onClick={() => setActiveTab('keys')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
               activeTab === 'keys'
-                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 shadow-md font-black'
-                : 'bg-slate-900 hover:bg-slate-850 text-slate-300 border border-slate-800'
+                ? 'bg-blue-600 text-white shadow-md font-bold'
+                : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
             }`}
           >
             <Key className="w-3.5 h-3.5" />
@@ -622,8 +622,8 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
             onClick={() => setActiveTab('qr')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
               activeTab === 'qr'
-                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 shadow-md font-black'
-                : 'bg-slate-900 hover:bg-slate-850 text-slate-300 border border-slate-800'
+                ? 'bg-blue-600 text-white shadow-md font-bold'
+                : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
             }`}
           >
             <QrIcon className="w-3.5 h-3.5" />
@@ -634,8 +634,8 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
             onClick={() => setActiveTab('faqs')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
               activeTab === 'faqs'
-                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 shadow-md font-black'
-                : 'bg-slate-900 hover:bg-slate-850 text-slate-300 border border-slate-800'
+                ? 'bg-blue-600 text-white shadow-md font-bold'
+                : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
             }`}
           >
             <HelpCircle className="w-3.5 h-3.5" />
@@ -646,8 +646,8 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
             onClick={() => setActiveTab('overall')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
               activeTab === 'overall'
-                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 shadow-md font-black'
-                : 'bg-slate-900 hover:bg-slate-850 text-slate-300 border border-slate-800'
+                ? 'bg-blue-600 text-white shadow-md font-bold'
+                : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
             }`}
           >
             <Settings className="w-3.5 h-3.5" />
@@ -658,8 +658,8 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
             onClick={() => setActiveTab('certificate')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
               activeTab === 'certificate'
-                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 shadow-md font-black'
-                : 'bg-slate-900 hover:bg-slate-850 text-slate-300 border border-slate-800'
+                ? 'bg-blue-600 text-white shadow-md font-bold'
+                : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
             }`}
           >
             <ShieldCheck className="w-3.5 h-3.5" />
@@ -670,8 +670,8 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
             onClick={() => setActiveTab('courses')}
             className={`px-3.5 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
               activeTab === 'courses'
-                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 shadow-md font-black'
-                : 'bg-slate-900 hover:bg-slate-850 text-slate-300 border border-slate-800'
+                ? 'bg-blue-600 text-white shadow-md font-bold'
+                : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
@@ -849,8 +849,8 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
                               </button>
                               <span className={`text-[9px] px-2 py-0.5 rounded-full font-black uppercase ${
                                 key.status === 'unused' 
-                                  ? 'bg-amber-100 text-amber-800 border border-amber-200' 
-                                  : 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                                  ? 'bg-blue-500/15 text-blue-400 border border-blue-500/30' 
+                                  : 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
                               }`}>
                                 {key.status}
                               </span>
@@ -1152,11 +1152,11 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
           {/* ========================================================================= */}
           {activeTab === 'faqs' && (
             <div className="space-y-6">
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-900 font-semibold leading-relaxed flex items-start gap-3">
+              <div className="bg-zinc-900 border border-blue-500/30 rounded-2xl p-4 text-xs text-zinc-300 font-semibold leading-relaxed flex items-start gap-3">
                 <span className="text-base select-none">❓</span>
                 <div>
-                  <strong className="font-black text-amber-950">Dynamic FAQ Management System</strong>
-                  <p className="mt-0.5 text-amber-800">
+                  <strong className="font-black text-white">Dynamic FAQ Management System</strong>
+                  <p className="mt-0.5 text-zinc-400">
                     यहाँबाट FAQ (बारम्बार सोधिने प्रश्नहरू) थप्न, सम्पादन गर्न, क्रम मिलाउन वा हटाउन सक्नुहुन्छ। परिमार्जन गरिसकेपछि तल रहेको <strong>"Save FAQs to Cloud"</strong> बटन थिच्नुहोस्।
                   </p>
                 </div>
@@ -1258,7 +1258,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
                         <div className="flex items-start justify-between gap-3">
                           <div className="space-y-1 grow">
                             <div className="flex items-center gap-2">
-                              <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-black flex items-center justify-center shrink-0">
+                              <span className="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-black flex items-center justify-center shrink-0">
                                 {idx + 1}
                               </span>
                               <h5 className="text-xs sm:text-sm font-black text-slate-900">
@@ -1297,7 +1297,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
                                 setEditQuestion(faq.question);
                                 setEditAnswer(faq.answer);
                               }}
-                              className="p-1 text-slate-400 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition cursor-pointer"
+                              className="p-1 text-zinc-400 hover:text-blue-400 hover:bg-zinc-800 rounded-lg transition cursor-pointer"
                               title="Edit Question"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -1522,53 +1522,53 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
               </div>
 
               {/* Live Header & Branding Preview Box */}
-              <div className="bg-slate-900 text-white p-4 sm:p-5 rounded-2xl border border-purple-500/30 space-y-3">
+              <div className="bg-zinc-950 text-white p-4 sm:p-5 rounded-2xl border border-blue-500/30 space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-purple-300 flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-400" /> Live Website Header & Brand Preview
+                  <span className="text-[10px] font-black uppercase tracking-wider text-blue-300 flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-blue-400" /> Live Website Header & Brand Preview
                   </span>
-                  <span className="text-[9px] bg-purple-950 text-purple-300 font-mono px-2 py-0.5 rounded border border-purple-800">
+                  <span className="text-[9px] bg-blue-950 text-blue-300 font-mono px-2 py-0.5 rounded border border-blue-800">
                     Real-time
                   </span>
                 </div>
 
-                <div className="bg-slate-950/80 p-3 sm:p-4 rounded-xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="bg-black p-3 sm:p-4 rounded-xl border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-3 text-left w-full sm:w-auto">
                     {instituteLogoUrl ? (
                       <img 
                         src={instituteLogoUrl} 
                         alt="Logo Preview" 
-                        className="w-12 h-12 object-contain rounded-xl bg-black border border-purple-500/40 p-1 shrink-0 shadow-md"
+                        className="w-12 h-12 object-contain rounded-xl bg-black border border-blue-500/40 p-1 shrink-0 shadow-md"
                         onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                       />
                     ) : (
-                      <div className="w-12 h-12 rounded-xl bg-purple-900/60 border border-purple-500/40 flex items-center justify-center shrink-0">
-                        <GraduationCap className="w-6 h-6 text-amber-400" />
+                      <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-blue-500/40 flex items-center justify-center shrink-0">
+                        <GraduationCap className="w-6 h-6 text-blue-400" />
                       </div>
                     )}
                     <div className="min-w-0">
                       <div className="text-sm sm:text-base font-black tracking-tight text-white flex items-center gap-2">
                         <span>{instituteName || 'AI CLIPZONE NEPAL'}</span>
-                        <span className="text-amber-400 text-xs">🇳🇵</span>
+                        <span className="text-blue-400 text-xs">🇳🇵</span>
                       </div>
-                      <p className="text-[10px] text-purple-200 font-medium truncate max-w-xs">
+                      <p className="text-[10px] text-zinc-300 font-medium truncate max-w-xs">
                         {siteTagline || "Nepal's #1 AI Video Editing & Learning Platform"}
                       </p>
                     </div>
                   </div>
 
                   <div className="w-full sm:w-auto text-right">
-                    <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest block font-mono">
+                    <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest block font-mono">
                       {siteTitle || 'TOP AI COURSE NEPAL'}
                     </span>
-                    <span className="text-[9px] text-slate-400">
+                    <span className="text-[9px] text-zinc-400">
                       {supportEmail} • {supportPhone}
                     </span>
                   </div>
                 </div>
 
                 {showNoticeBanner && noticeBannerText && (
-                  <div className="bg-amber-400 text-slate-950 px-3 py-1.5 rounded-lg text-xs font-bold text-center tracking-tight truncate">
+                  <div className="bg-blue-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center tracking-tight truncate">
                     {noticeBannerText}
                   </div>
                 )}
@@ -1610,33 +1610,33 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
           {/* ========================================================================= */}
           {activeTab === 'certificate' && (
             <form onSubmit={handleSaveCertificateSettings} className="space-y-6">
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-950 font-semibold leading-relaxed flex items-start gap-3">
+              <div className="bg-zinc-900 border border-blue-500/30 rounded-2xl p-4 text-xs text-zinc-200 font-semibold leading-relaxed flex items-start gap-3">
                 <span className="text-base select-none">📜</span>
                 <div className="grow">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <strong className="font-black text-amber-900 text-sm">
+                    <strong className="font-black text-white text-sm">
                       Certificate Designer & Authority Signatures
                     </strong>
                     {selectedCertScope === 'global' ? (
-                      <span className="inline-flex items-center gap-1 bg-amber-200/80 text-amber-900 px-2.5 py-0.5 rounded-full text-[10px] font-black border border-amber-300 self-start sm:self-auto">
+                      <span className="inline-flex items-center gap-1 bg-blue-500/20 text-blue-300 px-2.5 py-0.5 rounded-full text-[10px] font-black border border-blue-500/30 self-start sm:self-auto">
                         🌐 Editing Global Default Template
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 bg-purple-200 text-purple-900 px-2.5 py-0.5 rounded-full text-[10px] font-black border border-purple-300 self-start sm:self-auto">
+                      <span className="inline-flex items-center gap-1 bg-purple-500/20 text-purple-300 px-2.5 py-0.5 rounded-full text-[10px] font-black border border-purple-500/30 self-start sm:self-auto">
                         🎓 Editing Course: {courses.find(c => c.id === selectedCertScope)?.title.slice(0, 30)}...
                       </span>
                     )}
                   </div>
-                  <p className="mt-1 text-amber-800 text-xs">
+                  <p className="mt-1 text-zinc-400 text-xs">
                     यहाँबाट सम्पूर्ण कोर्सको साझा <b>Global Template</b> अथवा <b>प्रत्येक कोर्षको आफ्नै व्यक्तिगत Certificate</b> (Title, Institute Logo, Theme Color, Signatures, Course Name, Stamp) पूर्ण रूपमा परिमार्जन गर्न सकिन्छ।
                   </p>
                 </div>
               </div>
 
               {/* Scope Selector: Global Template vs Specific Course */}
-              <div className="bg-slate-900 text-white p-4 rounded-2xl border border-slate-800 space-y-2.5 shadow-md">
+              <div className="bg-zinc-950 text-white p-4 rounded-2xl border border-zinc-800 space-y-2.5 shadow-md">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                  <label className="block text-[11px] font-black uppercase text-amber-400 tracking-wider">
+                  <label className="block text-[11px] font-black uppercase text-blue-400 tracking-wider">
                     🎯 Select Certificate Target (कुन कोर्षको सर्टिफिकेट मिलाउने?):
                   </label>
                   {selectedCertScope !== 'global' && (
@@ -1656,8 +1656,8 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
                     onClick={() => handleSwitchCertScope('global')}
                     className={`px-3.5 py-2 rounded-xl text-xs font-black transition cursor-pointer flex items-center gap-1.5 ${
                       selectedCertScope === 'global'
-                        ? 'bg-amber-400 text-slate-950 shadow-md ring-2 ring-amber-300'
-                        : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700'
+                        ? 'bg-blue-600 text-white shadow-md font-bold'
+                        : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
                     }`}
                   >
                     🌐 Global Default Template
@@ -1690,18 +1690,18 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
               </div>
 
               {/* Live Realtime Certificate Mockup Preview */}
-              <div className="bg-slate-900 text-white p-4 sm:p-5 rounded-2xl border border-amber-400/40 space-y-3">
+              <div className="bg-zinc-950 text-white p-4 sm:p-5 rounded-2xl border border-blue-500/30 space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-amber-300 flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-400" /> Interactive Live Certificate Preview
+                  <span className="text-[10px] font-black uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-blue-400" /> Interactive Live Certificate Preview
                   </span>
                   <div className="flex items-center gap-2">
                     {selectedCertScope !== 'global' && (
-                      <span className="text-[9px] bg-purple-950 text-purple-300 font-mono px-2 py-0.5 rounded border border-purple-800">
+                      <span className="text-[9px] bg-blue-950 text-blue-300 font-mono px-2 py-0.5 rounded border border-blue-800">
                         Course Override Active
                       </span>
                     )}
-                    <span className="text-[9px] bg-amber-950 text-amber-300 font-mono px-2 py-0.5 rounded border border-amber-800">
+                    <span className="text-[9px] bg-blue-950 text-blue-300 font-mono px-2 py-0.5 rounded border border-blue-800">
                       Theme: {certificateTheme.toUpperCase()}
                     </span>
                   </div>
@@ -1709,8 +1709,8 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
 
                 {/* Scaled-down realistic certificate render */}
                 <div className={`p-5 rounded-xl border-4 transition-all text-center relative overflow-hidden ${
-                  certificateTheme === 'gold' 
-                    ? 'bg-amber-50/95 text-slate-900 border-amber-500 shadow-amber-900/40' 
+                  certificateTheme === 'blue' || certificateTheme === 'gold'
+                    ? 'bg-blue-50/95 text-slate-900 border-blue-600 shadow-blue-900/40' 
                     : certificateTheme === 'cyber-purple'
                     ? 'bg-purple-50/95 text-slate-900 border-purple-600 shadow-purple-900/40'
                     : certificateTheme === 'emerald'
@@ -1792,9 +1792,9 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
                     </div>
 
                     {/* Seal */}
-                    <div className="w-12 h-12 rounded-full border-2 border-dashed border-amber-600 flex flex-col items-center justify-center p-1 bg-amber-100/50 shadow-inner">
-                      <ShieldCheck className="w-4 h-4 text-amber-700" />
-                      <span className="text-[6px] font-black text-amber-900 uppercase">SEAL</span>
+                    <div className="w-12 h-12 rounded-full border-2 border-dashed border-blue-600 flex flex-col items-center justify-center p-1 bg-blue-100/50 shadow-inner">
+                      <ShieldCheck className="w-4 h-4 text-blue-700" />
+                      <span className="text-[6px] font-black text-blue-900 uppercase">SEAL</span>
                     </div>
 
                     {/* Right Authority */}
@@ -1833,7 +1833,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {[
-                    { id: 'gold', name: 'Royal Gold', border: 'border-amber-400', bg: 'bg-amber-50', badge: 'bg-amber-500' },
+                    { id: 'blue', name: 'Sapphire Blue', border: 'border-blue-500', bg: 'bg-blue-50', badge: 'bg-blue-600' },
                     { id: 'cyber-purple', name: 'Cyber Purple', border: 'border-purple-400', bg: 'bg-purple-50', badge: 'bg-purple-600' },
                     { id: 'emerald', name: 'Emerald Green', border: 'border-emerald-400', bg: 'bg-emerald-50', badge: 'bg-emerald-600' },
                     { id: 'crimson', name: 'Crimson Red', border: 'border-rose-400', bg: 'bg-rose-50', badge: 'bg-rose-600' }
@@ -2213,7 +2213,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
                     setCertificateCeoName(DEFAULT_SITE_SETTINGS.certificateCeoName || 'Founder/CEO (AI Clipzone)');
                     setCertificateCeoTitle(DEFAULT_SITE_SETTINGS.certificateCeoTitle || 'Founder & CEO');
                     setCertificateCeoSignatureUrl(DEFAULT_SITE_SETTINGS.certificateCeoSignatureUrl || '');
-                    setCertificateTheme(DEFAULT_SITE_SETTINGS.certificateTheme || 'gold');
+                    setCertificateTheme(DEFAULT_SITE_SETTINGS.certificateTheme || 'blue');
                     setCertificateStampUrl(DEFAULT_SITE_SETTINGS.certificateStampUrl || '');
                     setCertificateSealText(DEFAULT_SITE_SETTINGS.certificateSealText || 'OFFICIAL VERIFIED CERTIFICATE • AI CLIPZONE NEPAL');
                     showToast('Reset certificate design parameters to defaults. Click Save to apply.', 'info');

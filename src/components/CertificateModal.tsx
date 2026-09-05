@@ -50,7 +50,7 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({
   ceoName = 'Founder/CEO (AI Clipzone)',
   ceoTitle = 'Founder & CEO',
   ceoSignatureUrl,
-  certificateTheme = 'gold',
+  certificateTheme = 'blue',
   certificateStampUrl,
   certificateSealText,
   courses,
@@ -132,12 +132,12 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({
       case 'gold':
       default:
         return {
-          primary: '#e6c663',
-          secondary: '#c59b27',
-          border: '#e6c663',
-          darkBorder: '#8a6a18',
-          highlight: '#fef08a',
-          shadow: 'rgba(245, 158, 11, 0.35)',
+          primary: '#38bdf8',
+          secondary: '#2563eb',
+          border: '#38bdf8',
+          darkBorder: '#1e3a8a',
+          highlight: '#e0f2fe',
+          shadow: 'rgba(59, 130, 246, 0.35)',
         };
     }
   };
@@ -351,11 +351,11 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({
         {/* Top Floating Bar Controls */}
         <div className="w-full max-w-4xl bg-slate-900/90 border border-slate-800 rounded-2xl p-2.5 sm:p-3 mb-2 sm:mb-4 flex flex-wrap items-center justify-between gap-2.5 text-white shadow-xl z-20 print:hidden shrink-0">
           <div className="flex items-center gap-2">
-            <Award className="w-5 h-5 text-amber-400 shrink-0 animate-pulse" />
+            <Award className="w-5 h-5 text-blue-400 shrink-0 animate-pulse" />
             <div>
               <h3 className="text-xs sm:text-sm font-black text-slate-100 flex items-center gap-1.5">
                 Official Course Certificate 📜
-                <span className="text-[10px] bg-amber-400/20 text-amber-300 font-mono px-2 py-0.5 rounded-full border border-amber-400/30">
+                <span className="text-[10px] bg-blue-500/20 text-blue-300 font-mono px-2 py-0.5 rounded-full border border-blue-500/30">
                   ID: {certId}
                 </span>
               </h3>
@@ -369,7 +369,7 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({
             {/* Course Switcher if multiple courses available */}
             {courses && courses.length > 1 && onSelectCourseId && (
               <div className="flex items-center gap-1.5 bg-slate-800/90 border border-slate-700/90 rounded-xl px-3 py-1.5 text-xs text-slate-200">
-                <span className="text-[10px] font-black text-amber-400 uppercase tracking-wider">🎓 Course:</span>
+                <span className="text-[10px] font-black text-blue-400 uppercase tracking-wider">🎓 Course:</span>
                 <select
                   value={selectedCourseId || ''}
                   onChange={(e) => onSelectCourseId(e.target.value)}
@@ -384,11 +384,11 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({
               </div>
             )}
 
-            {/* Direct Image Download Button */}
+            {/* Direct Image Download Button - Green (Download Action) */}
             <button
               onClick={handleDownloadPng}
               disabled={isDownloading}
-              className="bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-500 hover:to-yellow-600 text-slate-950 text-xs font-black px-5 py-2.5 rounded-xl transition shadow-lg shadow-amber-500/25 flex items-center gap-2 cursor-pointer disabled:opacity-60"
+              className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white text-xs font-black px-5 py-2.5 rounded-xl transition shadow-lg shadow-emerald-500/25 flex items-center gap-2 cursor-pointer disabled:opacity-60"
             >
               {isDownloading ? (
                 <>
@@ -403,12 +403,12 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({
               )}
             </button>
 
-            {/* Copy Verification Link */}
+            {/* Copy Verification Link - Blue (Info/Share Action) */}
             <button
               onClick={handleCopyLink}
-              className="bg-slate-800 hover:bg-slate-750 text-amber-300 text-xs font-bold px-3 py-2.5 rounded-xl border border-amber-500/30 transition flex items-center gap-1.5 cursor-pointer"
+              className="bg-slate-800 hover:bg-slate-750 text-blue-300 text-xs font-bold px-3 py-2.5 rounded-xl border border-blue-500/30 transition flex items-center gap-1.5 cursor-pointer"
             >
-              {copied ? <CheckCircle className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5 text-amber-400" />}
+              {copied ? <CheckCircle className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5 text-blue-400" />}
               <span>{copied ? 'Copied Details!' : 'Share'}</span>
             </button>
 

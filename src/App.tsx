@@ -2233,13 +2233,13 @@ export default function App() {
     if (!topic.trim()) return;
     const promptText = `✨ <strong>AI Master Prompt Results for "${topic}":</strong><br/><br/>
     🎨 <strong>1. Midjourney v6 / DALL-E Photo Prompt:</strong><br/>
-    <span class="text-purple-700 font-mono text-xs block bg-purple-50 p-2 rounded border border-purple-200 mt-1 select-all">/imagine prompt: Ultra-realistic 8k cinematic studio portrait of ${topic}, hyper-detailed lighting, 85mm lens f/1.4, Octane Render, 32k resolution --ar 16:9 --style raw --v 6.0</span><br/>
+    <span class="text-blue-400 font-mono text-xs block bg-zinc-900 p-2 rounded border border-blue-500/30 mt-1 select-all">/imagine prompt: Ultra-realistic 8k cinematic studio portrait of ${topic}, hyper-detailed lighting, 85mm lens f/1.4, Octane Render, 32k resolution --ar 16:9 --style raw --v 6.0</span><br/>
     
     📝 <strong>2. ChatGPT Script & Hook Prompt:</strong><br/>
-    <span class="text-indigo-700 font-mono text-xs block bg-indigo-50 p-2 rounded border border-indigo-200 mt-1 select-all">Act as a viral content creator. Write a high-retention 60-second video script about "${topic}". Include a 3-second hook, visual B-roll cues, and strong Call To Action.</span><br/>
+    <span class="text-indigo-400 font-mono text-xs block bg-zinc-900 p-2 rounded border border-indigo-500/30 mt-1 select-all">Act as a viral content creator. Write a high-retention 60-second video script about "${topic}". Include a 3-second hook, visual B-roll cues, and strong Call To Action.</span><br/>
     
     🎵 <strong>3. Suno AI Music Prompt:</strong><br/>
-    <span class="text-amber-700 font-mono text-xs block bg-amber-50 p-2 rounded border border-amber-200 mt-1 select-all">[Genre: Modern Nepali Electro Folk, Mood: Energetic, Tempo: 120 BPM, Lead: Clear Vocal] "${topic}"</span>`;
+    <span class="text-emerald-400 font-mono text-xs block bg-zinc-900 p-2 rounded border border-emerald-500/30 mt-1 select-all">[Genre: Modern Nepali Electro Folk, Mood: Energetic, Tempo: 120 BPM, Lead: Clear Vocal] "${topic}"</span>`;
 
     setChatMessages(prev => [
       ...prev,
@@ -2443,14 +2443,14 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen bg-premium-mesh bg-[#08080a] text-zinc-100 font-sans selection:bg-amber-500/30 selection:text-amber-200 overflow-x-hidden flex flex-col justify-between relative ${isRunningInAppMode ? 'pb-20' : ''}`}>
-      {/* Subtle Luxury Ambient Background Light Orbs & Grid Texture Overlay */}
+    <div className={`min-h-screen bg-black text-zinc-100 font-sans selection:bg-blue-600 selection:text-white overflow-x-hidden flex flex-col justify-between relative ${isRunningInAppMode ? 'pb-20' : ''}`}>
+      {/* Sleek Pure Black Ambient Lighting: Situational Blue, Green, Red Accents */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
-        <div className="absolute -top-32 -left-32 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[140px]" />
-        <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-yellow-600/10 rounded-full blur-[140px]" />
-        <div className="absolute top-2/3 -left-20 w-[450px] h-[450px] bg-amber-700/8 rounded-full blur-[130px]" />
-        <div className="absolute -bottom-32 right-10 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[140px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:26px_26px] opacity-[0.07]" />
+        <div className="absolute -top-32 -left-32 w-[550px] h-[550px] bg-blue-600/10 rounded-full blur-[140px]" />
+        <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-emerald-600/8 rounded-full blur-[140px]" />
+        <div className="absolute top-2/3 -left-20 w-[450px] h-[450px] bg-rose-600/8 rounded-full blur-[130px]" />
+        <div className="absolute -bottom-32 right-10 w-[550px] h-[550px] bg-blue-600/10 rounded-full blur-[140px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:26px_26px] opacity-[0.06]" />
       </div>
 
       {/* Toast Notification */}
@@ -2461,22 +2461,23 @@ export default function App() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             className={`fixed top-6 left-1/2 -translate-x-1/2 z-[3000] px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 font-semibold text-sm border ${
-              toast.type === 'success' ? 'bg-emerald-950/90 text-emerald-200 border-emerald-500/40' : 
-              toast.type === 'error' ? 'bg-rose-950/90 text-rose-200 border-rose-500/40' : 'bg-zinc-950/95 text-amber-200 border-amber-500/40'
+              toast.type === 'success' ? 'bg-emerald-950/95 text-emerald-200 border-emerald-500/40' : 
+              toast.type === 'error' ? 'bg-rose-950/95 text-rose-200 border-rose-500/40' : 'bg-zinc-950/95 text-blue-200 border-blue-500/40'
             }`}
           >
             {toast.type === 'success' && <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-400" />}
             {toast.type === 'error' && <X className="w-5 h-5 shrink-0 text-rose-400" />}
+            {toast.type === 'info' && <Sparkles className="w-5 h-5 shrink-0 text-blue-400" />}
             <span>{toast.message}</span>
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* Top Header & Navigation Container */}
-      <div className="sticky top-0 z-[100] w-full shadow-2xl bg-black/95 backdrop-blur-md border-b border-amber-500/25">
-        {/* Dynamic Global Notice Banner from Admin Settings */}
+      <div className="sticky top-0 z-[100] w-full shadow-2xl bg-black/95 backdrop-blur-md border-b border-zinc-800">
+        {/* Dynamic Global Notice Banner from Admin Settings (Red Urgency Notice) */}
         {siteSettings.showNoticeBanner && siteSettings.noticeBannerText && (
-          <div className="w-full bg-gradient-to-r from-black via-amber-950/90 to-black text-amber-200 text-xs font-bold py-1.5 px-4 text-center border-b border-amber-500/30 flex items-center justify-center gap-2 shadow-md">
+          <div className="w-full bg-gradient-to-r from-black via-rose-950/90 to-black text-rose-200 text-xs font-bold py-1.5 px-4 text-center border-b border-rose-500/30 flex items-center justify-center gap-2 shadow-md">
             <span className="animate-pulse">📢</span>
             <span>{siteSettings.noticeBannerText}</span>
           </div>
@@ -2533,7 +2534,7 @@ export default function App() {
                       setShowAdminMenu(false);
                       handleCreateCourseClick();
                     }}
-                    className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-zinc-800 hover:text-amber-400 transition-colors flex items-center gap-2 cursor-pointer"
+                    className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-zinc-800 hover:text-blue-400 transition-colors flex items-center gap-2 cursor-pointer"
                   >
                     ➕ Add New Course
                   </button>
@@ -2543,7 +2544,7 @@ export default function App() {
                       setShowAdminMenu(false);
                       setShowAdminDashboard(true);
                     }}
-                    className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-zinc-800 hover:text-amber-400 transition-colors flex items-center gap-2 cursor-pointer"
+                    className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-zinc-800 hover:text-blue-400 transition-colors flex items-center gap-2 cursor-pointer"
                   >
                     🗝️ Code Generator
                   </button>
@@ -2564,7 +2565,7 @@ export default function App() {
             </div>
 
             {/* Desktop Navigation Tabs */}
-            <div className="hidden sm:flex items-center gap-1.5 bg-zinc-900/90 p-1 rounded-full border border-amber-500/30 shadow-inner">
+            <div className="hidden sm:flex items-center gap-1.5 bg-zinc-950 p-1 rounded-full border border-zinc-800 shadow-inner">
               <button
                 onClick={() => {
                   setCurrentView('home');
@@ -2573,8 +2574,8 @@ export default function App() {
                 }}
                 className={`px-4 py-1.5 rounded-full font-black text-xs transition-all duration-150 cursor-pointer flex items-center gap-1.5 ${
                   currentView === 'home'
-                    ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-black shadow-md shadow-amber-500/20 scale-105'
-                    : 'text-zinc-300 hover:text-amber-300 hover:bg-zinc-800'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 scale-105'
+                    : 'text-zinc-300 hover:text-white hover:bg-zinc-800'
                 }`}
               >
                 🏠 Home Page
@@ -2587,13 +2588,13 @@ export default function App() {
                 }}
                 className={`px-4 py-1.5 rounded-full font-black text-xs transition-all duration-150 cursor-pointer flex items-center gap-1.5 relative ${
                   currentView === 'classroom'
-                    ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-black shadow-md shadow-amber-500/20 scale-105'
-                    : 'text-zinc-300 hover:text-amber-300 hover:bg-zinc-800'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 scale-105'
+                    : 'text-zinc-300 hover:text-white hover:bg-zinc-800'
                 }`}
               >
                 🎓 Course Page
                 {activeCourseIds.length > 0 && (
-                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping border border-black" />
+                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping border border-black" />
                 )}
               </button>
             </div>
@@ -2636,7 +2637,7 @@ export default function App() {
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                           showToast('Welcome Home! 🏠', 'info');
                         }}
-                        className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-zinc-800 hover:text-amber-400 transition flex items-center gap-2.5 cursor-pointer"
+                        className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-zinc-800 hover:text-blue-400 transition flex items-center gap-2.5 cursor-pointer"
                       >
                         🏠 Home Page
                       </button>
@@ -2648,7 +2649,7 @@ export default function App() {
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                           showToast('Your Course Classroom! 🎓', 'info');
                         }}
-                        className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-zinc-800 hover:text-amber-400 transition flex items-center gap-2.5 cursor-pointer"
+                        className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-zinc-800 hover:text-blue-400 transition flex items-center gap-2.5 cursor-pointer"
                       >
                         🎓 Course Page
                       </button>
@@ -2658,7 +2659,7 @@ export default function App() {
                           setShowUserMenu(false);
                           setShowProfileModal(true);
                         }}
-                        className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-zinc-800 transition flex items-center justify-between cursor-pointer font-bold text-amber-400 group"
+                        className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-zinc-800 transition flex items-center justify-between cursor-pointer font-bold text-blue-400 group"
                       >
                         <span className="flex items-center gap-2">👤 Profile Page</span>
                         <span className="bg-blue-600 text-white rounded-full w-4 h-4 flex items-center justify-center p-0.5 shadow-xs" title="Verified Account">
@@ -2671,7 +2672,7 @@ export default function App() {
                           setShowUserMenu(false);
                           handleInstallPwa();
                         }}
-                        className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-amber-950/40 text-amber-300 transition flex items-center gap-2.5 cursor-pointer font-extrabold border-t border-zinc-800/80 mt-0.5"
+                        className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-blue-950/40 text-blue-300 transition flex items-center gap-2.5 cursor-pointer font-extrabold border-t border-zinc-800/80 mt-0.5"
                       >
                         📲 Install App Mode
                       </button>
@@ -2703,7 +2704,7 @@ export default function App() {
               }}
               className={`flex-1 py-2 rounded-xl text-center font-black text-xs transition flex items-center justify-center gap-1.5 ${
                 currentView === 'home'
-                  ? 'bg-amber-400 text-slate-950 shadow-md font-black'
+                  ? 'bg-blue-600 text-white shadow-md font-black'
                   : 'text-zinc-400 bg-zinc-900/90 border border-zinc-800 hover:bg-zinc-800 hover:text-white'
               }`}
             >
@@ -2717,7 +2718,7 @@ export default function App() {
               }}
               className={`flex-1 py-2 rounded-xl text-center font-black text-xs transition flex items-center justify-center gap-1.5 relative ${
                 currentView === 'classroom'
-                  ? 'bg-amber-400 text-slate-950 shadow-md font-black'
+                  ? 'bg-blue-600 text-white shadow-md font-black'
                   : 'text-zinc-400 bg-zinc-900/90 border border-zinc-800 hover:bg-zinc-800 hover:text-white'
               }`}
             >
@@ -2738,10 +2739,10 @@ export default function App() {
           {currentView === 'home' && (
             <div className="text-center mb-10">
               <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight text-white flex items-center justify-center gap-2">
-                <BookOpen className="w-7 h-7 text-amber-400" />
+                <BookOpen className="w-7 h-7 text-blue-400" />
                 Our Premium AI Courses
               </h3>
-              <div className="w-24 h-1.5 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 mx-auto rounded-full mt-3 shadow-sm shadow-amber-500/50"></div>
+              <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-sky-400 to-indigo-600 mx-auto rounded-full mt-3 shadow-sm shadow-blue-500/50"></div>
               <p className="text-zinc-400 mt-3 text-sm md:text-base max-w-xl mx-auto font-medium">
                 तपाईंको आवश्यकता अनुसार उत्कृष्ट कोर्ष छनोट गर्नुहोस् र आजैबाट सिक्न सुरु गर्नुहोस्!
               </p>
@@ -2764,8 +2765,8 @@ export default function App() {
                   return (
                     <div className="space-y-8">
                       {activeCourses.length > 1 && (
-                        <div className="bg-zinc-950/80 border border-amber-500/20 p-4 rounded-2xl flex flex-col md:flex-row items-center gap-4 justify-between">
-                          <span className="text-xs text-amber-400/90 font-bold uppercase tracking-wider font-sans">
+                        <div className="bg-zinc-950/90 border border-zinc-800 p-4 rounded-2xl flex flex-col md:flex-row items-center gap-4 justify-between">
+                          <span className="text-xs text-blue-400 font-bold uppercase tracking-wider font-sans">
                             📚 Switch Course Program:
                           </span>
                           <div className="flex flex-wrap gap-2">
@@ -2780,7 +2781,7 @@ export default function App() {
                                   }}
                                   className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${
                                     isActive
-                                      ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 shadow-md shadow-amber-500/20'
+                                      ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
                                       : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
                                   }`}
                                 >
@@ -2796,13 +2797,13 @@ export default function App() {
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="bg-zinc-950/90 border border-amber-500/25 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden text-zinc-100"
+                        className="bg-black border border-zinc-800 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden text-zinc-100"
                       >
                         {/* Course Header Banner */}
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-zinc-800/80">
                           <div className="space-y-2 text-left">
                             <div className="flex items-center gap-2">
-                              <span className="bg-amber-500/15 text-amber-400 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md border border-amber-500/30 font-sans">
+                              <span className="bg-emerald-500/15 text-emerald-400 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md border border-emerald-500/30 font-sans">
                                 🟢 Active Program
                               </span>
                               <span className="text-xs text-zinc-400 font-bold font-sans">({activePlaylist.length} Total Lectures)</span>
@@ -2827,7 +2828,7 @@ export default function App() {
                                 setCertificateCode(activeCode);
                                 setShowCertificateModal(true);
                               }}
-                              className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-zinc-950 text-xs font-black px-4 py-2.5 rounded-xl transition shadow-lg shadow-amber-500/20 flex items-center gap-1.5 cursor-pointer font-sans active:scale-95"
+                              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-black px-4 py-2.5 rounded-xl transition shadow-lg shadow-blue-500/20 flex items-center gap-1.5 cursor-pointer font-sans active:scale-95"
                               title="Download / View Course Certificate"
                             >
                               📜 Course Certificate
@@ -2837,7 +2838,7 @@ export default function App() {
                               <div className="flex gap-2">
                                 <button
                                   onClick={() => handleEditCourseClick(currentClassroomCourse)}
-                                  className="bg-zinc-900 border border-amber-500/40 hover:bg-zinc-800 text-amber-300 text-xs font-black px-4 py-2.5 rounded-xl transition shadow-xs flex items-center gap-1.5 cursor-pointer font-sans"
+                                  className="bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 text-blue-300 text-xs font-black px-4 py-2.5 rounded-xl transition shadow-xs flex items-center gap-1.5 cursor-pointer font-sans"
                                 >
                                   ✏️ Edit Playlist & Videos
                                 </button>
@@ -2859,12 +2860,12 @@ export default function App() {
                             onClick={() => setClassroomTab('videos')}
                             className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer font-sans whitespace-nowrap ${
                               classroomTab === 'videos'
-                                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 shadow-md shadow-amber-500/20'
+                                ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
                                 : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
                             }`}
                           >
                             <span>🎬 भिडियो कक्षाहरू (Videos)</span>
-                            <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${classroomTab === 'videos' ? 'bg-zinc-950 text-amber-300' : 'bg-zinc-800 text-zinc-400'}`}>
+                            <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${classroomTab === 'videos' ? 'bg-zinc-950 text-blue-300' : 'bg-zinc-800 text-zinc-400'}`}>
                               {activePlaylist.length}
                             </span>
                           </button>
@@ -2874,13 +2875,13 @@ export default function App() {
                             onClick={() => setClassroomTab('pdfs')}
                             className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all flex items-center gap-2 cursor-pointer font-sans whitespace-nowrap ${
                               classroomTab === 'pdfs'
-                                ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 shadow-md shadow-amber-500/20'
+                                ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
                                 : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
                             }`}
                           >
                             <FileText className="w-3.5 h-3.5" />
                             <span>📕 अध्ययन सामग्री र PDF नोटहरू (PDFs & Notes)</span>
-                            <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${classroomTab === 'pdfs' ? 'bg-zinc-950 text-amber-300' : 'bg-zinc-800 text-zinc-400'}`}>
+                            <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${classroomTab === 'pdfs' ? 'bg-zinc-950 text-blue-300' : 'bg-zinc-800 text-zinc-400'}`}>
                               {currentClassroomCourse.pdfs?.length || 0}
                             </span>
                           </button>
@@ -2910,16 +2911,16 @@ export default function App() {
                                       });
                                       showToast(`Opening Lecture ${idx + 1} in Fullscreen! 🎥`, 'success');
                                     }}
-                                    className="group bg-zinc-950/80 hover:bg-zinc-900 border border-zinc-800/80 hover:border-amber-500/40 rounded-2xl p-3 cursor-pointer transition-all duration-150 flex items-center gap-3 sm:gap-4 text-left shadow-md"
+                                    className="group bg-zinc-950/80 hover:bg-zinc-900 border border-zinc-800/80 hover:border-blue-500/40 rounded-2xl p-3 cursor-pointer transition-all duration-150 flex items-center gap-3 sm:gap-4 text-left shadow-md"
                                   >
                                     {/* Left: Elegant play icon box */}
-                                    <div className="w-10 h-10 sm:w-12 sm:h-12 border border-amber-500/30 bg-amber-500/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-amber-400">
-                                      <Play className="w-4 h-4 text-amber-400 fill-amber-400 ml-0.5" />
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 border border-blue-500/30 bg-blue-500/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-blue-400">
+                                      <Play className="w-4 h-4 text-blue-400 fill-blue-400 ml-0.5" />
                                     </div>
 
                                     {/* Center: Text Info */}
                                     <div className="flex-1 min-w-0">
-                                      <h5 className="text-xs sm:text-base font-bold text-zinc-100 group-hover:text-amber-300 transition-colors leading-snug font-sans">
+                                      <h5 className="text-xs sm:text-base font-bold text-zinc-100 group-hover:text-blue-300 transition-colors leading-snug font-sans">
                                         {video.title}
                                       </h5>
                                       {video.duration && (
@@ -2947,9 +2948,9 @@ export default function App() {
                         {classroomTab === 'pdfs' && (
                           <div className="space-y-4 mt-6">
                             {/* Direct Access Notification Banner */}
-                            <div className="bg-zinc-900 border border-amber-500/25 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left">
+                            <div className="bg-zinc-900 border border-blue-500/25 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-left">
                               <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0">
+                                <div className="w-10 h-10 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0">
                                   <FileText className="w-5 h-5" />
                                 </div>
                                 <div>
@@ -2973,20 +2974,20 @@ export default function App() {
                                   <motion.div
                                     key={pidx}
                                     whileHover={{ scale: 1.005, x: 2 }}
-                                    className="bg-zinc-950/80 hover:bg-zinc-900 border border-zinc-800/80 hover:border-amber-500/40 rounded-2xl p-3.5 sm:p-4 transition-all duration-150 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left shadow-md"
+                                    className="bg-zinc-950/80 hover:bg-zinc-900 border border-zinc-800/80 hover:border-blue-500/40 rounded-2xl p-3.5 sm:p-4 transition-all duration-150 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left shadow-md"
                                   >
                                     {/* Left: Document icon & details */}
                                     <div className="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                                      <div className="w-11 h-11 border border-amber-500/30 bg-amber-500/10 rounded-xl flex items-center justify-center shrink-0 text-amber-400 mt-0.5 sm:mt-0">
+                                      <div className="w-11 h-11 border border-blue-500/30 bg-blue-500/10 rounded-xl flex items-center justify-center shrink-0 text-blue-400 mt-0.5 sm:mt-0">
                                         <FileText className="w-5 h-5" />
                                       </div>
                                       <div className="min-w-0 flex-1">
                                         {pdf.chapterTitle && (
-                                          <span className="text-[10px] text-amber-300 bg-amber-500/15 font-bold px-2 py-0.5 rounded border border-amber-500/30 inline-block mb-1">
+                                          <span className="text-[10px] text-blue-300 bg-blue-500/15 font-bold px-2 py-0.5 rounded border border-blue-500/30 inline-block mb-1">
                                             📁 {pdf.chapterTitle}
                                           </span>
                                         )}
-                                        <h5 className="text-xs sm:text-sm font-black text-zinc-100 hover:text-amber-300 transition leading-snug">
+                                        <h5 className="text-xs sm:text-sm font-black text-zinc-100 hover:text-blue-300 transition leading-snug">
                                           {pdf.title}
                                         </h5>
                                         <div className="flex items-center gap-2 mt-1 text-[10px] text-zinc-400 font-medium">
@@ -3012,7 +3013,7 @@ export default function App() {
                                           });
                                           showToast(`Opening PDF: ${pdf.title}`, 'info');
                                         }}
-                                        className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-zinc-950 text-xs font-black px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-amber-500/20 cursor-pointer"
+                                        className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-black px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-blue-500/20 cursor-pointer"
                                       >
                                         <BookOpen className="w-3.5 h-3.5" />
                                         <span>सिधै पढ्नुहोस् (Open)</span>
@@ -3036,7 +3037,7 @@ export default function App() {
                                         href={getDirectPdfViewerUrl(pdf.pdfUrl)}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="p-2 text-zinc-400 hover:text-amber-400 hover:bg-zinc-900 rounded-xl transition cursor-pointer border border-zinc-800"
+                                        className="p-2 text-zinc-400 hover:text-blue-400 hover:bg-zinc-900 rounded-xl transition cursor-pointer border border-zinc-800"
                                         title="Open in new browser tab without drive login"
                                       >
                                         <ExternalLink className="w-3.5 h-3.5" />
@@ -3047,7 +3048,7 @@ export default function App() {
                               </div>
                             ) : (
                               <div className="text-center py-12 bg-zinc-950/80 rounded-2xl border border-zinc-800 p-6 space-y-3">
-                                <div className="w-12 h-12 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center mx-auto text-xl border border-amber-500/20">
+                                <div className="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center mx-auto text-xl border border-blue-500/20">
                                   <FileText className="w-6 h-6" />
                                 </div>
                                 <h5 className="text-sm font-bold text-zinc-300 font-sans">यस कोर्षमा अहिले कुनै PDF नोट उपलब्ध छैन</h5>
@@ -3058,7 +3059,7 @@ export default function App() {
                                   <button
                                     type="button"
                                     onClick={() => handleEditCourseClick(currentClassroomCourse)}
-                                    className="mt-2 inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 text-xs font-extrabold px-4 py-2 rounded-xl transition shadow-md shadow-amber-500/20 cursor-pointer"
+                                    className="mt-2 inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-extrabold px-4 py-2 rounded-xl transition shadow-md shadow-blue-500/20 cursor-pointer"
                                   >
                                     <Plus className="w-3.5 h-3.5" /> Add PDF Notes to this Course
                                   </button>
@@ -3077,7 +3078,7 @@ export default function App() {
                 <div className="flex justify-center mt-6">
                   <button
                     onClick={handleCreateCourseClick}
-                    className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-zinc-950 font-extrabold text-xs py-3 px-6 rounded-xl transition duration-150 flex items-center gap-2 cursor-pointer shadow-lg shadow-amber-500/20 font-sans"
+                    className="bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs py-3 px-6 rounded-xl transition duration-150 flex items-center gap-2 cursor-pointer shadow-lg shadow-blue-500/20 font-sans"
                   >
                     ➕ Add Another Course (Admin Control)
                   </button>
@@ -3086,8 +3087,8 @@ export default function App() {
             </div>
           ) : (
             /* ==================== CLASSROOM EMPTY STATE ==================== */
-            <div className="max-w-xl mx-auto bg-zinc-900/90 backdrop-blur-md p-8 rounded-3xl border border-amber-500/25 shadow-2xl text-center space-y-6 my-8">
-              <div className="w-16 h-16 bg-amber-500/15 border border-amber-500/30 text-amber-400 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+            <div className="max-w-xl mx-auto bg-black p-8 rounded-3xl border border-zinc-800 shadow-2xl text-center space-y-6 my-8">
+              <div className="w-16 h-16 bg-blue-500/15 border border-blue-500/30 text-blue-400 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
                 🗝️
               </div>
               <div>
@@ -3103,12 +3104,12 @@ export default function App() {
                   value={activationCodeInput}
                   onChange={(e) => setActivationCodeInput(e.target.value)}
                   placeholder="CLIP-XXXXXX"
-                  className="w-full bg-zinc-950 border border-zinc-800 focus:border-amber-400 focus:bg-zinc-950 rounded-2xl px-4 py-3.5 text-sm font-mono font-black uppercase outline-hidden text-white text-center tracking-widest transition shadow-inner placeholder:text-zinc-600"
+                  className="w-full bg-zinc-950 border border-zinc-800 focus:border-blue-500 focus:bg-zinc-950 rounded-2xl px-4 py-3.5 text-sm font-mono font-black uppercase outline-hidden text-white text-center tracking-widest transition shadow-inner placeholder:text-zinc-600"
                 />
                 <button
                   type="submit"
                   disabled={isActivating || !activationCodeInput.trim()}
-                  className="w-full bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 disabled:opacity-50 text-zinc-950 font-black py-3.5 rounded-2xl text-xs transition cursor-pointer shadow-lg shadow-amber-500/20 font-sans active:scale-[0.99]"
+                  className="w-full bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-black py-3.5 rounded-2xl text-xs transition cursor-pointer shadow-lg shadow-blue-500/20 font-sans active:scale-[0.99]"
                 >
                   {isActivating ? 'Activating Course...' : 'Unlock Instant Access ⚡'}
                 </button>
@@ -3120,7 +3121,7 @@ export default function App() {
                     setCurrentView('home');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="text-xs font-black text-amber-400 hover:text-amber-300 transition flex items-center gap-1 cursor-pointer font-sans"
+                  className="text-xs font-black text-blue-400 hover:text-blue-300 transition flex items-center gap-1 cursor-pointer font-sans"
                 >
                   🌐 Browse All Available Courses First
                 </button>
@@ -3138,10 +3139,10 @@ export default function App() {
                     viewport={{ once: true, margin: '-50px' }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     whileHover={{ y: -6 }}
-                    className="group bg-zinc-900/90 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl border border-amber-500/25 hover:border-amber-400/60 hover:shadow-amber-500/15 transition-all duration-300 relative flex flex-col h-full scroll-mt-28"
+                    className="group bg-zinc-950 rounded-3xl overflow-hidden shadow-2xl border border-zinc-800 hover:border-blue-500/40 hover:shadow-blue-500/10 transition-all duration-300 relative flex flex-col h-full scroll-mt-28"
                   >
                     {course.isPopular && (
-                      <div className="absolute top-0 inset-x-0 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-zinc-950 text-center py-2 text-xs md:text-sm font-black tracking-widest uppercase z-10 shadow-md">
+                      <div className="absolute top-0 inset-x-0 bg-gradient-to-r from-red-600 via-rose-600 to-red-600 text-white text-center py-2 text-xs md:text-sm font-black tracking-widest uppercase z-10 shadow-md">
                         {course.popularText || '🔥 MOST POPULAR - BEST SELLER'}
                       </div>
                     )}
@@ -3156,10 +3157,10 @@ export default function App() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                        <span className="bg-zinc-950/85 backdrop-blur-md text-amber-300 text-xs font-semibold px-3 py-1 rounded-lg border border-amber-500/30">
+                        <span className="bg-zinc-950/85 backdrop-blur-md text-zinc-300 text-xs font-semibold px-3 py-1 rounded-lg border border-zinc-750">
                           Lifetime Access
                         </span>
-                        <span className="bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 text-xs font-extrabold px-3 py-1 rounded-lg shadow-md">
+                        <span className="bg-blue-600 text-white text-xs font-extrabold px-3 py-1 rounded-lg shadow-md">
                           Instant Delivery
                         </span>
                       </div>
@@ -3168,7 +3169,7 @@ export default function App() {
                     {/* Course Info */}
                     <div className="p-6 md:p-8 flex flex-col grow justify-between">
                       <div className="text-left font-sans">
-                        <h4 className="text-xl md:text-2xl font-extrabold text-white group-hover:text-amber-300 transition-colors">
+                        <h4 className="text-xl md:text-2xl font-extrabold text-white group-hover:text-blue-400 transition-colors">
                           {course.title}
                         </h4>
                         
@@ -3181,7 +3182,7 @@ export default function App() {
                             </span>
                           ) : (
                             <div className="flex items-baseline gap-2.5">
-                              <span className="text-2xl md:text-3xl font-black text-amber-400">
+                              <span className="text-2xl md:text-3xl font-black text-emerald-400">
                                 {course.price}
                               </span>
                               {course.isPopular && (
@@ -3198,8 +3199,8 @@ export default function App() {
                             const vList = course.videos || [];
                             const chSet = new Set(vList.map(v => v.chapterTitle?.trim() || 'Chapter 1: Course Lectures'));
                             return (
-                              <span className="bg-amber-500/15 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-xl border border-amber-500/30 flex items-center gap-1.5 shadow-2xs">
-                                <span className="w-4 h-4 rounded-md bg-amber-400 text-zinc-950 flex items-center justify-center text-[9px] font-black">📁</span>
+                              <span className="bg-blue-500/15 text-blue-300 text-xs font-extrabold px-3 py-1 rounded-xl border border-blue-500/30 flex items-center gap-1.5 shadow-2xs">
+                                <span className="w-4 h-4 rounded-md bg-blue-600 text-white flex items-center justify-center text-[9px] font-black">📁</span>
                                 {chSet.size} Chapters ({vList.length} Video Lectures)
                               </span>
                             );
@@ -3207,7 +3208,7 @@ export default function App() {
                           <span className="bg-zinc-800 text-zinc-300 text-xs font-bold px-2.5 py-1 rounded-xl border border-zinc-700">
                             🌐 {course.language || (course.id.includes('rathee') || course.id.includes('presentation') ? 'Hindi & Nepali' : 'Nepali')}
                           </span>
-                          <span className="bg-amber-950/40 text-amber-300 text-xs font-bold px-2.5 py-1 rounded-xl border border-amber-500/30">
+                          <span className="bg-blue-950/50 text-blue-300 text-xs font-bold px-2.5 py-1 rounded-xl border border-blue-500/30">
                             📜 Certificate
                           </span>
                         </div>
@@ -3216,7 +3217,7 @@ export default function App() {
                         <ul className="mt-6 space-y-2.5">
                           {course.learn.map((item, i) => (
                             <li key={i} className="flex items-start gap-2.5 text-xs md:text-sm text-zinc-300 font-medium">
-                              <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -3227,7 +3228,11 @@ export default function App() {
                       <div className="mt-8 pt-6 border-t border-zinc-800/80 flex items-center gap-3">
                         <button
                           onClick={() => handleEnrollCourse(course)}
-                          className="flex-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-zinc-950 font-black text-xs md:text-sm py-3.5 px-4 rounded-2xl transition duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-amber-500/20 active:scale-[0.99] font-sans"
+                          className={`flex-1 font-black text-xs md:text-sm py-3.5 px-4 rounded-2xl transition duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-[0.99] font-sans ${
+                            activeCourseIds.includes(course.id)
+                              ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-blue-500/20'
+                              : 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-zinc-950 shadow-emerald-500/20'
+                          }`}
                         >
                           {activeCourseIds.includes(course.id) ? (
                             <>
@@ -3247,7 +3252,7 @@ export default function App() {
                           <div className="flex items-center gap-1">
                             <button
                               onClick={() => handleEditCourseClick(course)}
-                              className="bg-zinc-800 hover:bg-zinc-700 text-amber-300 p-3 rounded-2xl transition cursor-pointer font-sans border border-zinc-700"
+                              className="bg-zinc-800 hover:bg-zinc-700 text-blue-300 p-3 rounded-2xl transition cursor-pointer font-sans border border-zinc-700"
                               title="Edit Course"
                             >
                               ✏️
@@ -3273,9 +3278,9 @@ export default function App() {
                   viewport={{ once: true, margin: '-50px' }}
                   whileHover={{ scale: 1.01 }}
                   onClick={handleCreateCourseClick}
-                  className="bg-zinc-900/60 hover:bg-zinc-900 rounded-3xl overflow-hidden shadow-sm hover:shadow-md border-2 border-dashed border-amber-500/30 hover:border-amber-400 transition-all duration-300 flex flex-col items-center justify-center p-8 text-center min-h-[350px] cursor-pointer group font-sans"
+                  className="bg-zinc-900/60 hover:bg-zinc-900 rounded-3xl overflow-hidden shadow-sm hover:shadow-md border-2 border-dashed border-zinc-700 hover:border-blue-500 transition-all duration-300 flex flex-col items-center justify-center p-8 text-center min-h-[350px] cursor-pointer group font-sans"
                 >
-                  <div className="w-16 h-16 bg-amber-500/15 border border-amber-500/30 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-amber-400">
+                  <div className="w-16 h-16 bg-blue-500/15 border border-blue-500/30 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-blue-400">
                     <Plus className="w-8 h-8" />
                   </div>
                   <strong className="text-lg font-black text-white block">Add Another Course</strong>
@@ -3293,13 +3298,13 @@ export default function App() {
         {/* Testimonial slider / carousel - ADVANCED BENTO FEEDBOARD */}
         <section className="mt-20">
           <div className="text-center mb-12">
-            <span className="bg-amber-500/20 text-amber-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-amber-500/30 shadow-2xs">
+            <span className="bg-blue-500/20 text-blue-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-blue-500/30 shadow-2xs">
               ❤️ Student Feedback
             </span>
             <h3 className="text-3xl md:text-4xl font-extrabold text-white mt-3 tracking-tight">
               What Our Students Say ❤️
             </h3>
-            <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-yellow-400 mx-auto rounded-full mt-3 shadow-xs shadow-amber-500/50"></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto rounded-full mt-3 shadow-xs shadow-blue-500/50"></div>
             <p className="text-zinc-400 mt-3 text-sm md:text-base max-w-xl mx-auto">
               हाम्रा विद्यार्थीहरूले कोर्ष लिएर आफ्नो करियर र कामलाई धेरै सजिलो बनाएका छन्।
             </p>
@@ -3308,17 +3313,17 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12">
             
             {/* Bento Part 1: Overall Rating Score Card */}
-            <div className="lg:col-span-4 flex flex-col justify-between bg-zinc-900/90 p-6 md:p-8 rounded-3xl border border-amber-500/25 shadow-xl">
+            <div className="lg:col-span-4 flex flex-col justify-between bg-zinc-900/90 p-6 md:p-8 rounded-3xl border border-zinc-800 shadow-xl">
               <div>
-                <strong className="text-xs text-amber-400 font-extrabold uppercase tracking-widest block mb-1">Overall Satisfaction</strong>
+                <strong className="text-xs text-blue-400 font-extrabold uppercase tracking-widest block mb-1">Overall Satisfaction</strong>
                 <div className="flex items-baseline gap-2">
                   <span className="text-6xl font-black text-white tracking-tight">4.92</span>
                   <span className="text-lg text-zinc-500 font-extrabold">/5.0</span>
                 </div>
                 
-                <div className="flex gap-1 text-amber-400 mt-3">
+                <div className="flex gap-1 text-emerald-400 mt-3">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                    <Star key={i} className="w-5 h-5 fill-emerald-400 text-emerald-400" />
                   ))}
                 </div>
                 <p className="text-zinc-400 text-xs mt-3 font-semibold">Based on 1000+ verified Nepal & India student feedback.</p>
@@ -3332,7 +3337,7 @@ export default function App() {
                       <span>92%</span>
                     </div>
                     <div className="w-full h-2.5 bg-zinc-800 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full" style={{ width: '92%' }}></div>
+                      <div className="h-full bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full" style={{ width: '92%' }}></div>
                     </div>
                   </div>
 
@@ -3343,7 +3348,7 @@ export default function App() {
                       <span>8%</span>
                     </div>
                     <div className="w-full h-2.5 bg-zinc-800 rounded-full overflow-hidden">
-                      <div className="h-full bg-amber-500/70 rounded-full" style={{ width: '8%' }}></div>
+                      <div className="h-full bg-blue-500/70 rounded-full" style={{ width: '8%' }}></div>
                     </div>
                   </div>
 
@@ -3378,7 +3383,7 @@ export default function App() {
                       }}
                       className={`whitespace-nowrap text-xs font-extrabold py-2 px-3.5 rounded-full transition cursor-pointer border ${
                         selectedCourseFilter === category
-                          ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 font-black border-amber-400 shadow-xs'
+                          ? 'bg-blue-600 text-white font-black border-blue-500 shadow-xs'
                           : 'bg-zinc-950 text-zinc-400 hover:bg-zinc-800 hover:text-white border-zinc-800'
                       }`}
                     >
@@ -3397,7 +3402,7 @@ export default function App() {
                       setCurrentSlide(0);
                     }}
                     placeholder="समीक्षा खोज्नुहोस्..."
-                    className="w-full bg-zinc-950 text-zinc-100 placeholder-zinc-500 font-medium text-xs rounded-full pl-9 pr-4 py-2.5 border border-zinc-800 focus:outline-hidden focus:border-amber-400 transition"
+                    className="w-full bg-zinc-950 text-zinc-100 placeholder-zinc-500 font-medium text-xs rounded-full pl-9 pr-4 py-2.5 border border-zinc-800 focus:outline-hidden focus:border-blue-500 transition"
                   />
                   <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 </div>
@@ -3405,7 +3410,7 @@ export default function App() {
 
               {/* Testimonials Slides Container */}
               <div 
-                className="bg-zinc-900/90 p-6 md:p-8 rounded-3xl border border-amber-500/25 shadow-xl min-h-[310px] md:min-h-[250px] flex flex-col justify-between relative overflow-hidden"
+                className="bg-zinc-900/90 p-6 md:p-8 rounded-3xl border border-zinc-800 shadow-xl min-h-[310px] md:min-h-[250px] flex flex-col justify-between relative overflow-hidden"
                 onMouseEnter={() => setIsHoveredCarousel(true)}
                 onMouseLeave={() => setIsHoveredCarousel(false)}
               >
@@ -3432,23 +3437,23 @@ export default function App() {
                         <div>
                           {/* User Header */}
                           <div className="flex items-center gap-4">
-                            <div className="text-3xl w-12 h-12 bg-amber-500/15 border border-amber-500/30 rounded-full flex items-center justify-center shrink-0">
+                            <div className="text-3xl w-12 h-12 bg-blue-500/15 border border-blue-500/30 rounded-full flex items-center justify-center shrink-0">
                               {filteredTestimonials[currentSlide].avatar || '🧔'}
                             </div>
                             <div>
                               <strong className="text-base text-white block font-black leading-tight">
                                 {filteredTestimonials[currentSlide].name}
                               </strong>
-                              <span className="text-xs text-amber-400 font-extrabold block mt-0.5">
+                              <span className="text-xs text-blue-400 font-extrabold block mt-0.5">
                                 {filteredTestimonials[currentSlide].location} • {filteredTestimonials[currentSlide].course}
                               </span>
                             </div>
                           </div>
 
                           {/* Interactive stars */}
-                          <div className="flex gap-1 text-amber-400 mt-3.5">
+                          <div className="flex gap-1 text-emerald-400 mt-3.5">
                             {[...Array(filteredTestimonials[currentSlide].rating || 5)].map((_, i) => (
-                              <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                              <Star key={i} className="w-4 h-4 fill-emerald-400 text-emerald-400" />
                             ))}
                           </div>
 
@@ -3478,7 +3483,7 @@ export default function App() {
                         onClick={() => {
                           setCurrentSlide((prev) => (prev - 1 + filteredTestimonials.length) % filteredTestimonials.length);
                         }}
-                        className="w-7 h-7 hover:bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400 hover:text-amber-400 transition cursor-pointer"
+                        className="w-7 h-7 hover:bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400 hover:text-blue-400 transition cursor-pointer"
                         aria-label="Previous Review"
                       >
                         <ChevronLeft className="w-4 h-4" />
@@ -3489,15 +3494,15 @@ export default function App() {
                         onClick={() => setIsSliderAutoPlaying(!isSliderAutoPlaying)}
                         className={`w-7 h-7 rounded-full flex items-center justify-center transition cursor-pointer ${
                           isSliderAutoPlaying 
-                            ? 'hover:bg-zinc-800 text-zinc-400 hover:text-amber-400' 
-                            : 'bg-amber-400 text-black shadow-xs'
+                            ? 'hover:bg-zinc-800 text-zinc-400 hover:text-blue-400' 
+                            : 'bg-blue-600 text-white shadow-xs'
                         }`}
                         title={isSliderAutoPlaying ? "Pause Autoplay" : "Resume Autoplay"}
                       >
                         {isSliderAutoPlaying ? (
                           <Pause className="w-3 h-3" />
                         ) : (
-                          <Play className="w-3 h-3 fill-black" />
+                          <Play className="w-3 h-3 fill-white text-white" />
                         )}
                       </button>
 
@@ -3506,7 +3511,7 @@ export default function App() {
                         onClick={() => {
                           setCurrentSlide((prev) => (prev + 1) % filteredTestimonials.length);
                         }}
-                        className="w-7 h-7 hover:bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400 hover:text-amber-400 transition cursor-pointer"
+                        className="w-7 h-7 hover:bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400 hover:text-blue-400 transition cursor-pointer"
                         aria-label="Next Review"
                       >
                         <ChevronRight className="w-4 h-4" />
@@ -3524,13 +3529,13 @@ export default function App() {
         {/* What You Learn Section */}
         <section className="mt-24 relative">
           <div className="text-center mb-16 relative z-10">
-            <span className="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-amber-500/30 shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" /> Full-Stack Skills
+            <span className="inline-flex items-center gap-1.5 bg-blue-500/20 text-blue-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-blue-500/30 shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-blue-400" /> Full-Stack Skills
             </span>
             <h3 className="text-3xl md:text-4xl font-black mt-4 text-white tracking-tight leading-tight">
-              तपाईंले के सिक्नुहुन्छ ? <span className="gold-gradient-text">What You Will Learn</span>
+              तपाईंले के सिक्नुहुन्छ ? <span className="text-blue-400">What You Will Learn</span>
             </h3>
-            <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-yellow-400 mx-auto rounded-full mt-4 shadow-xs shadow-amber-500/50"></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto rounded-full mt-4 shadow-xs shadow-blue-500/50"></div>
             <p className="text-zinc-400 mt-4 text-sm md:text-base max-w-xl mx-auto font-medium">
               हाम्रो व्यावहारिक कोर्षहरूमा समावेस गरिएका मुख्य विधा र सीपहरू
             </p>
@@ -3541,10 +3546,10 @@ export default function App() {
             {/* Learn Card 1 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-zinc-800 hover:border-blue-500/50 shadow-xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
+                <div className="w-14 h-14 bg-blue-500/15 text-blue-400 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/30 shadow-sm">
                   <Sparkles className="w-7 h-7" />
                 </div>
                 <h4 className="text-lg font-black text-white mb-3 tracking-tight">
@@ -3554,7 +3559,7 @@ export default function App() {
                   ChatGPT, Midjourney, Runway, ElevenLabs, Leonardo आदि विश्वस्तरीय AI tools को पूर्ण प्रयोगात्मक प्रशिक्षण।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-blue-400 uppercase tracking-wider">
                 <span>Complete Tools Master</span> • <span className="text-zinc-500">Practical</span>
               </div>
             </motion.div>
@@ -3562,10 +3567,10 @@ export default function App() {
             {/* Learn Card 2 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-zinc-800 hover:border-blue-500/50 shadow-xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
+                <div className="w-14 h-14 bg-blue-500/15 text-blue-400 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/30 shadow-sm">
                   <Video className="w-7 h-7" />
                 </div>
                 <h4 className="text-lg font-black text-white mb-3 tracking-tight">
@@ -3575,7 +3580,7 @@ export default function App() {
                   Talking Avatar भिडियो, Text to Video, Script-writing, र प्रोफेसनल एनिमेटेड भिडियो सम्पादन।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-blue-400 uppercase tracking-wider">
                 <span>Video Editing & Avatar</span> • <span className="text-zinc-500">Viral Style</span>
               </div>
             </motion.div>
@@ -3583,10 +3588,10 @@ export default function App() {
             {/* Learn Card 3 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-zinc-800 hover:border-blue-500/50 shadow-xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
+                <div className="w-14 h-14 bg-blue-500/15 text-blue-400 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/30 shadow-sm">
                   <ImageIcon className="w-7 h-7" />
                 </div>
                 <h4 className="text-lg font-black text-white mb-3 tracking-tight">
@@ -3596,7 +3601,7 @@ export default function App() {
                   Stunning यथार्थपरक फोटोहरू, एनिमेसन, व्यावसायिक डिजिटल कला र थम्बनेलहरू सजिलै बनाउने।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-blue-400 uppercase tracking-wider">
                 <span>Art & Graphic Prompting</span> • <span className="text-zinc-500">Pro Quality</span>
               </div>
             </motion.div>
@@ -3604,10 +3609,10 @@ export default function App() {
             {/* Learn Card 4 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-zinc-800 hover:border-blue-500/50 shadow-xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
+                <div className="w-14 h-14 bg-blue-500/15 text-blue-400 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/30 shadow-sm">
                   <Music className="w-7 h-7" />
                 </div>
                 <h4 className="text-lg font-black text-white mb-3 tracking-tight">
@@ -3617,7 +3622,7 @@ export default function App() {
                   आफ्नै गीत, धून, संगीत कम्पोजिसन, भ्वाइस क्लोनिङ र ट्रेन्डिङ सामाजिक सञ्जाल संगीतको उत्पादन।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-blue-400 uppercase tracking-wider">
                 <span>Audio & Voice Cloning</span> • <span className="text-zinc-500">Vocal Hits</span>
               </div>
             </motion.div>
@@ -3625,10 +3630,10 @@ export default function App() {
             {/* Learn Card 5 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-zinc-800 hover:border-blue-500/50 shadow-xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
+                <div className="w-14 h-14 bg-blue-500/15 text-blue-400 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/30 shadow-sm">
                   <Presentation className="w-7 h-7" />
                 </div>
                 <h4 className="text-lg font-black text-white mb-3 tracking-tight">
@@ -3638,7 +3643,7 @@ export default function App() {
                   Dhruv Rathee शैलीमा उत्कृष्ट एनिमेटेड पावरपोइन्ट स्लाईड र व्यावसायिक कलेज/अफिस प्रस्तुतीकरण।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-blue-400 uppercase tracking-wider">
                 <span>Professional Slides</span> • <span className="text-zinc-500">Dhruv Rathee Style</span>
               </div>
             </motion.div>
@@ -3646,10 +3651,10 @@ export default function App() {
             {/* Learn Card 6 */}
             <motion.div 
               whileHover={{ y: -6 }}
-              className="bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/20 hover:border-amber-400/50 shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col justify-between"
+              className="bg-zinc-900/90 p-8 rounded-3xl border border-zinc-800 hover:border-blue-500/50 shadow-xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center mb-6 border border-amber-500/30 shadow-sm">
+                <div className="w-14 h-14 bg-blue-500/15 text-blue-400 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/30 shadow-sm">
                   <GraduationCap className="w-7 h-7" />
                 </div>
                 <h4 className="text-lg font-black text-white mb-3 tracking-tight">
@@ -3659,7 +3664,7 @@ export default function App() {
                   वास्तविक प्रयोगात्मक प्रोजेक्टहरू, कोर्स पूरा गरेपछि सर्टिफिकेट, र सधैंको लागि आजीवन पहुँच।
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wider">
+              <div className="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-black text-blue-400 uppercase tracking-wider">
                 <span>Verified Certificate</span> • <span className="text-zinc-500">Lifetime Access</span>
               </div>
             </motion.div>
@@ -3670,13 +3675,13 @@ export default function App() {
         {/* FAQs Accordion */}
         <section className="mt-20">
           <div className="text-center mb-12">
-            <span className="bg-amber-500/20 text-amber-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-amber-500/30">
+            <span className="bg-blue-500/20 text-blue-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-blue-500/30">
               Common Questions
             </span>
             <h3 className="text-2xl md:text-4xl font-extrabold text-white mt-3 tracking-tight">
               Frequently Asked Questions
             </h3>
-            <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-yellow-400 mx-auto rounded-full mt-3 shadow-xs shadow-amber-500/50"></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto rounded-full mt-3 shadow-xs shadow-blue-500/50"></div>
             <p className="text-zinc-400 mt-3 text-sm md:text-base">
               कोर्ष र भुक्तानी सम्बन्धी आम जिज्ञासाहरूको समाधान यहाँ पाउन सक्नुहुन्छ।
             </p>
@@ -3688,16 +3693,16 @@ export default function App() {
               return (
                 <div 
                   key={index}
-                  className="bg-zinc-900/90 rounded-2xl border border-zinc-800/80 shadow-md overflow-hidden transition-all duration-200 hover:border-amber-500/40 hover:shadow-lg"
+                  className="bg-zinc-900/90 rounded-2xl border border-zinc-800/80 shadow-md overflow-hidden transition-all duration-200 hover:border-blue-500/40 hover:shadow-lg"
                 >
                   <button
                     onClick={() => toggleFaq(index)}
-                    className="w-full text-left p-5 md:p-6 font-bold text-white hover:text-amber-300 transition-colors flex items-center justify-between gap-4 text-base md:text-lg focus:outline-hidden cursor-pointer"
+                    className="w-full text-left p-5 md:p-6 font-bold text-white hover:text-blue-300 transition-colors flex items-center justify-between gap-4 text-base md:text-lg focus:outline-hidden cursor-pointer"
                   >
                     <span>{faq.question}</span>
                     <ChevronDown 
-                      className={`w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300 ${
-                        isOpen ? 'rotate-180 text-amber-300' : ''
+                      className={`w-5 h-5 text-blue-400 shrink-0 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180 text-blue-300' : ''
                       }`}
                     />
                   </button>
@@ -3725,15 +3730,15 @@ export default function App() {
 
         {/* Contact Us Section */}
         <section className="mt-20">
-          <div className="bg-zinc-900/90 rounded-3xl p-6 md:p-12 shadow-2xl border border-amber-500/25">
+          <div className="bg-zinc-900/90 rounded-3xl p-6 md:p-12 shadow-2xl border border-zinc-800">
             <div className="text-center mb-10">
-              <span className="bg-amber-500/20 text-amber-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-amber-500/30">
+              <span className="bg-blue-500/20 text-blue-300 font-extrabold text-xs tracking-wider uppercase px-4 py-1.5 rounded-full border border-blue-500/30">
                 Help & Support
               </span>
               <h3 className="text-2xl md:text-4xl font-extrabold text-white mt-3 tracking-tight">
                 Contact Us
               </h3>
-              <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-yellow-400 mx-auto rounded-full mt-3 shadow-xs shadow-amber-500/50"></div>
+              <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 mx-auto rounded-full mt-3 shadow-xs shadow-blue-500/50"></div>
               <p className="text-zinc-400 mt-3 text-sm md:text-base">
                 कुनै पनि प्रश्न वा तत्काल भर्नाको लागि हामीलाई सिधै सम्पर्क गर्नुहोस्
               </p>
@@ -3787,17 +3792,17 @@ export default function App() {
               {/* Email Card */}
               <a 
                 href={`mailto:${siteSettings.supportEmail || 'ai.clipzone.edu@gmail.com'}`} 
-                className="group p-6 rounded-2xl border-2 border-amber-500/20 hover:border-amber-400 bg-amber-950/20 hover:bg-amber-950/40 transition duration-300 flex items-start gap-4"
+                className="group p-6 rounded-2xl border-2 border-blue-500/20 hover:border-blue-400 bg-blue-950/20 hover:bg-blue-950/40 transition duration-300 flex items-start gap-4"
               >
-                <div className="w-12 h-12 rounded-xl bg-amber-500 text-black flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <strong className="text-white font-extrabold text-lg group-hover:text-amber-300 transition-colors">
+                  <strong className="text-white font-extrabold text-lg group-hover:text-blue-300 transition-colors">
                     Email Support
                   </strong>
                   <span className="text-zinc-400 block text-xs mt-1">{siteSettings.supportEmail || "ai.clipzone.edu@gmail.com"}</span>
-                  <span className="text-xs text-amber-400 font-extrabold mt-1 inline-block">
+                  <span className="text-xs text-blue-400 font-extrabold mt-1 inline-block">
                     Official queries & feedback
                   </span>
                 </div>
@@ -3808,7 +3813,7 @@ export default function App() {
             {/* Quick Contact Message Form */}
             <div className="bg-zinc-950/80 p-6 md:p-10 rounded-2xl border border-zinc-800/80">
               <h4 className="text-xl font-bold text-center text-white mb-6 flex items-center justify-center gap-2">
-                <MessageSquare className="w-5 h-5 text-amber-400" />
+                <MessageSquare className="w-5 h-5 text-blue-400" />
                 Send Quick Message on WhatsApp
               </h4>
 
@@ -3820,7 +3825,7 @@ export default function App() {
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
                     placeholder="तपाईंको नाम लेख्नुहोस्..."
-                    className="w-full bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 rounded-xl px-4 py-3 text-sm transition outline-hidden"
+                    className="w-full bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-sm transition outline-hidden"
                   />
                 </div>
                 <div>
@@ -3830,7 +3835,7 @@ export default function App() {
                     value={contactPhone}
                     onChange={(e) => setContactPhone(e.target.value)}
                     placeholder="सम्पर्क फोन नम्बर लेख्नुहोस्..."
-                    className="w-full bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 rounded-xl px-4 py-3 text-sm transition outline-hidden"
+                    className="w-full bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-sm transition outline-hidden"
                   />
                 </div>
                 <div>
@@ -3838,7 +3843,7 @@ export default function App() {
                   <select 
                     value={contactCourse}
                     onChange={(e) => setContactCourse(e.target.value)}
-                    className="w-full bg-zinc-900 border border-zinc-800 text-white focus:border-amber-400 focus:ring-1 focus:ring-amber-400 rounded-xl px-4 py-3 text-sm transition outline-hidden font-semibold"
+                    className="w-full bg-zinc-900 border border-zinc-800 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-sm transition outline-hidden font-semibold"
                   >
                     <option value="General Inquiry / सामान्य सोधपुछ">General Inquiry / सामान्य सोधपुछ</option>
                     {courses.map((course) => (
@@ -3855,14 +3860,14 @@ export default function App() {
                     onChange={(e) => setContactMsg(e.target.value)}
                     rows={4}
                     placeholder="कोर्ष सम्बन्धी केही सोध्न मन छ भने यहाँ लेख्नुहोस्..."
-                    className="w-full bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 rounded-xl px-4 py-3 text-sm transition outline-hidden"
+                    className="w-full bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-sm transition outline-hidden"
                   />
                 </div>
                 
                 <div className="pt-2">
                   <button 
                     type="submit"
-                    className="w-full bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-zinc-950 font-black py-3.5 px-6 rounded-xl shadow-lg shadow-amber-500/20 transition duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                    className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-3.5 px-6 rounded-xl shadow-lg shadow-blue-500/20 transition duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
                   >
                     <Send className="w-4 h-4" /> 📤 Send Message
                   </button>
@@ -3874,7 +3879,7 @@ export default function App() {
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-zinc-950 p-6 rounded-2xl border border-zinc-800 text-center max-w-xl mx-auto">
               <div className="sm:border-r sm:border-zinc-800 pb-4 sm:pb-0">
                 <h5 className="font-extrabold text-white flex items-center justify-center gap-1.5 text-sm">
-                  <Clock className="w-4 h-4 text-amber-400" /> Business Hours
+                  <Clock className="w-4 h-4 text-blue-400" /> Business Hours
                 </h5>
                 <p className="text-zinc-400 text-xs mt-2 font-medium">Sunday - Friday: 8:00 AM - 8:00 PM</p>
                 <p className="text-zinc-400 text-xs mt-1 font-medium">Saturday: 10:00 AM - 6:00 PM</p>
@@ -3895,10 +3900,10 @@ export default function App() {
                 <ShieldCheck className="w-4 h-4 text-emerald-400" /> Secure eSewa / QR Checkout
               </div>
               <div className="flex items-center gap-1 text-xs font-bold text-zinc-400">
-                <GraduationCap className="w-4 h-4 text-amber-400" /> Standard Certificate Issued
+                <GraduationCap className="w-4 h-4 text-blue-400" /> Standard Certificate Issued
               </div>
               <div className="flex items-center gap-1 text-xs font-bold text-zinc-400">
-                <Headphones className="w-4 h-4 text-yellow-400" /> Lifelong Learning Access
+                <Headphones className="w-4 h-4 text-emerald-400" /> Lifelong Learning Access
               </div>
             </div>
 
@@ -3933,7 +3938,7 @@ export default function App() {
             <span>•</span>
             <a href="https://www.facebook.com/profile.php?id=61583901232576&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Facebook</a>
             <span>•</span>
-            <a href={`mailto:${siteSettings.supportEmail || 'ai.clipzone.edu@gmail.com'}`} className="hover:text-amber-400 transition-colors">Email</a>
+            <a href={`mailto:${siteSettings.supportEmail || 'ai.clipzone.edu@gmail.com'}`} className="hover:text-blue-400 transition-colors">Email</a>
           </div>
         </div>
       </footer>
@@ -3986,7 +3991,7 @@ export default function App() {
                             setActivationCodeInput('');
                             setShowCodeInputModal(true);
                           }}
-                          className="bg-purple-600/60 hover:bg-purple-600 text-amber-300 text-[10px] font-black px-2.5 py-1 rounded-full border border-purple-400/30 transition flex items-center gap-1 cursor-pointer"
+                          className="bg-purple-600/60 hover:bg-purple-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full border border-purple-400/30 transition flex items-center gap-1 cursor-pointer"
                         >
                           🔑 + Add Course (कोड हाल्नुहोस्)
                         </button>
@@ -3998,7 +4003,7 @@ export default function App() {
                             setSelectedCourse(null);
                             handleEditCourseClick(courseToEdit);
                           }}
-                          className="bg-amber-500 hover:bg-amber-600 text-slate-950 text-[10px] font-black px-2.5 py-1 rounded-md transition shadow-xs flex items-center gap-1 cursor-pointer"
+                          className="bg-blue-600 hover:bg-blue-500 text-white text-[10px] font-black px-2.5 py-1 rounded-md transition shadow-xs flex items-center gap-1 cursor-pointer"
                         >
                           ✏️ Edit Playlist & Videos
                         </button>
@@ -4083,7 +4088,7 @@ export default function App() {
 
                   {/* Playing lecture info */}
                   <div className="mt-5 space-y-1">
-                    <span className="text-[10px] font-black text-amber-400 uppercase tracking-wider">Currently Playing:</span>
+                    <span className="text-[10px] font-black text-blue-400 uppercase tracking-wider">Currently Playing:</span>
                     <h4 className="text-sm md:text-base font-extrabold text-slate-100">
                       {((selectedCourse.videos && selectedCourse.videos.length > 0 ? selectedCourse.videos : [{ title: 'Introductory Lecture & Overview' }])[currentVideoIndex] || { title: 'Introductory Lecture' }).title}
                     </h4>
@@ -4133,7 +4138,7 @@ export default function App() {
                           setCertificateIssueDate(new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }));
                           setShowCertificateModal(true);
                         }}
-                        className="bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-slate-950 text-[10px] font-black uppercase tracking-wider px-3.5 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-md cursor-pointer"
+                        className="bg-blue-600 hover:bg-blue-500 text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-blue-500/20 cursor-pointer"
                       >
                         📜 View Certificate (प्रमाणपत्र)
                       </button>
@@ -4233,7 +4238,7 @@ export default function App() {
                                   <span className="text-[9px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-bold border border-slate-700">
                                     {items.length} Videos
                                   </span>
-                                  <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-amber-400' : ''}`} />
+                                  <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-blue-400' : ''}`} />
                                 </div>
                               </button>
 
@@ -4251,22 +4256,22 @@ export default function App() {
                                         }}
                                         className={`p-2 rounded-lg border transition cursor-pointer flex items-start gap-2 text-xs ${
                                           isSelected 
-                                            ? 'bg-gradient-to-r from-purple-900/70 to-indigo-900/70 border-purple-500/60 text-white shadow-xs' 
+                                            ? 'bg-gradient-to-r from-blue-900/70 to-indigo-900/70 border-blue-500/60 text-white shadow-xs' 
                                             : 'bg-slate-900/60 hover:bg-slate-800/80 border-slate-800/60 text-slate-300'
                                         }`}
                                       >
                                         <div className={`w-5 h-5 rounded flex items-center justify-center font-black shrink-0 text-[10px] mt-0.5 ${
-                                          isSelected ? 'bg-amber-400 text-slate-950 font-black shadow-2xs' : 'bg-slate-800 text-slate-400 border border-slate-700'
+                                          isSelected ? 'bg-blue-600 text-white font-black shadow-2xs' : 'bg-slate-800 text-slate-400 border border-slate-700'
                                         }`}>
                                           {isSelected ? '▶' : globalIndex + 1}
                                         </div>
                                         <div className="min-w-0 flex-1">
-                                          <h5 className={`font-bold leading-tight text-[11px] ${isSelected ? 'text-amber-300 font-extrabold' : 'text-slate-200'}`}>
+                                          <h5 className={`font-bold leading-tight text-[11px] ${isSelected ? 'text-blue-300 font-extrabold' : 'text-slate-200'}`}>
                                             {video.title || `Lecture ${globalIndex + 1}`}
                                           </h5>
                                           <div className="flex items-center justify-between mt-1 text-[9px]">
                                             <span className="text-slate-400 font-medium">⏱️ {video.duration || '10:00'} min</span>
-                                            {isSelected && <span className="text-amber-400 font-black uppercase tracking-wider">Now Playing</span>}
+                                            {isSelected && <span className="text-blue-400 font-black uppercase tracking-wider">Now Playing</span>}
                                           </div>
                                         </div>
                                       </div>
@@ -4380,16 +4385,16 @@ export default function App() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.25 }}
-                className="bg-[#0f1015] max-w-lg w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto border border-amber-500/30 text-slate-200 shadow-amber-500/10"
+                className="bg-black max-w-lg w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto border border-zinc-800 text-zinc-200"
               >
                 <button 
                   onClick={() => setSelectedCourse(null)}
-                  className="absolute top-5 right-5 text-slate-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-slate-800"
+                  className="absolute top-5 right-5 text-zinc-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-zinc-800"
                 >
                   <X className="w-6 h-6" />
                 </button>
 
-                <span className="inline-block bg-amber-500/15 text-amber-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 border border-amber-500/30">
+                <span className="inline-block bg-blue-500/15 text-blue-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 border border-blue-500/30">
                   Course Details
                 </span>
 
@@ -4398,27 +4403,27 @@ export default function App() {
                 </h3>
                 
                 <div className="flex items-center gap-2 mt-2">
-                  <span className="bg-slate-900 text-amber-300 text-[11px] font-extrabold px-2.5 py-1 rounded-md border border-amber-500/30 flex items-center gap-1">
+                  <span className="bg-zinc-900 text-zinc-300 text-[11px] font-extrabold px-2.5 py-1 rounded-md border border-zinc-750 flex items-center gap-1">
                     🌐 Language: {selectedCourse.language || (selectedCourse.id.includes('rathee') || selectedCourse.id.includes('presentation') ? 'Hindi & Nepali' : 'Nepali')}
                   </span>
-                  <span className="bg-slate-900 text-emerald-400 text-[11px] font-extrabold px-2.5 py-1 rounded-md border border-emerald-500/30">
+                  <span className="bg-zinc-900 text-emerald-400 text-[11px] font-extrabold px-2.5 py-1 rounded-md border border-emerald-500/30">
                     📜 Certificate
                   </span>
                 </div>
                 
-                <p className="text-3xl font-black text-gradient-gold mt-3 text-left">
+                <p className="text-3xl font-black text-emerald-400 mt-3 text-left">
                   {selectedCourse.price}
                 </p>
 
                 <div className="mt-6 text-left">
-                  <h4 className="text-xs font-black text-amber-400 uppercase tracking-wider mb-3">
+                  <h4 className="text-xs font-black text-blue-400 uppercase tracking-wider mb-3">
                     यो Course बाट के सिक्नुहुन्छ ?
                   </h4>
                   
                   <ul className="space-y-3">
                     {selectedCourse.learn.map((item, index) => (
-                      <li key={index} className="flex items-start gap-3 text-slate-300 text-sm md:text-base leading-relaxed">
-                        <div className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5 border border-amber-500/40">
+                      <li key={index} className="flex items-start gap-3 text-zinc-300 text-sm md:text-base leading-relaxed">
+                        <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/40">
                           <Check className="w-3.5 h-3.5 stroke-[3]" />
                         </div>
                         <span>{item}</span>
@@ -4428,7 +4433,7 @@ export default function App() {
                 </div>
 
                 {/* Secure purchase assurances */}
-                <div className="mt-6 p-4 bg-slate-900/90 rounded-2xl border border-amber-500/25 flex items-center gap-3 text-xs text-slate-300 font-semibold text-left">
+                <div className="mt-6 p-4 bg-zinc-900/90 rounded-2xl border border-zinc-800 flex items-center gap-3 text-xs text-zinc-300 font-semibold text-left">
                   <ShieldCheck className="w-6 h-6 text-emerald-400 shrink-0" />
                   <span>१००% सुरक्षित भुक्तानी। भुक्तानी गरेपछि तत्कालै ड्राइभ लिङ्क र भिडियो कोर्ष प्राप्त गर्नुहुनेछ।</span>
                 </div>
@@ -4446,7 +4451,7 @@ export default function App() {
                   
                   <button 
                     onClick={handleOpenFonePayQR}
-                    className="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black py-4 px-6 rounded-2xl text-center shadow-lg shadow-amber-500/25 transition flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 px-6 rounded-2xl text-center shadow-lg shadow-blue-500/25 transition flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>QR स्क्यान गरी तत्काल भुक्तानी (eSewa / Bank)</span>
                   </button>
@@ -4475,22 +4480,22 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-[#0f1015] max-w-xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl relative z-10 border border-amber-500/30 text-slate-200 max-h-[90vh] overflow-y-auto font-sans shadow-amber-500/10"
+              className="bg-black max-w-xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl relative z-10 border border-zinc-800 text-zinc-200 max-h-[90vh] overflow-y-auto font-sans"
             >
               <button 
                 onClick={() => setShowProfileModal(false)}
-                className="absolute top-5 right-5 text-slate-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-slate-800"
+                className="absolute top-5 right-5 text-zinc-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-zinc-800"
               >
                 <X className="w-6 h-6" />
               </button>
 
-              <span className="inline-block bg-amber-500/15 text-amber-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 border border-amber-500/30">
+              <span className="inline-block bg-blue-500/15 text-blue-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 border border-blue-500/30">
                 👤 Profile Page
               </span>
 
               {authLoading && !currentUser && !localStorage.getItem('clipzone_student_name') ? (
-                <div className="py-12 text-center text-xs font-bold text-slate-400 flex flex-col items-center justify-center gap-3">
-                  <span className="w-6 h-6 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></span>
+                <div className="py-12 text-center text-xs font-bold text-zinc-400 flex flex-col items-center justify-center gap-3">
+                  <span className="w-6 h-6 border-2 border-blue-400 border-t-transparent rounded-full animate-spin"></span>
                   Securing user session...
                 </div>
               ) : !currentUser && !localStorage.getItem('clipzone_student_name') ? (
@@ -4499,7 +4504,7 @@ export default function App() {
                   <h3 className="text-xl font-black text-white tracking-tight">
                     Welcome to {siteSettings.instituteName || 'AI Clipzone Nepal'} 🇳🇵
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1.5 font-medium leading-relaxed">
+                  <p className="text-xs text-zinc-400 mt-1.5 font-medium leading-relaxed">
                     भिडियो कोर्सहरू अनलक गर्न र अध्ययन सुरु गर्न एडमिनबाट प्राप्त Secret Activation Code (कोर्स कोड) यहाँ राख्नुहोस्:
                   </p>
 
@@ -4511,7 +4516,7 @@ export default function App() {
 
                   <form onSubmit={handleClaimActivationCode} className="space-y-4 mt-6">
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5 tracking-wider">
+                      <label className="block text-[10px] font-black uppercase text-blue-400 mb-1.5 tracking-wider">
                         Secret Activation Code (कोर्स सेक्रेट कोड) *
                       </label>
                       <input 
@@ -4520,18 +4525,18 @@ export default function App() {
                         value={activationCodeInput}
                         onChange={(e) => setActivationCodeInput(e.target.value)}
                         placeholder="उदाहरण: CLIP-XXXXXX"
-                        className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-3.5 text-sm font-mono font-black uppercase text-white outline-hidden tracking-widest shadow-inner placeholder-slate-600"
+                        className="w-full bg-zinc-950 border border-zinc-800 focus:border-blue-500 rounded-xl px-4 py-3.5 text-sm font-mono font-black uppercase text-white outline-hidden tracking-widest shadow-inner placeholder-zinc-600"
                       />
                     </div>
 
                     <button
                       type="submit"
                       disabled={isActivating || !activationCodeInput.trim()}
-                      className="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 disabled:opacity-50 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-md transition cursor-pointer flex items-center justify-center gap-2"
+                      className="w-full bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-md shadow-blue-500/20 transition cursor-pointer flex items-center justify-center gap-2"
                     >
                       {isActivating ? (
                         <>
-                          <span className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span>
+                          <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                           Verifying Code...
                         </>
                       ) : (
@@ -4544,13 +4549,13 @@ export default function App() {
                 /* CASE: REGISTERED STUDENT */
                 <div className="text-left mt-2 space-y-5">
                   {/* Student profile summary */}
-                  <div className="flex items-center gap-4 bg-slate-900/90 p-4 rounded-2xl border border-amber-500/25 relative overflow-hidden shadow-xs">
+                  <div className="flex items-center gap-4 bg-zinc-950 p-4 rounded-2xl border border-zinc-800 relative overflow-hidden shadow-xs">
                     <div className="relative shrink-0">
-                      <div className="w-13 h-13 rounded-2xl bg-gradient-to-tr from-amber-400 to-yellow-600 text-slate-950 flex items-center justify-center text-lg font-black shadow-md uppercase ring-2 ring-amber-400/40">
+                      <div className="w-13 h-13 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-lg font-black shadow-md uppercase ring-2 ring-blue-400/40">
                         {(currentUser?.displayName || authName || localStorage.getItem('clipzone_student_name') || 'ST').substring(0, 2)}
                       </div>
                       {/* Verification Badge on Avatar Corner */}
-                      <span className="absolute -bottom-1 -right-1 bg-amber-500 text-slate-950 w-5 h-5 rounded-full flex items-center justify-center shadow-md ring-2 ring-slate-900" title="Verified Active Student">
+                      <span className="absolute -bottom-1 -right-1 bg-emerald-500 text-zinc-950 w-5 h-5 rounded-full flex items-center justify-center shadow-md ring-2 ring-zinc-900" title="Verified Active Student">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </span>
                     </div>
@@ -4562,15 +4567,15 @@ export default function App() {
                         </h3>
                         {/* Verified Student Badge */}
                         <span 
-                          className="inline-flex items-center justify-center bg-amber-400 text-slate-950 rounded-full w-4 h-4 p-0.5 shadow-xs shrink-0" 
+                          className="inline-flex items-center justify-center bg-blue-600 text-white rounded-full w-4 h-4 p-0.5 shadow-xs shrink-0" 
                           title="Verified Student Account (Active Course Owner)"
                         >
                           <Check className="w-3 h-3 stroke-[3]" />
                         </span>
                       </div>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-[10px] font-extrabold text-amber-300 bg-amber-500/15 px-2 py-0.5 rounded-md flex items-center gap-1 border border-amber-500/30">
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                        <span className="text-[10px] font-extrabold text-blue-300 bg-blue-500/15 px-2 py-0.5 rounded-md flex items-center gap-1 border border-blue-500/30">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
                           Official Verified Student 🇳🇵
                         </span>
                       </div>
@@ -4578,14 +4583,14 @@ export default function App() {
                   </div>
 
                   {/* Certificate Banner */}
-                  <div className="bg-gradient-to-r from-amber-500/15 via-amber-400/20 to-yellow-500/15 border border-amber-400/40 p-3.5 rounded-2xl flex items-center justify-between gap-3 shadow-sm">
+                  <div className="bg-blue-950/40 border border-blue-500/30 p-3.5 rounded-2xl flex items-center justify-between gap-3 shadow-sm">
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-950 flex items-center justify-center shrink-0 shadow-md">
-                        <Award className="w-5 h-5 text-slate-950" />
+                      <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
+                        <Award className="w-5 h-5 text-white" />
                       </div>
                       <div className="min-w-0">
                         <h5 className="text-xs font-black text-white truncate">Course Certificate 📜</h5>
-                        <p className="text-[10px] text-amber-200/80 font-medium truncate">आफ्नो नाम र भर्ना मिति सहितको प्रमाणपत्र</p>
+                        <p className="text-[10px] text-zinc-400 font-medium truncate">आफ्नो नाम र भर्ना मिति सहितको प्रमाणपत्र</p>
                       </div>
                     </div>
                     <button
@@ -4609,7 +4614,7 @@ export default function App() {
                         setShowProfileModal(false);
                         setShowCertificateModal(true);
                       }}
-                      className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3 py-2 rounded-xl transition cursor-pointer shadow-md shrink-0 flex items-center gap-1"
+                      className="bg-blue-600 hover:bg-blue-500 text-white font-black text-[10px] uppercase tracking-wider px-3 py-2 rounded-xl transition cursor-pointer shadow-md shadow-blue-500/20 shrink-0 flex items-center gap-1"
                     >
                       View Certificate 📜
                     </button>
@@ -4617,7 +4622,7 @@ export default function App() {
 
                   {/* Unlocked / Enrolled Courses catalog list with Enrolled & Expiry Dates */}
                   <div>
-                    <h4 className="text-[10px] font-black uppercase text-amber-400 tracking-wider mb-2.5 flex items-center justify-between">
+                    <h4 className="text-[10px] font-black uppercase text-blue-400 tracking-wider mb-2.5 flex items-center justify-between">
                       <span>📚 My Activated Courses ({activeCourseIds.length})</span>
                       <span className="text-emerald-400 font-extrabold text-[9px] lowercase">active access</span>
                     </h4>
@@ -4662,17 +4667,17 @@ export default function App() {
                             return (
                               <div 
                                 key={course.id}
-                                className="bg-slate-900/80 hover:bg-slate-850 p-3.5 rounded-2xl border border-amber-500/20 space-y-2.5 transition"
+                                className="bg-zinc-950 p-3.5 rounded-2xl border border-zinc-800 space-y-2.5 transition"
                               >
                                 <div className="flex items-start justify-between gap-2">
                                   <div className="flex items-center gap-2.5 min-w-0">
-                                    <div className="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-300 border border-amber-500/30 flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+                                    <div className="w-9 h-9 rounded-xl bg-blue-500/15 text-blue-300 border border-blue-500/30 flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
                                       📖
                                     </div>
                                     <div className="min-w-0">
                                       <h5 className="text-xs font-black text-white truncate">{course.title}</h5>
                                       {keyInfo?.code && (
-                                        <span className="text-[9px] font-mono font-bold text-amber-300/80 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">
+                                        <span className="text-[9px] font-mono font-bold text-blue-300/80 bg-zinc-900 px-1.5 py-0.5 rounded border border-zinc-850">
                                           Code: {keyInfo.code}
                                         </span>
                                       )}
@@ -4693,7 +4698,7 @@ export default function App() {
                                         setShowProfileModal(false);
                                         setShowCertificateModal(true);
                                       }}
-                                      className="bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-400/40 font-black text-[10px] uppercase tracking-wider px-2.5 py-1.5 rounded-xl transition cursor-pointer shrink-0 flex items-center gap-1"
+                                      className="bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 font-black text-[10px] uppercase tracking-wider px-2.5 py-1.5 rounded-xl transition cursor-pointer shrink-0 flex items-center gap-1"
                                       title="View Course Certificate"
                                     >
                                       📜 Certificate
@@ -4705,7 +4710,7 @@ export default function App() {
                                         setShowProfileModal(false);
                                         showToast(`Let's study "${course.title}"! 📖`, 'info');
                                       }}
-                                      className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-xl transition cursor-pointer shadow-xs shrink-0 flex items-center gap-1"
+                                      className="bg-blue-600 hover:bg-blue-500 text-white font-black text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-xl transition cursor-pointer shadow-xs shrink-0 flex items-center gap-1"
                                     >
                                       Watch →
                                     </button>
@@ -4713,14 +4718,14 @@ export default function App() {
                                 </div>
 
                                 {/* Enrolled & Expired Dates */}
-                                <div className="grid grid-cols-2 gap-2 text-[10px] font-semibold bg-slate-950/80 p-2 rounded-xl border border-slate-800">
+                                <div className="grid grid-cols-2 gap-2 text-[10px] font-semibold bg-zinc-900/80 p-2 rounded-xl border border-zinc-800">
                                   <div>
-                                    <span className="text-[9px] font-bold text-slate-400 block uppercase tracking-wider">Enrolled Date</span>
-                                    <span className="font-extrabold text-slate-200">📅 {enrolledDateStr}</span>
+                                    <span className="text-[9px] font-bold text-zinc-400 block uppercase tracking-wider">Enrolled Date</span>
+                                    <span className="font-extrabold text-zinc-200">📅 {enrolledDateStr}</span>
                                   </div>
                                   <div>
-                                    <span className="text-[9px] font-bold text-slate-400 block uppercase tracking-wider">Expired Date</span>
-                                    <span className="font-extrabold text-slate-200">🗓️ {expiredDateStr}</span>
+                                    <span className="text-[9px] font-bold text-zinc-400 block uppercase tracking-wider">Expired Date</span>
+                                    <span className="font-extrabold text-zinc-200">🗓️ {expiredDateStr}</span>
                                   </div>
                                 </div>
 
@@ -4737,9 +4742,9 @@ export default function App() {
                                       </span>
                                     </div>
                                   ) : daysLeft === 0 ? (
-                                    <div className="w-full bg-amber-950/40 border border-amber-500/30 text-amber-300 px-3 py-1.5 rounded-xl text-[10px] font-extrabold flex items-center justify-between">
+                                    <div className="w-full bg-rose-950/40 border border-rose-500/30 text-rose-300 px-3 py-1.5 rounded-xl text-[10px] font-extrabold flex items-center justify-between">
                                       <span>⚠️ Today is the last day!</span>
-                                      <span className="font-black bg-amber-900/60 px-2 py-0.5 rounded-lg">आज अन्तिम दिन</span>
+                                      <span className="font-black bg-rose-900/60 px-2 py-0.5 rounded-lg">आज अन्तिम दिन</span>
                                     </div>
                                   ) : (
                                     <div className="w-full bg-rose-950/40 border border-rose-500/30 text-rose-300 px-3 py-1.5 rounded-xl text-[10px] font-extrabold flex items-center justify-between">
@@ -4810,28 +4815,28 @@ export default function App() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.25 }}
-              className="bg-[#0f1015] max-w-sm w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 text-center border border-amber-500/30 max-h-[90vh] overflow-y-auto text-slate-200"
+              className="bg-black max-w-sm w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 text-center border border-zinc-800 max-h-[90vh] overflow-y-auto text-zinc-200"
             >
               <h3 className="text-lg font-black text-white">
                 Scan to Pay (eSewa / Bank App)
               </h3>
               
-              <p className="text-xs font-semibold text-slate-400 mt-1">
+              <p className="text-xs font-semibold text-zinc-400 mt-1">
                 {selectedCourse.title}
               </p>
 
-              <p className="text-3xl font-black text-gradient-gold mt-2">
+              <p className="text-3xl font-black text-emerald-400 mt-2">
                 {selectedCourse.price}
               </p>
 
               {/* QR Canvas / Custom Image Container */}
-              <div className="my-5 p-4 bg-slate-900 border border-amber-500/25 rounded-2xl w-full shadow-inner text-center">
+              <div className="my-5 p-4 bg-zinc-950 border border-zinc-800 rounded-2xl w-full shadow-inner text-center">
                 {paymentConfig.qrImageUrl ? (
                   <div className="flex flex-col items-center">
                     <img 
                       src={paymentConfig.qrImageUrl} 
                       alt="Payment QR Code" 
-                      className="max-h-64 w-auto rounded-xl shadow-md border border-slate-700 object-contain mx-auto"
+                      className="max-h-64 w-auto rounded-xl shadow-md border border-zinc-700 object-contain mx-auto"
                     />
                   </div>
                 ) : (
@@ -4839,28 +4844,28 @@ export default function App() {
                 )}
                 
                 {/* Account Details directly under QR */}
-                <div className="mt-4 pt-3 border-t border-slate-800 text-center">
-                  <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-amber-300 bg-amber-500/15 px-3 py-0.5 rounded-full border border-amber-500/30">
+                <div className="mt-4 pt-3 border-t border-zinc-800 text-center">
+                  <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-emerald-400 bg-emerald-500/15 px-3 py-0.5 rounded-full border border-emerald-500/30">
                     eSewa Official Account
                   </span>
                   <h4 className="text-base font-black text-white mt-2 flex items-center justify-center gap-1.5">
                     👤 {paymentConfig.accountName || 'Ayush Chaurasiya'}
                   </h4>
-                  <p className="text-xs font-extrabold text-slate-300 mt-1 flex items-center justify-center gap-1">
-                    📱 eSewa ID: <span className="font-mono text-amber-300 bg-slate-950 px-2 py-0.5 rounded text-xs select-all font-bold border border-slate-800">{paymentConfig.esewaId || '9763323268'}</span>
+                  <p className="text-xs font-extrabold text-zinc-300 mt-1 flex items-center justify-center gap-1">
+                    📱 eSewa ID: <span className="font-mono text-emerald-400 bg-black px-2 py-0.5 rounded text-xs select-all font-bold border border-zinc-800">{paymentConfig.esewaId || '9763323268'}</span>
                   </p>
 
                   {paymentConfig.bankAccountNo && (
-                    <div className="mt-2.5 pt-2 border-t border-dashed border-slate-800 text-[11px] text-slate-400 text-left bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-                      <p className="font-bold text-slate-200">🏦 {paymentConfig.bankName || 'Bank Transfer'}</p>
-                      <p className="font-mono font-bold text-amber-300">A/C: {paymentConfig.bankAccountNo}</p>
-                      {paymentConfig.bankBranch && <p className="text-[10px] text-slate-500">Branch: {paymentConfig.bankBranch}</p>}
+                    <div className="mt-2.5 pt-2 border-t border-dashed border-zinc-800 text-[11px] text-zinc-400 text-left bg-black p-2.5 rounded-lg border border-zinc-800">
+                      <p className="font-bold text-zinc-200">🏦 {paymentConfig.bankName || 'Bank Transfer'}</p>
+                      <p className="font-mono font-bold text-emerald-400">A/C: {paymentConfig.bankAccountNo}</p>
+                      {paymentConfig.bankBranch && <p className="text-[10px] text-zinc-500">Branch: {paymentConfig.bankBranch}</p>}
                     </div>
                   )}
                 </div>
               </div>
 
-              <div className="bg-amber-500/10 p-3.5 rounded-xl border border-amber-500/30 text-xs text-amber-200 font-bold leading-normal mb-6 text-left">
+              <div className="bg-emerald-500/10 p-3.5 rounded-xl border border-emerald-500/30 text-xs text-emerald-300 font-medium leading-normal mb-6 text-left">
                 📌 <strong>भुक्तानी निर्देशन:</strong> {paymentConfig.paymentInstruction || `QR स्क्यान गरी वा eSewa ID ${paymentConfig.esewaId || '9763323268'} (${paymentConfig.accountName || 'Ayush Chaurasiya'}) मा रकम पठाएर स्क्रीनसट WhatsApp मा पठाउनुहोस्।`}
               </div>
 
@@ -4868,13 +4873,13 @@ export default function App() {
               <div className="flex gap-3">
                 <button 
                   onClick={handleConfirmPayment}
-                  className="flex-1 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black py-3.5 px-4 rounded-xl text-sm shadow-md transition cursor-pointer"
+                  className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-xl text-sm shadow-md transition cursor-pointer"
                 >
                   ✅ I Have Paid
                 </button>
                 <button 
                   onClick={() => setShowQrModal(false)}
-                  className="flex-1 bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold py-3.5 px-4 rounded-xl text-sm transition cursor-pointer border border-slate-800"
+                  className="flex-1 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 font-bold py-3.5 px-4 rounded-xl text-sm transition cursor-pointer border border-zinc-800"
                 >
                   Cancel
                 </button>
@@ -4902,23 +4907,23 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-[#0f1015] max-w-md w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 border border-amber-500/30 text-slate-200"
+              className="bg-black max-w-md w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 border border-zinc-800 text-zinc-200"
             >
               <button 
                 onClick={() => setShowCodeInputModal(false)}
-                className="absolute top-5 right-5 text-slate-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-slate-800"
+                className="absolute top-5 right-5 text-zinc-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-zinc-800"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="w-14 h-14 bg-amber-500/15 text-amber-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-inner border border-amber-500/30">
+              <div className="w-14 h-14 bg-blue-500/15 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-inner border border-blue-500/30">
                 🔑
               </div>
 
               <h3 className="text-xl font-extrabold text-white leading-tight text-center">
                 Add New Course to Student ID
               </h3>
-              <p className="text-xs text-slate-400 mt-1.5 text-center font-medium">
+              <p className="text-xs text-zinc-400 mt-1.5 text-center font-medium">
                 तपाईंसँग भएको सेक्रेट कोड (CLIP-XXXXXX) यहाँ राखी आफ्नो यही एकाउन्टमा नयाँ कोर्स जोड्नुहोस्।
               </p>
 
@@ -4930,7 +4935,7 @@ export default function App() {
                 className="mt-6 space-y-4 text-left"
               >
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-wider text-amber-400 mb-2">
+                  <label className="block text-xs font-black uppercase tracking-wider text-blue-400 mb-2">
                     Secret Activation Code (सेक्रेट कोड) *
                   </label>
                   <input 
@@ -4940,18 +4945,18 @@ export default function App() {
                     value={activationCodeInput}
                     onChange={(e) => setActivationCodeInput(e.target.value)}
                     placeholder="CLIP-XXXXXX"
-                    className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 focus:bg-slate-950 rounded-2xl px-4 py-3.5 text-base font-mono font-black uppercase outline-hidden text-center tracking-widest text-white transition shadow-inner placeholder-slate-600"
+                    className="w-full bg-zinc-900 border border-zinc-800 focus:border-blue-500 focus:bg-zinc-950 rounded-2xl px-4 py-3.5 text-base font-mono font-black uppercase outline-hidden text-center tracking-widest text-white transition shadow-inner placeholder-zinc-600"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isActivating || !activationCodeInput.trim()}
-                  className="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 disabled:opacity-50 text-slate-950 font-black py-4 rounded-2xl text-xs uppercase tracking-wider transition cursor-pointer shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2"
+                  className="w-full bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-wider transition cursor-pointer shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2"
                 >
                   {isActivating ? (
                     <>
-                      <span className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span>
+                      <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                       Linking Course to Student ID...
                     </>
                   ) : (
@@ -4960,10 +4965,10 @@ export default function App() {
                 </button>
               </form>
 
-              <div className="mt-5 pt-4 border-t border-slate-800 text-left">
-                <p className="text-[11px] text-slate-400 font-bold flex items-center gap-1.5">
+              <div className="mt-5 pt-4 border-t border-zinc-800 text-left">
+                <p className="text-[11px] text-zinc-400 font-bold flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                  Linked to Student Profile: <span className="text-amber-300 font-extrabold">{currentUser?.displayName || authName || localStorage.getItem('clipzone_student_name') || 'Student Account'}</span>
+                  Linked to Student Profile: <span className="text-blue-400 font-extrabold">{currentUser?.displayName || authName || localStorage.getItem('clipzone_student_name') || 'Student Account'}</span>
                 </p>
               </div>
             </motion.div>
@@ -5197,26 +5202,26 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-[#0f1015] max-w-lg w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto border border-amber-500/30 text-slate-200 flex flex-col animate-in zoom-in-95 duration-200 shadow-amber-500/10"
+              className="bg-black max-w-lg w-full rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 max-h-[90vh] overflow-y-auto border border-zinc-800 text-zinc-200 flex flex-col animate-in zoom-in-95 duration-200"
             >
               <button 
                 onClick={() => {
                   setShowCourseFormModal(false);
                   setEditingCourse(null);
                 }}
-                className="absolute top-5 right-5 text-slate-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-slate-800"
+                className="absolute top-5 right-5 text-zinc-400 hover:text-white transition cursor-pointer p-1 rounded-full hover:bg-zinc-800"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              <span className="inline-block bg-amber-500/15 text-amber-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 self-start border border-amber-500/30">
+              <span className="inline-block bg-blue-500/15 text-blue-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 self-start border border-blue-500/30">
                 {editingCourse ? 'Edit Course' : 'Create New Course'}
               </span>
 
               <h3 className="text-xl font-black text-white tracking-tight">
                 {editingCourse ? 'Update Course Details' : 'Add Dynamic Course'}
               </h3>
-              <p className="text-xs text-slate-400 mt-1 font-medium">
+              <p className="text-xs text-zinc-400 mt-1 font-medium">
                 Fill out the specifications below. The course catalog will update in Firestore instantly.
               </p>
 
@@ -5224,80 +5229,80 @@ export default function App() {
                 {/* Course ID/Slug (if creating new) */}
                 {!editingCourse && (
                   <div>
-                    <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Course Slug ID (Optional - Auto generated from Title)</label>
+                    <label className="block text-[10px] font-black uppercase text-blue-400 mb-1.5">Course Slug ID (Optional - Auto generated from Title)</label>
                     <input 
                       type="text"
                       value={formId}
                       onChange={(e) => setFormId(e.target.value)}
                       placeholder="e.g. youtube-blueprint"
-                      className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs transition outline-hidden font-mono text-slate-200 placeholder-slate-600"
+                      className="w-full bg-zinc-900 border border-zinc-800 focus:border-blue-500 rounded-xl px-4 py-2.5 text-xs transition outline-hidden font-mono text-zinc-200 placeholder-zinc-600"
                     />
                   </div>
                 )}
 
                 {/* Course Title */}
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Course Title *</label>
+                  <label className="block text-[10px] font-black uppercase text-blue-400 mb-1.5">Course Title *</label>
                   <input 
                     type="text"
                     required
                     value={formTitle}
                     onChange={(e) => setFormTitle(e.target.value)}
                     placeholder="e.g. Dhruv Rathee YouTube Blueprint Course"
-                    className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-slate-600"
+                    className="w-full bg-zinc-900 border border-zinc-800 focus:border-blue-500 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-zinc-600"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   {/* Price Display Tag */}
                   <div>
-                    <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Price Display tag *</label>
+                    <label className="block text-[10px] font-black uppercase text-blue-400 mb-1.5">Price Display tag *</label>
                     <input 
                       type="text"
                       required
                       value={formPrice}
                       onChange={(e) => setFormPrice(e.target.value)}
                       placeholder="e.g. Rs. 549"
-                      className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-slate-600"
+                      className="w-full bg-zinc-900 border border-zinc-800 focus:border-blue-500 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-zinc-600"
                     />
                   </div>
 
                   {/* Numerical Price Value */}
                   <div>
-                    <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Amount for QR Checkout *</label>
+                    <label className="block text-[10px] font-black uppercase text-blue-400 mb-1.5">Amount for QR Checkout *</label>
                     <input 
                       type="number"
                       required
                       value={formAmount}
                       onChange={(e) => setFormAmount(Number(e.target.value))}
                       placeholder="e.g. 549"
-                      className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-slate-600"
+                      className="w-full bg-zinc-900 border border-zinc-800 focus:border-blue-500 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-zinc-600"
                     />
                   </div>
                 </div>
 
                 {/* WhatsApp Message */}
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">WhatsApp Message Suffix</label>
+                  <label className="block text-[10px] font-black uppercase text-blue-400 mb-1.5">WhatsApp Message Suffix</label>
                   <input 
                     type="text"
                     value={formMessage}
                     onChange={(e) => setFormMessage(e.target.value)}
                     placeholder="e.g. I want to buy Dhruv Rathee YouTube Blueprint course"
-                    className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-medium text-slate-200 transition outline-hidden placeholder-slate-600"
+                    className="w-full bg-zinc-900 border border-zinc-800 focus:border-blue-500 rounded-xl px-4 py-2.5 text-xs font-medium text-zinc-200 transition outline-hidden placeholder-zinc-600"
                   />
                 </div>
 
                 {/* Course Language / Medium */}
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Course Language / Medium (कोर्षको भाषा) *</label>
+                  <label className="block text-[10px] font-black uppercase text-blue-400 mb-1.5">Course Language / Medium (कोर्षको भाषा) *</label>
                   <input 
                     type="text"
                     required
                     value={formLanguage}
                     onChange={(e) => setFormLanguage(e.target.value)}
                     placeholder="e.g. Nepali, Hindi & Nepali, English"
-                    className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-slate-600"
+                    className="w-full bg-zinc-900 border border-zinc-800 focus:border-blue-500 rounded-xl px-4 py-2.5 text-xs font-semibold text-white transition outline-hidden placeholder-zinc-600"
                   />
                   <div className="mt-1.5 flex gap-1.5 flex-wrap">
                     {['Nepali', 'Hindi & Nepali', 'Nepali & English', 'Hindi', 'English'].map((langOption) => (
@@ -5307,8 +5312,8 @@ export default function App() {
                         onClick={() => setFormLanguage(langOption)}
                         className={`text-[9px] font-bold px-2.5 py-1 rounded-md transition cursor-pointer ${
                           formLanguage === langOption
-                            ? 'bg-amber-400 text-slate-950 font-black shadow-2xs'
-                            : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
+                            ? 'bg-blue-600 text-white font-bold shadow-xs'
+                            : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'
                         }`}
                       >
                         {langOption}
@@ -5319,27 +5324,27 @@ export default function App() {
 
                 {/* Course Thumbnail Image URL */}
                 <div>
-                  <label className="block text-[10px] font-black uppercase text-amber-400 mb-1.5">Thumbnail Image URL *</label>
+                  <label className="block text-[10px] font-black uppercase text-blue-400 mb-1.5">Thumbnail Image URL *</label>
                   <input 
                     type="text"
                     required
                     value={formImage}
                     onChange={(e) => setFormImage(e.target.value)}
                     placeholder="e.g. https://blogger.googleusercontent.com/..."
-                    className="w-full bg-slate-900 border border-slate-800 focus:border-amber-400 rounded-xl px-4 py-2.5 text-xs font-medium text-white transition outline-hidden placeholder-slate-600"
+                    className="w-full bg-zinc-900 border border-zinc-800 focus:border-blue-500 rounded-xl px-4 py-2.5 text-xs font-medium text-white transition outline-hidden placeholder-zinc-600"
                   />
                   <div className="mt-1.5 flex gap-2 overflow-x-auto pb-1 scrollbar-none">
                     <button
                       type="button"
                       onClick={() => setFormImage('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXZL_14KcAVWtUkV6YOCtIePNyDndSmM7r8dFVVyp1QXLTKJzStC3O1pSK3-pwsFKhOE0RLyPfXYUo_S6ARYjLWBuRH0Ao5hipjntJKBptoXhsNU584o_EKJb-JfmGyzn57edya_hzH9RqwBvtQjwGaMIasclVW5BGKE0Uef6nDSgBiqr7diao-4seXWlX/s1600/12843.jpg')}
-                      className="bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[9px] font-bold px-2 py-1 rounded-md shrink-0 transition cursor-pointer"
+                      className="bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-[9px] font-bold px-2 py-1 rounded-md shrink-0 transition cursor-pointer"
                     >
                       Dhruv Rathee BG
                     </button>
                     <button
                       type="button"
                       onClick={() => setFormImage('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVG6Fh_bUev_FEchbwGJsmVz3s92FK-6lTlHj-sbYBguGhsYp8O3_J7c_SOfvnXCSWWHjLjqoeorMTcWQeac1CbhIaYtgfmHrYz44urYRSjlmrrNPoe9bMVCvcoTllNI4JaajsRwwMmuyvpUpaFs3r3UJs-4d6UuW0AmES38d4115LxC4Vsx76Wf6KW4v8/s1600/12844.png')}
-                      className="bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[9px] font-bold px-2 py-1 rounded-md shrink-0 transition cursor-pointer"
+                      className="bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-[9px] font-bold px-2 py-1 rounded-md shrink-0 transition cursor-pointer"
                     >
                       Logo Asset
                     </button>
@@ -5347,13 +5352,13 @@ export default function App() {
                 </div>
 
                 {/* Popular Badge Configuration */}
-                <div className="bg-slate-900/90 p-3 rounded-xl border border-amber-500/25">
-                  <label className="flex items-center gap-2 text-xs font-bold text-slate-200 cursor-pointer select-none">
+                <div className="bg-zinc-900 p-3 rounded-xl border border-zinc-800">
+                  <label className="flex items-center gap-2 text-xs font-bold text-zinc-200 cursor-pointer select-none">
                     <input 
                       type="checkbox"
                       checked={formIsPopular}
                       onChange={(e) => setFormIsPopular(e.target.checked)}
-                      className="rounded border-slate-700 text-amber-500 focus:ring-amber-400 w-4 h-4 bg-slate-950"
+                      className="rounded border-zinc-700 text-blue-600 focus:ring-blue-500 w-4 h-4 bg-black"
                     />
                     <span>Highlight as Popular Bestseller Banner</span>
                   </label>
@@ -5626,7 +5631,7 @@ export default function App() {
                 <div className="pt-4 flex gap-3">
                   <button
                     type="submit"
-                    className="flex-1 bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-black py-3.5 px-4 rounded-xl text-sm shadow-lg shadow-amber-500/20 transition cursor-pointer text-center active:scale-98"
+                    className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-4 rounded-xl text-sm shadow-lg shadow-blue-500/20 transition cursor-pointer text-center active:scale-98"
                   >
                     {editingCourse ? '💾 Save Changes' : '🚀 Publish Course'}
                   </button>
@@ -5636,7 +5641,7 @@ export default function App() {
                       setShowCourseFormModal(false);
                       setEditingCourse(null);
                     }}
-                    className="flex-1 bg-slate-900 hover:bg-slate-850 text-slate-300 border border-slate-800 font-bold py-3.5 px-4 rounded-xl text-sm transition cursor-pointer"
+                    className="flex-1 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 font-bold py-3.5 px-4 rounded-xl text-sm transition cursor-pointer"
                   >
                     Cancel
                   </button>
@@ -5653,7 +5658,7 @@ export default function App() {
           <button 
             id="floating-ai-agent-fab"
             onClick={() => setIsChatOpen(prev => !prev)}
-            className="w-16 h-16 bg-gradient-to-tr from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 rounded-full flex items-center justify-center shadow-2xl shadow-amber-500/30 ring-2 ring-amber-300/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer relative"
+            className="w-16 h-16 bg-blue-600 hover:bg-blue-500 text-white rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/30 ring-2 ring-blue-400/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer relative"
             aria-label="Toggle chat assistant"
           >
             {isChatOpen ? (
@@ -5662,8 +5667,8 @@ export default function App() {
               <>
                 <Bot className="w-8 h-8 animate-bounce mt-1" />
                 <span className="absolute -top-1 -right-1 flex h-4 w-4">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-4 w-4 bg-amber-500 text-[9px] font-black text-slate-950 items-center justify-center">1</span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-4 w-4 bg-blue-500 text-[9px] font-black text-white items-center justify-center">1</span>
                 </span>
               </>
             )}
@@ -5681,10 +5686,10 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 30 }}
               transition={{ type: 'spring', damping: 26, stiffness: 280 }}
-              className="fixed inset-0 z-[4800] bg-[#0d0e12] flex flex-col pb-[64px] pt-[env(safe-area-inset-top,0px)] select-none text-slate-100 overflow-hidden"
+              className="fixed inset-0 z-[4800] bg-black flex flex-col pb-[64px] pt-[env(safe-area-inset-top,0px)] select-none text-zinc-100 overflow-hidden"
             >
               {/* Native App Top Header Bar */}
-              <div className="bg-[#16171d] border-b border-zinc-800/90 px-3.5 py-2.5 flex items-center justify-between shrink-0 shadow-md">
+              <div className="bg-black border-b border-zinc-800 px-3.5 py-2.5 flex items-center justify-between shrink-0 shadow-md">
                 <div className="flex items-center gap-2.5">
                   <button
                     onClick={() => setIsChatOpen(false)}
@@ -5694,7 +5699,7 @@ export default function App() {
                     <ArrowLeft className="w-5 h-5" />
                   </button>
 
-                  <div className="w-9 h-9 bg-purple-950/80 border border-purple-500/30 rounded-xl flex items-center justify-center relative overflow-hidden shrink-0 shadow-xs">
+                  <div className="w-9 h-9 bg-zinc-900 border border-blue-500/30 rounded-xl flex items-center justify-center relative overflow-hidden shrink-0 shadow-xs">
                     {siteSettings.instituteLogoUrl ? (
                       <img 
                         src={siteSettings.instituteLogoUrl} 
@@ -5703,15 +5708,15 @@ export default function App() {
                         onError={(e) => { e.currentTarget.style.display = 'none'; }}
                       />
                     ) : (
-                      <Bot className="w-5 h-5 text-purple-400" />
+                      <Bot className="w-5 h-5 text-blue-400" />
                     )}
-                    <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full ring-2 ring-[#16171d] animate-pulse"></span>
+                    <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full ring-2 ring-black animate-pulse"></span>
                   </div>
 
                   <div>
                     <h4 className="font-bold text-sm tracking-tight text-white flex items-center gap-1.5">
                       {siteSettings.instituteName || 'AI Clipzone'} Assistant
-                      <span className="bg-purple-500/20 text-purple-300 text-[9px] px-1.5 py-0.2 rounded-full font-black border border-purple-500/30">PRO AI 2.5</span>
+                      <span className="bg-blue-500/20 text-blue-300 text-[9px] px-1.5 py-0.2 rounded-full font-black border border-blue-500/30">PRO AI 2.5</span>
                     </h4>
                     <span className="text-[10.5px] text-emerald-400 font-semibold flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -5725,7 +5730,7 @@ export default function App() {
                   <button
                     onClick={() => speakBotResponse(chatMessages[chatMessages.length - 1]?.text || '')}
                     title={isSpeechActive ? "Stop Voice" : "Voice Reader"}
-                    className={`p-2 rounded-xl transition cursor-pointer ${isSpeechActive ? 'bg-amber-400 text-slate-950 animate-pulse' : 'hover:bg-white/10 hover:text-white'}`}
+                    className={`p-2 rounded-xl transition cursor-pointer ${isSpeechActive ? 'bg-blue-500 text-white animate-pulse' : 'hover:bg-white/10 hover:text-white'}`}
                   >
                     {isSpeechActive ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                   </button>
@@ -5733,7 +5738,7 @@ export default function App() {
                   <button
                     onClick={() => setShowPromptBuilder(!showPromptBuilder)}
                     title="AI Prompt Builder Tool"
-                    className={`p-2 rounded-xl transition cursor-pointer ${showPromptBuilder ? 'bg-purple-600 text-white shadow-sm' : 'hover:bg-white/10 hover:text-white'}`}
+                    className={`p-2 rounded-xl transition cursor-pointer ${showPromptBuilder ? 'bg-blue-600 text-white shadow-sm' : 'hover:bg-white/10 hover:text-white'}`}
                   >
                     <Wand2 className="w-4 h-4" />
                   </button>
@@ -5750,9 +5755,9 @@ export default function App() {
 
               {/* Advanced Prompt Builder Mini Panel */}
               {showPromptBuilder && (
-                <div className="bg-[#1c1d25] p-3 text-white border-b border-purple-500/20 shrink-0">
+                <div className="bg-zinc-950 p-3 text-white border-b border-blue-500/20 shrink-0">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold text-amber-300 flex items-center gap-1">
+                    <span className="text-xs font-bold text-blue-400 flex items-center gap-1">
                       <Sparkles className="w-3.5 h-3.5" /> AI Master Prompt Generator
                     </span>
                     <button onClick={() => setShowPromptBuilder(false)} className="text-zinc-400 hover:text-white text-xs cursor-pointer">बन्द गर्नुहोस्</button>
@@ -5957,12 +5962,12 @@ export default function App() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 40 }}
                 transition={{ type: 'spring', damping: 25, stiffness: 260 }}
-                className="w-full sm:w-[410px] h-[85vh] sm:h-[580px] max-h-[92vh] bg-[#0c0d12] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-amber-500/30 overflow-hidden flex flex-col pointer-events-auto shadow-amber-500/10"
+                className="w-full sm:w-[410px] h-[85vh] sm:h-[580px] max-h-[92vh] bg-black rounded-t-3xl sm:rounded-3xl shadow-2xl border border-zinc-800 overflow-hidden flex flex-col pointer-events-auto"
               >
                 {/* Top Header Bar */}
-                <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-[#141208] text-white p-3.5 sm:p-4 flex items-center justify-between border-b border-amber-500/30 shrink-0">
+                <div className="bg-zinc-950 text-white p-3.5 sm:p-4 flex items-center justify-between border-b border-zinc-800 shrink-0">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 bg-amber-500/10 rounded-xl flex items-center justify-center border border-amber-500/30 relative overflow-hidden shrink-0">
+                    <div className="w-9 h-9 bg-blue-500/10 rounded-xl flex items-center justify-center border border-blue-500/30 relative overflow-hidden shrink-0">
                       {siteSettings.instituteLogoUrl ? (
                         <img 
                           src={siteSettings.instituteLogoUrl} 
@@ -5971,27 +5976,27 @@ export default function App() {
                           onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
                       ) : (
-                        <Bot className="w-5 h-5 text-amber-400" />
+                        <Bot className="w-5 h-5 text-blue-400" />
                       )}
-                      <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full ring-2 ring-slate-950 animate-pulse"></span>
+                      <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full ring-2 ring-zinc-950 animate-pulse"></span>
                     </div>
                     <div>
                       <h4 className="font-extrabold text-xs md:text-sm tracking-tight text-white flex items-center gap-1.5">
                         {siteSettings.instituteName || 'AI Clipzone'} Assistant
-                        <span className="bg-amber-400/20 text-amber-300 text-[9px] px-1.5 py-0.2 rounded-full font-black border border-amber-400/40">PRO AI</span>
+                        <span className="bg-blue-500/20 text-blue-300 text-[9px] px-1.5 py-0.5 rounded-full font-black border border-blue-500/40">PRO AI</span>
                       </h4>
-                      <span className="text-[10px] text-amber-200/70 block font-medium">
+                      <span className="text-[10px] text-zinc-400 block font-medium">
                         नेपालको १ नम्बर AI लर्निङ असिस्टेन्ट
                       </span>
                     </div>
                   </div>
 
                   {/* Header Action Tools */}
-                  <div className="flex items-center gap-1 text-slate-300">
+                  <div className="flex items-center gap-1 text-zinc-300">
                     <button
                       onClick={() => speakBotResponse(chatMessages[chatMessages.length - 1]?.text || '')}
                       title={isSpeechActive ? "Stop Voice" : "Voice Reader"}
-                      className={`p-1.5 rounded-lg transition cursor-pointer ${isSpeechActive ? 'bg-amber-400 text-slate-950 animate-pulse' : 'hover:bg-white/10 hover:text-white'}`}
+                      className={`p-1.5 rounded-lg transition cursor-pointer ${isSpeechActive ? 'bg-blue-600 text-white animate-pulse' : 'hover:bg-white/10 hover:text-white'}`}
                     >
                       {isSpeechActive ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                     </button>
@@ -5999,7 +6004,7 @@ export default function App() {
                     <button
                       onClick={() => setShowPromptBuilder(!showPromptBuilder)}
                       title="AI Prompt Builder Tool"
-                      className={`p-1.5 rounded-lg transition cursor-pointer ${showPromptBuilder ? 'bg-amber-400 text-slate-950 font-bold' : 'hover:bg-white/10 hover:text-white'}`}
+                      className={`p-1.5 rounded-lg transition cursor-pointer ${showPromptBuilder ? 'bg-blue-600 text-white font-bold' : 'hover:bg-white/10 hover:text-white'}`}
                     >
                       <Wand2 className="w-4 h-4" />
                     </button>
@@ -6023,12 +6028,12 @@ export default function App() {
 
                 {/* Advanced Prompt Builder Mini Modal View */}
                 {showPromptBuilder && (
-                  <div className="bg-slate-950 p-3 text-white border-b border-amber-500/30 shrink-0">
+                  <div className="bg-zinc-950 p-3 text-white border-b border-zinc-800 shrink-0">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-bold text-amber-300 flex items-center gap-1">
+                      <span className="text-xs font-bold text-blue-300 flex items-center gap-1">
                         <Sparkles className="w-3.5 h-3.5" /> AI Master Prompt Builder
                       </span>
-                      <button onClick={() => setShowPromptBuilder(false)} className="text-slate-400 hover:text-white text-xs cursor-pointer">Close</button>
+                      <button onClick={() => setShowPromptBuilder(false)} className="text-zinc-400 hover:text-white text-xs cursor-pointer">Close</button>
                     </div>
                     <div className="flex gap-1.5">
                       <input
@@ -6039,11 +6044,11 @@ export default function App() {
                           if (e.key === 'Enter') handleGeneratePromptTool(promptTopic);
                         }}
                         placeholder="विषय लेख्नुहोस् (उदा: Shorts Video, Avatar, Suno Song)..."
-                        className="grow bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-white placeholder-slate-500 focus:border-amber-400 focus:outline-hidden"
+                        className="grow bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-1.5 text-xs text-white placeholder-zinc-500 focus:border-blue-500 focus:outline-hidden"
                       />
                       <button
                         onClick={() => handleGeneratePromptTool(promptTopic)}
-                        className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 px-3 py-1.5 rounded-xl font-black text-xs transition cursor-pointer shrink-0 shadow-sm"
+                        className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-xl font-black text-xs transition cursor-pointer shrink-0 shadow-sm"
                       >
                         Generate ✨
                       </button>
@@ -6052,42 +6057,42 @@ export default function App() {
                 )}
 
                 {/* Category Filter Chips */}
-                <div className="bg-slate-950 p-2 border-b border-slate-800/80 flex items-center gap-1.5 overflow-x-auto text-[11px] font-bold text-slate-300 shrink-0 scrollbar-none">
+                <div className="bg-zinc-950 p-2 border-b border-zinc-805 flex items-center gap-1.5 overflow-x-auto text-[11px] font-bold text-zinc-300 shrink-0 scrollbar-none">
                   <button
                     onClick={() => setActiveChatCategory('all')}
-                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'all' ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black shadow-xs' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'}`}
+                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'all' ? 'bg-blue-600 text-white font-black shadow-xs' : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'}`}
                   >
                     🔥 FAQs
                   </button>
                   <button
                     onClick={() => setActiveChatCategory('activation')}
-                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'activation' ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black shadow-xs' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'}`}
+                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'activation' ? 'bg-blue-600 text-white font-black shadow-xs' : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'}`}
                   >
                     🔑 Code & Key
                   </button>
                   <button
                     onClick={() => setActiveChatCategory('prompts')}
-                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'prompts' ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black shadow-xs' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'}`}
+                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'prompts' ? 'bg-blue-600 text-white font-black shadow-xs' : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'}`}
                   >
                     🤖 AI Prompts
                   </button>
                   <button
                     onClick={() => setActiveChatCategory('payment')}
-                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'payment' ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black shadow-xs' : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'}`}
+                    className={`px-2.5 py-1 rounded-lg transition cursor-pointer whitespace-nowrap ${activeChatCategory === 'payment' ? 'bg-blue-600 text-white font-black shadow-xs' : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800'}`}
                   >
                     💳 eSewa Payment
                   </button>
                 </div>
 
                 {/* Chat messages body */}
-                <div className="grow overflow-y-auto p-3.5 sm:p-4 space-y-3.5 bg-[#0a0b0e]">
+                <div className="grow overflow-y-auto p-3.5 sm:p-4 space-y-3.5 bg-black">
                   {chatMessages.map((msg, idx) => (
                     <div 
                       key={idx}
                       className={`flex items-start gap-2 ${msg.sender === 'user' ? 'justify-end' : ''}`}
                     >
                       {msg.sender === 'bot' && (
-                        <div className="w-7 h-7 rounded-lg bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center justify-center shrink-0 text-xs mt-0.5">
+                        <div className="w-7 h-7 rounded-lg bg-blue-500/15 text-blue-400 border border-blue-500/30 flex items-center justify-center shrink-0 text-xs mt-0.5">
                           <Bot className="w-4 h-4" />
                         </div>
                       )}
@@ -6096,27 +6101,27 @@ export default function App() {
                         <div 
                           className={`p-3.5 rounded-2xl text-xs md:text-sm leading-relaxed ${
                             msg.sender === 'user' 
-                              ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-semibold rounded-tr-none shadow-md' 
-                              : 'bg-slate-900 text-slate-200 border border-amber-500/20 rounded-tl-none shadow-xs'
+                              ? 'bg-blue-600 text-white font-semibold rounded-tr-none shadow-md' 
+                              : 'bg-zinc-900 text-zinc-200 border border-zinc-800 rounded-tl-none shadow-xs'
                           }`}
                           dangerouslySetInnerHTML={{ __html: msg.text.replace(/\n/g, '<br/>') }}
                         />
                         
                         {/* Action buttons under message */}
-                        <div className={`flex items-center gap-2 mt-1 text-[10px] text-slate-500 font-medium ${msg.sender === 'user' ? 'justify-end' : 'justify-between'}`}>
+                        <div className={`flex items-center gap-2 mt-1 text-[10px] text-zinc-500 font-medium ${msg.sender === 'user' ? 'justify-end' : 'justify-between'}`}>
                           <span>{msg.timestamp}</span>
                           {msg.sender === 'bot' && (
                             <div className="flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition">
                               <button
                                 onClick={() => handleCopyChatMessage(msg.text)}
-                                className="hover:text-amber-400 text-slate-400 flex items-center gap-0.5 cursor-pointer"
+                                className="hover:text-blue-400 text-zinc-400 flex items-center gap-0.5 cursor-pointer"
                                 title="Copy text"
                               >
                                 <Copy className="w-3 h-3" /> Copy
                               </button>
                               <button
                                 onClick={() => speakBotResponse(msg.text)}
-                                className="hover:text-amber-400 text-slate-400 flex items-center gap-0.5 cursor-pointer"
+                                className="hover:text-blue-400 text-zinc-400 flex items-center gap-0.5 cursor-pointer"
                                 title="Listen"
                               >
                                 <Volume2 className="w-3 h-3" /> Listen
@@ -6127,7 +6132,7 @@ export default function App() {
                       </div>
 
                       {msg.sender === 'user' && (
-                        <div className="w-7 h-7 rounded-lg bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 flex items-center justify-center shrink-0 text-xs font-bold mt-0.5 shadow-sm">
+                        <div className="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 text-xs font-bold mt-0.5 shadow-sm">
                           <User className="w-4 h-4" />
                         </div>
                       )}
@@ -6135,14 +6140,14 @@ export default function App() {
                   ))}
                   {isTyping && (
                     <div className="flex items-start gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center justify-center shrink-0 text-xs">
+                      <div className="w-7 h-7 rounded-lg bg-blue-500/15 text-blue-400 border border-blue-500/30 flex items-center justify-center shrink-0 text-xs">
                         <Bot className="w-4 h-4 animate-pulse" />
                       </div>
                       <div className="max-w-[80%] flex flex-col">
-                        <div className="bg-slate-900 text-slate-200 border border-amber-500/20 p-3 rounded-2xl rounded-tl-none shadow-xs flex items-center gap-1.5">
-                          <span className="w-2 h-2 bg-amber-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                          <span className="w-2 h-2 bg-amber-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                          <span className="w-2 h-2 bg-amber-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                        <div className="bg-zinc-900 text-zinc-200 border border-zinc-800 p-3 rounded-2xl rounded-tl-none shadow-xs flex items-center gap-1.5">
+                          <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                          <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                          <span className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                         </div>
                       </div>
                     </div>
@@ -6151,13 +6156,13 @@ export default function App() {
                 </div>
 
                 {/* Bottom Quick reply chips & Input bar */}
-                <div className="p-3 bg-[#0c0d12] border-t border-amber-500/20 shrink-0">
+                <div className="p-3 bg-zinc-950 border-t border-zinc-800 shrink-0">
                   {/* Suggestions chips filtered by active category */}
                   <div className="flex flex-wrap gap-1.5 mb-2 max-h-20 overflow-y-auto">
                     {(activeChatCategory === 'all' || activeChatCategory === 'payment') && (
                       <button 
                         onClick={() => handleSendMessage('Price कति हो?')}
-                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
+                        className="bg-zinc-900 hover:bg-zinc-800 text-blue-300 text-[11px] font-bold py-1 px-2.5 rounded-full border border-blue-500/25 transition cursor-pointer"
                       >
                         Price कति हो? 🏷️
                       </button>
@@ -6165,7 +6170,7 @@ export default function App() {
                     {(activeChatCategory === 'all' || activeChatCategory === 'activation') && (
                       <button 
                         onClick={() => handleSendMessage('Activation Code कहाँ पाइन्छ?')}
-                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
+                        className="bg-zinc-900 hover:bg-zinc-800 text-blue-300 text-[11px] font-bold py-1 px-2.5 rounded-full border border-blue-500/25 transition cursor-pointer"
                       >
                         Activation Code? 🔑
                       </button>
@@ -6173,7 +6178,7 @@ export default function App() {
                     {(activeChatCategory === 'all' || activeChatCategory === 'activation') && (
                       <button 
                         onClick={() => handleSendMessage('Invalid key देखाए के गर्ने?')}
-                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
+                        className="bg-zinc-900 hover:bg-zinc-800 text-blue-300 text-[11px] font-bold py-1 px-2.5 rounded-full border border-blue-500/25 transition cursor-pointer"
                       >
                         Invalid Code Fix? 🚨
                       </button>
@@ -6181,7 +6186,7 @@ export default function App() {
                     {(activeChatCategory === 'all' || activeChatCategory === 'prompts') && (
                       <button 
                         onClick={() => handleSendMessage('Midjourney AI Prompt कसरी बनाउने?')}
-                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
+                        className="bg-zinc-900 hover:bg-zinc-800 text-blue-300 text-[11px] font-bold py-1 px-2.5 rounded-full border border-blue-500/25 transition cursor-pointer"
                       >
                         Midjourney Prompts 🎨
                       </button>
@@ -6189,7 +6194,7 @@ export default function App() {
                     {(activeChatCategory === 'all' || activeChatCategory === 'payment') && (
                       <button 
                         onClick={() => handleSendMessage('Payment कसरी गर्ने?')}
-                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
+                        className="bg-zinc-900 hover:bg-zinc-800 text-blue-300 text-[11px] font-bold py-1 px-2.5 rounded-full border border-blue-500/25 transition cursor-pointer"
                       >
                         eSewa QR Payment 💳
                       </button>
@@ -6197,14 +6202,14 @@ export default function App() {
                     {(activeChatCategory === 'all' || activeChatCategory === 'prompts') && (
                       <button 
                         onClick={() => handleSendMessage('Suno AI ले गीत कसरी बनाउने?')}
-                        className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
+                        className="bg-zinc-900 hover:bg-zinc-800 text-blue-300 text-[11px] font-bold py-1 px-2.5 rounded-full border border-blue-500/25 transition cursor-pointer"
                       >
                         Suno Music Creation 🎵
                       </button>
                     )}
                     <button 
                       onClick={() => handleSendMessage('Certificate कसरी Download गर्ने?')}
-                      className="bg-slate-900 hover:bg-slate-800 text-amber-300/90 text-[11px] font-bold py-1 px-2.5 rounded-full border border-amber-500/25 transition cursor-pointer"
+                      className="bg-zinc-900 hover:bg-zinc-800 text-blue-300 text-[11px] font-bold py-1 px-2.5 rounded-full border border-blue-500/25 transition cursor-pointer"
                     >
                       Certificate Download 📜
                     </button>
@@ -6220,23 +6225,23 @@ export default function App() {
                         if (e.key === 'Enter') handleSendMessage();
                       }}
                       placeholder="तपाईंको प्रश्न वा विषय यहाँ लेख्नुहोस्..."
-                      className="grow bg-slate-900 border border-slate-800 focus:border-amber-400 focus:bg-slate-950 text-white placeholder-slate-500 rounded-full px-4 py-2 text-xs md:text-sm transition outline-hidden font-medium"
+                      className="grow bg-zinc-900 border border-zinc-800 focus:border-blue-500 focus:bg-zinc-950 text-white placeholder-zinc-500 rounded-full px-4 py-2 text-xs md:text-sm transition outline-hidden font-medium"
                     />
                     <button 
                       onClick={() => handleSendMessage()}
-                      className="w-9 h-9 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 rounded-full flex items-center justify-center shrink-0 shadow-md transition cursor-pointer font-bold"
+                      className="w-9 h-9 bg-blue-600 hover:bg-blue-500 text-white rounded-full flex items-center justify-center shrink-0 shadow-md transition cursor-pointer font-bold"
                     >
                       <Send className="w-4 h-4" />
                     </button>
                   </div>
 
                   {/* AI Clipzone Nepal Branding Badge anchored at the bottom of the widget */}
-                  <div className="mt-2.5 pt-2 border-t border-slate-850 flex items-center justify-between text-[10px] text-slate-400 font-bold bg-slate-950 px-3 py-1.5 rounded-xl border border-amber-500/20">
+                  <div className="mt-2.5 pt-2 border-t border-zinc-800 flex items-center justify-between text-[10px] text-zinc-400 font-bold bg-zinc-950 px-3 py-1.5 rounded-xl border border-zinc-800">
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                      <span className="text-slate-300">{siteSettings.instituteName || 'AI Clipzone'} Assistant</span>
+                      <span className="text-zinc-300">{siteSettings.instituteName || 'AI Clipzone'} Assistant</span>
                     </div>
-                    <span className="text-amber-400 text-[9px] uppercase tracking-wider font-black">{siteSettings.instituteName || 'AI Clipzone Nepal'} 🇳🇵</span>
+                    <span className="text-blue-400 text-[9px] uppercase tracking-wider font-black">{siteSettings.instituteName || 'AI Clipzone Nepal'} 🇳🇵</span>
                   </div>
                 </div>
               </motion.div>
@@ -6476,7 +6481,7 @@ export default function App() {
         const effectiveCeoName = targetedCourse?.certificateCeoName || siteSettings.certificateCeoName || 'Founder/CEO (AI Clipzone)';
         const effectiveCeoTitle = targetedCourse?.certificateCeoTitle || siteSettings.certificateCeoTitle || 'Founder & CEO';
         const effectiveCeoSig = targetedCourse?.certificateCeoSignatureUrl || siteSettings.certificateCeoSignatureUrl;
-        const effectiveTheme = targetedCourse?.certificateTheme || siteSettings.certificateTheme || 'gold';
+        const effectiveTheme = targetedCourse?.certificateTheme || siteSettings.certificateTheme || 'blue';
         const effectiveStampUrl = targetedCourse?.certificateStampUrl || siteSettings.certificateStampUrl;
         const effectiveSealText = targetedCourse?.certificateSealText || siteSettings.certificateSealText || 'OFFICIAL VERIFIED CERTIFICATE • AI CLIPZONE NEPAL';
 
@@ -6540,12 +6545,12 @@ export default function App() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white">Installing {siteSettings.instituteName || 'App'}...</h4>
-                  <p className="text-xs text-amber-400 font-medium mt-1">
+                  <p className="text-xs text-blue-400 font-medium mt-1">
                     होम स्क्रिनमा थपिँदैछ, कृपया १ सेकेन्ड पर्खनुहोस्...
                   </p>
                 </div>
-                <div className="w-full bg-slate-700/80 h-2.5 rounded-full overflow-hidden relative mt-3">
-                  <div className="bg-gradient-to-r from-amber-400 to-amber-500 h-full w-full animate-pulse rounded-full"></div>
+                <div className="w-full bg-zinc-800 h-2.5 rounded-full overflow-hidden relative mt-3">
+                  <div className="bg-blue-600 h-full w-full animate-pulse rounded-full"></div>
                 </div>
               </div>
             ) : (
@@ -6588,7 +6593,7 @@ export default function App() {
                         setShowPwaInstallModal(false);
                         showToast('📥 Direct APK Downloading... Open the installed APK to experience full App mode!', 'success');
                       }}
-                      className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition active:scale-95"
+                      className="w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition active:scale-95"
                     >
                       <Download className="w-4 h-4" />
                       <span>Download Android APK Direct (.apk)</span>
@@ -6635,7 +6640,7 @@ export default function App() {
         <nav 
           id="native-app-bottom-bar"
           aria-label="App Navigation Bar" 
-          className="fixed bottom-0 inset-x-0 z-[4900] bg-[#121316] border-t border-zinc-800/90 shadow-[0_-10px_35px_rgba(0,0,0,0.9)] pb-[env(safe-area-inset-bottom,0px)] select-none backdrop-blur-md"
+          className="fixed bottom-0 inset-x-0 z-[4900] bg-black border-t border-zinc-800 shadow-[0_-10px_35px_rgba(0,0,0,0.9)] pb-[env(safe-area-inset-bottom,0px)] select-none backdrop-blur-md"
         >
           <div className="max-w-md mx-auto px-1 py-1.5 flex items-center justify-around">
             {/* 1. Home */}
@@ -6649,11 +6654,11 @@ export default function App() {
               }}
               className={`flex-1 flex flex-col items-center justify-center py-1 px-1 rounded-xl transition-all duration-150 cursor-pointer active:scale-95 ${
                 currentView === 'home' && !isChatOpen && !showProfileModal
-                  ? 'text-amber-400 font-bold'
+                  ? 'text-blue-400 font-bold'
                   : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
-              <Home className={`w-5 h-5 mb-0.5 ${currentView === 'home' && !isChatOpen && !showProfileModal ? 'stroke-[2.5] text-amber-400' : 'stroke-[1.8]'}`} />
+              <Home className={`w-5 h-5 mb-0.5 ${currentView === 'home' && !isChatOpen && !showProfileModal ? 'stroke-[2.5] text-blue-400' : 'stroke-[1.8]'}`} />
               <span className="text-[10.5px] font-semibold tracking-tight">Home</span>
             </button>
 
@@ -6668,14 +6673,14 @@ export default function App() {
               }}
               className={`flex-1 flex flex-col items-center justify-center py-1 px-1 rounded-xl transition-all duration-150 cursor-pointer active:scale-95 relative ${
                 currentView === 'classroom' && !isChatOpen && !showProfileModal
-                  ? 'text-amber-400 font-bold'
+                  ? 'text-blue-400 font-bold'
                   : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
               <div className="relative flex items-center justify-center">
-                <BookOpen className={`w-5 h-5 mb-0.5 ${currentView === 'classroom' && !isChatOpen && !showProfileModal ? 'stroke-[2.5] text-amber-400' : 'stroke-[1.8]'}`} />
+                <BookOpen className={`w-5 h-5 mb-0.5 ${currentView === 'classroom' && !isChatOpen && !showProfileModal ? 'stroke-[2.5] text-blue-400' : 'stroke-[1.8]'}`} />
                 {/* Green Notification Dot from Screenshot */}
-                <span className="w-2 h-2 bg-emerald-500 rounded-full ring-2 ring-[#121316] absolute -top-1 -right-1.5 animate-pulse shadow-xs" />
+                <span className="w-2 h-2 bg-emerald-500 rounded-full ring-2 ring-black absolute -top-1 -right-1.5 animate-pulse shadow-xs" />
               </div>
               <span className="text-[10.5px] font-semibold tracking-tight">Classroom</span>
             </button>
@@ -6703,9 +6708,9 @@ export default function App() {
                 setCertificateCode(activeCode);
                 setShowCertificateModal(true);
               }}
-              className="flex-1 flex flex-col items-center justify-center py-1 px-1 rounded-xl transition-all duration-150 cursor-pointer active:scale-95 text-zinc-400 hover:text-amber-300"
+              className="flex-1 flex flex-col items-center justify-center py-1 px-1 rounded-xl transition-all duration-150 cursor-pointer active:scale-95 text-zinc-400 hover:text-blue-300"
             >
-              <Award className="w-5 h-5 mb-0.5 stroke-[2.2] text-amber-400" />
+              <Award className="w-5 h-5 mb-0.5 stroke-[2.2] text-blue-400" />
               <span className="text-[10.5px] font-semibold text-zinc-400 tracking-tight">Certificate</span>
             </button>
 

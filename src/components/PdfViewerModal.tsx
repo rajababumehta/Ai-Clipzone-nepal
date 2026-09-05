@@ -152,7 +152,7 @@ export const PdfViewerModal: React.FC<PdfViewerModalProps> = ({
           {/* Sub-info banner */}
           <div className="bg-purple-950/40 border-b border-purple-800/30 px-4 py-1.5 text-left text-[11px] text-purple-200 flex items-center justify-between gap-2 shrink-0">
             <div className="flex items-center gap-2 overflow-hidden">
-              <span className="text-amber-400 select-none">💡</span>
+              <span className="text-blue-400 select-none">💡</span>
               <span className="truncate">
                 {activePdf.courseTitle ? `Course: ${activePdf.courseTitle} • ` : ''} 
                 Google Drive लगइन बिना नै यो PDF सिधै पढ्न र जुम गर्न मिल्छ।

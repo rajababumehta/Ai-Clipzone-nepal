@@ -31,7 +31,7 @@ export const DEFAULT_SITE_SETTINGS: SiteSettingsConfig = {
   certificateCeoName: "Founder/CEO (AI Clipzone)",
   certificateCeoTitle: "Founder & CEO",
   certificateCeoSignatureUrl: "",
-  certificateTheme: "gold",
+  certificateTheme: "blue",
   certificateStampUrl: "",
   certificateSealText: "AI CLIPZONE • OFFICIALLY VERIFIED •",
   apkDownloadUrl: "",

@@ -32,7 +32,7 @@ export interface Course {
   certificateInstituteName?: string;
   certificateCourseTitle?: string;
   certificateDescription?: string;
-  certificateTheme?: string; // 'gold' | 'cyber-purple' | 'emerald' | 'crimson'
+  certificateTheme?: string; // 'blue' | 'cyber-purple' | 'emerald' | 'crimson' | 'gold'
   certificateLogoUrl?: string;
   certificateDirectorName?: string;
   certificateDirectorTitle?: string;
