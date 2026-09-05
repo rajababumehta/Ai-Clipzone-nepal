@@ -65,6 +65,7 @@ import { db, auth } from './firebase';
 import { CertificateModal } from './components/CertificateModal';
 import { AdminDashboardModal } from './components/AdminDashboardModal';
 import { PdfViewerModal } from './components/PdfViewerModal';
+import { CourseCard } from './components/CourseCard';
 import { getDirectPdfViewerUrl, getDirectPdfDownloadUrl } from './pdfUtils';
 import { LOGO_DATA_URL, REMOTE_LOGO_URL } from './logo';
 
@@ -3128,143 +3129,19 @@ export default function App() {
             </div>
           )
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
               {(courses && courses.length > 0 ? courses : COURSES).map((course, index) => (
-                  <motion.div
-                    key={course.id}
-                    id={`course-card-${course.id}`}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-50px' }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    whileHover={{ y: -6 }}
-                    className="group bg-zinc-900/90 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl border border-amber-500/25 hover:border-amber-400/60 hover:shadow-amber-500/15 transition-all duration-300 relative flex flex-col h-full scroll-mt-28"
-                  >
-                    {course.isPopular && (
-                      <div className="absolute top-0 inset-x-0 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-zinc-950 text-center py-2 text-xs md:text-sm font-black tracking-widest uppercase z-10 shadow-md">
-                        {course.popularText || '🔥 MOST POPULAR - BEST SELLER'}
-                      </div>
-                    )}
-
-                    {/* Course Thumbnail Image */}
-                    <div className="relative aspect-video overflow-hidden bg-black">
-                      <img 
-                        src={course.image} 
-                        alt={course.title}
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                        <span className="bg-zinc-950/85 backdrop-blur-md text-amber-300 text-xs font-semibold px-3 py-1 rounded-lg border border-amber-500/30">
-                          Lifetime Access
-                        </span>
-                        <span className="bg-gradient-to-r from-amber-400 to-yellow-500 text-zinc-950 text-xs font-extrabold px-3 py-1 rounded-lg shadow-md">
-                          Instant Delivery
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Course Info */}
-                    <div className="p-6 md:p-8 flex flex-col grow justify-between">
-                      <div className="text-left font-sans">
-                        <h4 className="text-xl md:text-2xl font-extrabold text-white group-hover:text-amber-300 transition-colors">
-                          {course.title}
-                        </h4>
-                        
-                        {/* Prices or Active status badge */}
-                        <div className="mt-4 flex items-center justify-between">
-                          {activeCourseIds.includes(course.id) ? (
-                            <span className="bg-emerald-950/80 text-emerald-300 text-[10px] font-black uppercase tracking-wider px-2.5 py-1.5 rounded-lg border border-emerald-500/40 flex items-center gap-1.5 shadow-2xs">
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                              Course Activated
-                            </span>
-                          ) : (
-                            <div className="flex items-baseline gap-2.5">
-                              <span className="text-2xl md:text-3xl font-black text-amber-400">
-                                {course.price}
-                              </span>
-                              {course.isPopular && (
-                                <span className="text-zinc-500 line-through text-sm md:text-base font-semibold">
-                                  Price Rs. 1000
-                                </span>
-                              )}
-                            </div>
-                          )}
-                        </div>
-
-                        <div className="flex flex-wrap items-center gap-2 mt-3">
-                          {activeCourseIds.includes(course.id) && (() => {
-                            const vList = course.videos || [];
-                            const chSet = new Set(vList.map(v => v.chapterTitle?.trim() || 'Chapter 1: Course Lectures'));
-                            return (
-                              <span className="bg-amber-500/15 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-xl border border-amber-500/30 flex items-center gap-1.5 shadow-2xs">
-                                <span className="w-4 h-4 rounded-md bg-amber-400 text-zinc-950 flex items-center justify-center text-[9px] font-black">📁</span>
-                                {chSet.size} Chapters ({vList.length} Video Lectures)
-                              </span>
-                            );
-                          })()}
-                          <span className="bg-zinc-800 text-zinc-300 text-xs font-bold px-2.5 py-1 rounded-xl border border-zinc-700">
-                            🌐 {course.language || (course.id.includes('rathee') || course.id.includes('presentation') ? 'Hindi & Nepali' : 'Nepali')}
-                          </span>
-                          <span className="bg-amber-950/40 text-amber-300 text-xs font-bold px-2.5 py-1 rounded-xl border border-amber-500/30">
-                            📜 Certificate
-                          </span>
-                        </div>
-
-                        {/* Highlights checklist */}
-                        <ul className="mt-6 space-y-2.5">
-                          {course.learn.map((item, i) => (
-                            <li key={i} className="flex items-start gap-2.5 text-xs md:text-sm text-zinc-300 font-medium">
-                              <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Enrolment / Classroom Access Button */}
-                      <div className="mt-8 pt-6 border-t border-zinc-800/80 flex items-center gap-3">
-                        <button
-                          onClick={() => handleEnrollCourse(course)}
-                          className="flex-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-zinc-950 font-black text-xs md:text-sm py-3.5 px-4 rounded-2xl transition duration-150 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-amber-500/20 active:scale-[0.99] font-sans"
-                        >
-                          {activeCourseIds.includes(course.id) ? (
-                            <>
-                              🎓 Go to Classroom
-                              <ArrowRight className="w-4 h-4" />
-                            </>
-                          ) : (
-                            <>
-                              <Zap className="w-4 h-4 text-zinc-950 fill-zinc-950" />
-                              Enroll & Activate Course
-                            </>
-                          )}
-                        </button>
-
-                        {/* Admin Inline Controls */}
-                        {isAdminActivated && (
-                          <div className="flex items-center gap-1">
-                            <button
-                              onClick={() => handleEditCourseClick(course)}
-                              className="bg-zinc-800 hover:bg-zinc-700 text-amber-300 p-3 rounded-2xl transition cursor-pointer font-sans border border-zinc-700"
-                              title="Edit Course"
-                            >
-                              ✏️
-                            </button>
-                            <button
-                              onClick={() => handleDeleteCourse(course.id)}
-                              className="bg-rose-950/60 hover:bg-rose-900/80 text-rose-300 p-3 rounded-2xl transition cursor-pointer font-sans border border-rose-800"
-                              title="Delete Course"
-                            >
-                              🗑️
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
+                <CourseCard
+                  key={course.id}
+                  course={course}
+                  index={index}
+                  activeCourseIds={activeCourseIds}
+                  isAdminActivated={isAdminActivated}
+                  onEnroll={handleEnrollCourse}
+                  onEdit={handleEditCourseClick}
+                  onDelete={handleDeleteCourse}
+                />
+              ))}
 
               {isAdminActivated && (
                 <motion.div
